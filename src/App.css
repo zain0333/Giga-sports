@@ -1,100 +1,175 @@
-/* Website Background Light Blue */
+/* =========================
+   GIGA SPORTS SHOP DESIGN
+   ========================= */
+
+
+* {
+  box-sizing: border-box;
+}
+
 
 body {
   margin: 0;
-  background-color: #cd1212;
+  background: linear-gradient(
+    135deg,
+    #dff6ff,
+    #ffffff
+  );
   font-family: Arial, sans-serif;
 }
 
 
-/* Navbar */
+
+/* =========================
+   NAVBAR
+   ========================= */
 
 .navbar {
-  background: linear-gradient(90deg, #071952, #088395) !important;
-  border-bottom: 3px solid #101112;
+
+  background: linear-gradient(
+    90deg,
+    #071952,
+    #088395
+  ) !important;
+
+  border-bottom: 3px solid #ffd700;
+
 }
 
 
 .navbar-brand {
-  color: #0eea2f !important;
+
+  color: #ffd700 !important;
+
   font-size: 24px;
+
+  font-weight: bold;
+
 }
 
 
 .nav-link {
+
   color: white !important;
+
   font-weight: bold;
-}
-
-
-.nav-link:hover {
-  color: #ffe600 !important;
-}
-
-
-
-/* Hero Section */
-
-.bg-dark {
-  background: linear-gradient(
-    135deg,
-    #071952,
-    #088395,
-    #37b7c3
-  ) !important;
-
-  border-bottom: 5px solid #ffe600;
-}
-
-
-
-/* Product Cards */
-
-.card {
-
-  border: 3px solid #d9f0ff;
-
-  border-radius: 20px;
-
-  background: linear-gradient(
-    145deg,
-    #ffffff,
-    #f0faff
-  );
-
-  box-shadow:
-    0 8px 20px rgba(0,0,0,0.15);
 
   transition: 0.3s;
 
 }
 
 
+.nav-link:hover {
+
+  color: #ffd700 !important;
+
+}
+
+
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.bg-dark {
+
+  background: linear-gradient(
+    135deg,
+    #071952,
+    #088395
+  ) !important;
+
+}
+
+
+
+/* =========================
+   PRODUCT CARDS
+   ========================= */
+
+.card {
+
+  border: 2px solid #bde0fe;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+  0 8px 20px rgba(0,0,0,0.12);
+
+  transition: 0.3s;
+
+}
+
 
 .card:hover {
 
-  border-color: #088395;
-
   transform: translateY(-8px);
 
+  border-color: #088395;
+
   box-shadow:
-    0 15px 30px rgba(8,131,149,0.35);
+  0 15px 30px rgba(8,131,149,0.3);
 
 }
 
 
 
-/* Product Image Border */
+/* =========================
+   PRODUCT IMAGES
+   NORMAL PROFESSIONAL SIZE
+   ========================= */
+
 
 .card-img-top {
 
-  border-bottom: 2px solid #d9f0ff;
+  width: 100%;
+
+  height: 180px;
+
+  object-fit: contain;
+
+  padding: 15px;
+
+  background: white;
 
 }
 
 
 
-/* Product Name */
+/* Product Details Image */
+
+.product-details img {
+
+  width: 100%;
+
+  max-height: 350px;
+
+  object-fit: contain;
+
+}
+
+
+
+/* Cart Images */
+
+.cart-image {
+
+  width: 120px;
+
+  height: 120px;
+
+  object-fit: contain;
+
+}
+
+
+
+/* =========================
+   PRODUCT TEXT
+   ========================= */
+
 
 .card h5 {
 
@@ -105,28 +180,28 @@ body {
 }
 
 
-
-/* Price */
-
 .card p {
 
   color: #008000;
 
-  font-size: 17px;
+  font-weight: bold;
 
 }
 
 
 
-/* Buttons */
+/* =========================
+   BUTTONS
+   ========================= */
+
 
 .btn {
 
   border-radius: 30px;
 
-  border-width: 2px;
-
   font-weight: bold;
+
+  transition: 0.3s;
 
 }
 
@@ -140,7 +215,7 @@ body {
     #088395
   );
 
-  border-color: #071952;
+  border: none;
 
 }
 
@@ -148,11 +223,9 @@ body {
 
 .btn-primary:hover {
 
-  background: #ffe600;
+  background: #ffd700;
 
   color: #071952;
-
-  border-color: #ffe600;
 
 }
 
@@ -186,7 +259,10 @@ body {
 
 
 
-/* Search and Form Fields */
+/* =========================
+   SEARCH AND FORMS
+   ========================= */
+
 
 input,
 textarea {
@@ -198,18 +274,20 @@ textarea {
 }
 
 
-
 input:focus,
 textarea:focus {
 
   box-shadow:
-    0 0 10px #37b7c3 !important;
+  0 0 10px #37b7c3 !important;
 
 }
 
 
 
-/* Category Buttons */
+/* =========================
+   CATEGORY BUTTONS
+   ========================= */
+
 
 .btn-outline-primary {
 
@@ -218,7 +296,6 @@ textarea:focus {
   color: #071952;
 
 }
-
 
 
 .btn-outline-primary:hover {
@@ -231,17 +308,10 @@ textarea:focus {
 
 
 
-/* Checkout Card */
+/* =========================
+   FOOTER
+   ========================= */
 
-.checkout-card {
-
-  border: 3px solid #37b7c3;
-
-}
-
-
-
-/* Footer */
 
 footer {
 
@@ -251,18 +321,16 @@ footer {
     #088395
   ) !important;
 
-  border-top: 5px solid #ffe600;
+  border-top: 4px solid #ffd700;
 
 }
-
 
 
 footer h4 {
 
-  color: #ffe600;
+  color: #ffd700;
 
 }
-
 
 
 footer p,
@@ -273,9 +341,27 @@ footer a {
 }
 
 
-
 footer a:hover {
 
-  color: #ffe600 !important;
+  color: #ffd700 !important;
+
+}
+
+
+
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+
+
+@media(max-width:768px) {
+
+
+  .card-img-top {
+
+    height: 160px;
+
+  }
+
 
 }
