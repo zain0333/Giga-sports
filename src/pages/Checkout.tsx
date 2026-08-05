@@ -1,57 +1,37 @@
 function Checkout() {
   return (
     <div className="container mt-4">
-      <h1>Checkout</h1>
+      <h1>Checkout Page</h1>
 
-      <div className="card p-4 shadow">
-        <h4 className="mb-3">Select Payment Method</h4>
+      <div className="card shadow p-4">
+        <h4>Customer Information</h4>
+
+        <input className="form-control mb-3" placeholder="Full Name" />
+
+        <input className="form-control mb-3" placeholder="Phone Number" />
+
+        <input className="form-control mb-3" placeholder="Address" />
+
+        <h4>Payment Method</h4>
 
         <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            name="payment"
-            id="cod"
-          />
-          <label className="form-check-label" htmlFor="cod">
-            Cash on Delivery (COD)
-          </label>
+          <input className="form-check-input" type="radio" name="payment" />
+          <label className="form-check-label">Cash on Delivery (COD)</label>
         </div>
 
         <div className="form-check mt-2">
-          <input
-            className="form-check-input"
-            type="radio"
-            name="payment"
-            id="easypaisa"
-          />
-          <label className="form-check-label" htmlFor="easypaisa">
-            Easypaisa
-          </label>
+          <input className="form-check-input" type="radio" name="payment" />
+          <label className="form-check-label">Easypaisa</label>
         </div>
 
         <div className="form-check mt-2">
-          <input
-            className="form-check-input"
-            type="radio"
-            name="payment"
-            id="jazzcash"
-          />
-          <label className="form-check-label" htmlFor="jazzcash">
-            JazzCash
-          </label>
+          <input className="form-check-input" type="radio" name="payment" />
+          <label className="form-check-label">JazzCash</label>
         </div>
 
         <div className="form-check mt-2">
-          <input
-            className="form-check-input"
-            type="radio"
-            name="payment"
-            id="card"
-          />
-          <label className="form-check-label" htmlFor="card">
-            Debit / Credit Card
-          </label>
+          <input className="form-check-input" type="radio" name="payment" />
+          <label className="form-check-label">Debit / Credit Card</label>
         </div>
 
         <button className="btn btn-success mt-4">Place Order</button>
