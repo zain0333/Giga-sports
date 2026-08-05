@@ -7,13 +7,13 @@ function Home() {
       <h1 className="mb-4">GIGA SPORTS SHOP</h1>
 
       <div className="row">
-        {products.map((products) => (
-          <div className="col-md-3 mb-4" key={products.id}>
+        {products.map((product) => (
+          <div className="col-md-3 mb-4" key={product.id}>
             <ProductCard
-              name={products.name}
-              category={products.category}
-              price={products.price}
-              image={products.image}
+              name={product.name}
+              category={product.category}
+              price={product.price}
+              image={product.image}
             />
           </div>
         ))}
