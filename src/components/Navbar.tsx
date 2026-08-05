@@ -5,6 +5,8 @@ import { useCart } from "../context/CartContext";
 function Navbar() {
   const { cart } = useCart();
 
+  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
@@ -16,12 +18,12 @@ function Navbar() {
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+          data-bs-target="#menu"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className="collapse navbar-collapse" id="menu">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/">
@@ -50,7 +52,7 @@ function Navbar() {
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
                 <FaShoppingCart />
-                Cart ({cart.length})
+                Cart ({cartCount})
               </Link>
             </li>
           </ul>
