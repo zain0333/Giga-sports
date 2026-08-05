@@ -9,7 +9,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <Link className="navbar-brand fw-bold" to="/">
-          🏏 GIGA SPORTS SHOP
+          GIGA SPORTS SHOP
         </Link>
 
         <button
@@ -49,7 +49,8 @@ function Navbar() {
 
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
-                <FaShoppingCart /> Cart ({cart.length})
+                <FaShoppingCart />
+                Cart ({cart.length})
               </Link>
             </li>
           </ul>
