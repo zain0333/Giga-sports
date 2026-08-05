@@ -1,173 +1,127 @@
-* {
-  box-sizing: border-box;
-}
-
+/* Main Background */
 
 body {
   margin: 0;
-  background: #f4f6f9;
-  font-family: "Poppins", Arial, sans-serif;
-  color: #222;
+  background: linear-gradient(135deg, #f0f8ff, #ffffff);
+  font-family: Arial, sans-serif;
 }
 
 
-/* Navbar */
+/* Navbar Color */
 
 .navbar {
-  padding: 15px 0;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  background: linear-gradient(90deg, #001f3f, #0074D9) !important;
 }
 
 
 .navbar-brand {
-  font-size: 26px;
-  letter-spacing: 1px;
+  color: #ffd700 !important;
 }
 
 
 .nav-link {
-  font-size: 17px;
-  margin-left: 15px;
+  color: white !important;
   transition: 0.3s;
 }
 
 
 .nav-link:hover {
-  color: #ffc107 !important;
+  color: #ffd700 !important;
 }
 
 
 
 /* Hero Section */
 
-.display-4 {
-  font-weight: 800;
-}
-
-
-.hero {
-  min-height: 450px;
-  display: flex;
-  align-items: center;
+.bg-dark {
   background: linear-gradient(
     135deg,
-    #000,
-    #333
-  );
+    #001f3f,
+    #00b4db
+  ) !important;
+}
+
+
+.display-4 {
+  color: #ffffff;
 }
 
 
 
-/* Product Cards */
+/* Cards */
 
 .card {
   border: none;
-  border-radius: 18px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  transition: 0.4s;
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #eaf6ff
+  );
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: 0.3s;
 }
 
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 30px rgba(0,116,217,0.35);
 }
 
 
 
-.card-img-top {
-
-  height: 230px;
-
-  width: 100%;
-
-  object-fit: contain;
-
-  padding: 20px;
-
-  background: white;
-
-}
-
-
+/* Product Names */
 
 .card h5 {
-
-  font-size: 20px;
-
-  font-weight: bold;
-
+  color: #003366;
 }
 
 
-
-/* Product Price */
+/* Price Color */
 
 .card p {
-
-  color: #555;
-
-  font-size: 16px;
-
+  color: #008000;
+  font-weight: bold;
 }
 
 
 
 /* Buttons */
 
-.btn {
-
-  border-radius: 30px;
-
-  padding: 10px 25px;
-
-  font-weight: bold;
-
-  transition: 0.3s;
-
-}
-
-
-.btn:hover {
-
-  transform: scale(1.05);
-
-}
-
-
-
 .btn-primary {
-
-  background: #0066ff;
-
+  background: linear-gradient(
+    45deg,
+    #0074D9,
+    #00c6ff
+  );
   border: none;
-
 }
 
 
-
-/* Search Bar */
-
-input,
-textarea {
-
-  border-radius: 15px !important;
-
-  padding: 12px;
-
-  border: 1px solid #ddd;
-
+.btn-primary:hover {
+  background: linear-gradient(
+    45deg,
+    #0056a6,
+    #0099cc
+  );
 }
 
 
+.btn-success {
+  background: linear-gradient(
+    45deg,
+    #00b09b,
+    #96c93d
+  );
+  border: none;
+}
 
-input:focus,
-textarea:focus {
 
-  box-shadow: 0 0 10px rgba(0,102,255,0.3);
-
+.btn-danger {
+  background: linear-gradient(
+    45deg,
+    #ff416c,
+    #ff4b2b
+  );
+  border: none;
 }
 
 
@@ -175,31 +129,29 @@ textarea:focus {
 /* Category Buttons */
 
 .btn-outline-primary {
+  color: #0074D9;
+  border-color: #0074D9;
+}
 
-  border-radius: 25px;
 
+.btn-outline-primary:hover {
+  background: #0074D9;
+  color: white;
 }
 
 
 
-/* Cart */
+/* Input Fields */
 
-.cart-item {
-
-  background: white;
-
-  border-radius: 15px;
-
+input,
+textarea {
+  border: 2px solid #00b4db !important;
 }
 
 
-
-/* Checkout */
-
-.checkout-card {
-
-  border-radius: 20px;
-
+input:focus,
+textarea:focus {
+  border-color: #0074D9 !important;
 }
 
 
@@ -207,69 +159,29 @@ textarea:focus {
 /* Footer */
 
 footer {
-
-  background: #111;
-
-  color: white;
-
-  padding: 40px 0;
-
+  background: linear-gradient(
+    90deg,
+    #001f3f,
+    #0074D9
+  ) !important;
 }
 
+
+footer h4 {
+  color: #ffd700;
+}
+
+
+footer p {
+  color: white;
+}
 
 
 footer a {
-
-  color: white;
-
-  text-decoration: none;
-
+  color: #ffffff !important;
 }
-
 
 
 footer a:hover {
-
-  color: #ffc107;
-
-}
-
-
-
-/* Product Details Image */
-
-.product-details img {
-
-  max-height: 450px;
-
-  object-fit: contain;
-
-}
-
-
-
-/* Mobile Design */
-
-@media(max-width:768px){
-
-  .navbar-brand {
-
-    font-size: 20px;
-
-  }
-
-
-  .card-img-top {
-
-    height: 180px;
-
-  }
-
-
-  .display-4 {
-
-    font-size: 35px;
-
-  }
-
+  color: #ffd700 !important;
 }
