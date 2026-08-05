@@ -1,9 +1,11 @@
-import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 function Cart() {
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
     useCart();
+
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -15,19 +17,27 @@ function Cart() {
       <h1>Shopping Cart</h1>
 
       {cart.length === 0 ? (
-        <h4>Your cart is empty</h4>
+        <div className="card p-4 shadow">
+          <h3>Your cart is empty</h3>
+
+          <Link to="/products" className="btn btn-primary mt-3">
+            Continue Shopping
+          </Link>
+        </div>
       ) : (
         <>
+          <h4 className="mb-3">Total Items: {totalItems}</h4>
+
           <div className="row">
             {cart.map((item) => (
               <div className="col-md-4 mb-4" key={item.id}>
-                <div className="card shadow">
+                <div className="card shadow h-100">
                   <img
                     src={item.image}
                     className="card-img-top"
                     alt={item.name}
                     style={{
-                      height: "200px",
+                      height: "220px",
                       objectFit: "contain",
                     }}
                   />
@@ -67,10 +77,10 @@ function Cart() {
             ))}
           </div>
 
-          <div className="card p-3 mt-3 shadow">
+          <div className="card shadow p-4 mt-3">
             <h3>Total Price: Rs. {totalPrice}</h3>
 
-            <Link to="/checkout" className="btn btn-primary">
+            <Link to="/checkout" className="btn btn-primary mt-3">
               Proceed to Checkout
             </Link>
           </div>
