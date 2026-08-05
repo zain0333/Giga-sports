@@ -1,29 +1,39 @@
+import { useCart } from "../context/CartContext";
+
 type ProductProps = {
   id: number;
   name: string;
-  category: string;
+  category?: string;
   price: number;
   image: string;
 };
 
-function ProductCard({ name, category, price, image }: ProductProps) {
+function ProductCard({ id, name, category, price, image }: ProductProps) {
+  const { addToCart } = useCart();
+
+  const product = {
+    id,
+    name,
+    category,
+    price,
+    image,
+    quantity: 1,
+  };
+
   return (
-    <div className="card h-100 shadow">
-      <img
-        src={image}
-        alt={name}
-        className="card-img-top"
-        style={{ height: "220px", objectFit: "cover" }}
-      />
+    <div className="card shadow">
+      <img src={image} className="card-img-top" alt={name} />
 
       <div className="card-body">
         <h5>{name}</h5>
 
         <p>{category}</p>
 
-        <h4>Rs. {price}</h4>
+        <p>Price: Rs. {price}</p>
 
-        <button className="btn btn-primary w-100">Add to Cart</button>
+        <button className="btn btn-primary" onClick={() => addToCart(product)}>
+          Add To Cart
+        </button>
       </div>
     </div>
   );
