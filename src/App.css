@@ -124,9 +124,9 @@ body {
 
 .card-img-top {
 
-  width: 50%;
+  width: 70%;
 
-  height: 100px;
+  height: 120px;
 
   object-fit: contain;
 
@@ -142,7 +142,7 @@ body {
 
 .product-details img {
 
-  width: 100%;
+  width: 130%;
 
   max-height: 250px;
 
