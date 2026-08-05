@@ -1,7 +1,8 @@
 import { useCart } from "../context/CartContext";
 
 function Cart() {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
+    useCart();
 
   return (
     <div className="container mt-4">
@@ -12,8 +13,8 @@ function Cart() {
       ) : (
         <div className="row">
           {cart.map((item) => (
-            <div className="col-md-4 mb-3" key={item.id}>
-              <div className="card">
+            <div className="col-md-4 mb-4" key={item.id}>
+              <div className="card shadow">
                 <img
                   src={item.image}
                   className="card-img-top"
@@ -26,10 +27,26 @@ function Cart() {
 
                   <p>Price: Rs. {item.price}</p>
 
-                  <p>Quantity: {item.quantity}</p>
+                  <div className="d-flex align-items-center mb-3">
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => decreaseQuantity(item.id)}
+                    >
+                      -
+                    </button>
+
+                    <span className="mx-3">{item.quantity}</span>
+
+                    <button
+                      className="btn btn-success"
+                      onClick={() => increaseQuantity(item.id)}
+                    >
+                      +
+                    </button>
+                  </div>
 
                   <button
-                    className="btn btn-danger"
+                    className="btn btn-outline-danger"
                     onClick={() => removeFromCart(item.id)}
                   >
                     Remove
