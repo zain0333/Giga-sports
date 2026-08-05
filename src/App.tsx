@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -18,24 +19,26 @@ function App() {
         <Navbar />
 
         <Routes>
-          {/* Home Page */}
+          {/* Home */}
           <Route path="/" element={<Home />} />
 
-          {/* Products Page */}
+          {/* Products */}
           <Route path="/products" element={<Products />} />
 
-          {/* Cart Page */}
+          {/* Cart */}
           <Route path="/cart" element={<Cart />} />
 
-          {/* Checkout Page */}
+          {/* Checkout */}
           <Route path="/checkout" element={<Checkout />} />
 
-          {/* About Page */}
+          {/* About */}
           <Route path="/about" element={<About />} />
 
-          {/* Contact Page */}
+          {/* Contact */}
           <Route path="/contact" element={<Contact />} />
         </Routes>
+
+        <Footer />
       </BrowserRouter>
     </CartProvider>
   );
