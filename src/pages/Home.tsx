@@ -1,69 +1,76 @@
-import ProductCard from "../components/ProductCard";
+import { Link } from "react-router-dom";
 import { products } from "../data/products";
-import { useState } from "react";
+import ProductCard from "../components/ProductCard";
 
 function Home() {
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("All");
-
-  const categories = [
-    "All",
-    "Cricket",
-    "Football",
-    "Badminton",
-    "Shoes",
-    "Gym",
-  ];
-
-  const filteredProducts = products.filter((product) => {
-    const matchSearch = product.name
-      .toLowerCase()
-      .includes(search.toLowerCase());
-
-    const matchCategory = category === "All" || product.category === category;
-
-    return matchSearch && matchCategory;
-  });
-
   return (
-    <div className="container mt-4">
-      <h1 className="mb-4">GIGA SPORTS SHOP</h1>
+    <div>
+      {/* Hero Section */}
 
-      {/* Search */}
-      <input
-        type="text"
-        className="form-control mb-3"
-        placeholder="Search products..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <div className="bg-dark text-white p-5">
+        <div className="container">
+          <h1 className="display-4 fw-bold">Welcome to GIGA SPORTS SHOP</h1>
 
-      {/* Categories */}
-      <div className="mb-4">
-        {categories.map((item) => (
-          <button
-            key={item}
-            className="btn btn-outline-primary me-2"
-            onClick={() => setCategory(item)}
-          >
-            {item}
-          </button>
-        ))}
+          <p className="lead">
+            High quality cricket, football, badminton and fitness equipment.
+          </p>
+
+          <Link to="/products" className="btn btn-primary btn-lg">
+            Shop Now
+          </Link>
+        </div>
       </div>
 
-      {/* Products */}
-      <div className="row">
-        {filteredProducts.map((product) => (
-          <div className="col-md-3 mb-4" key={product.id}>
-            <ProductCard
-              id={product.id}
-              name={product.name}
-              category={product.category}
-              price={product.price}
-              image={product.image}
-            />
+      {/* Categories */}
+
+      <div className="container mt-5">
+        <h2 className="mb-4">Product Categories</h2>
+
+        <div className="row">
+          <div className="col-md-4 mb-3">
+            <div className="card shadow p-3">🏏 Cricket Equipment</div>
           </div>
-        ))}
+
+          <div className="col-md-4 mb-3">
+            <div className="card shadow p-3">⚽ Football Equipment</div>
+          </div>
+
+          <div className="col-md-4 mb-3">
+            <div className="card shadow p-3">🏸 Badminton Equipment</div>
+          </div>
+
+          <div className="col-md-4 mb-3">
+            <div className="card shadow p-3">💪 Gym Equipment</div>
+          </div>
+
+          <div className="col-md-4 mb-3">
+            <div className="card shadow p-3">👟 Running Shoes</div>
+          </div>
+
+          <div className="col-md-4 mb-3">
+            <div className="card shadow p-3">👕 Sports Clothing</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Featured Products */}
+
+      <div className="container mt-5">
+        <h2>Featured Products</h2>
+
+        <div className="row mt-4">
+          {products.slice(0, 3).map((product) => (
+            <div className="col-md-4 mb-4" key={product.id}>
+              <ProductCard
+                id={product.id}
+                name={product.name}
+                category={product.category}
+                price={product.price}
+                image={product.image}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
