@@ -4,31 +4,34 @@ export const products = [
     name: "Cricket Bat",
     category: "Cricket",
     price: 5000,
-    image:
-      "https://images.unsplash.com/photo-1624880357913-a8539238245b?w=600",
+    image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da"
   },
   {
     id: 2,
     name: "Football",
     category: "Football",
-    price: 2500,
-    image:
-      "https://images.unsplash.com/photo-1551958219-acbc608c6377?w=600",
+    price: 3000,
+    image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55"
   },
   {
     id: 3,
     name: "Badminton Racket",
     category: "Badminton",
-    price: 3500,
-    image:
-      "https://images.unsplash.com/photo-1613918431703-aa5089e5f09f?w=600",
+    price: 2500,
+    image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea"
   },
   {
     id: 4,
-    name: "Dumbbells",
-    category: "Gym",
-    price: 7000,
-    image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600",
+    name: "Running Shoes",
+    category: "Shoes",
+    price: 6000,
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
   },
+  {
+    id: 5,
+    name: "Gym Equipment",
+    category: "Gym",
+    price: 8000,
+    image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e"
+  }
 ];
