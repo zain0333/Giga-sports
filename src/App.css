@@ -1,32 +1,34 @@
-/* Main Background */
+/* Website Background Light Blue */
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #f0f8ff, #ffffff);
+  background-color: #cd1212;
   font-family: Arial, sans-serif;
 }
 
 
-/* Navbar Color */
+/* Navbar */
 
 .navbar {
-  background: linear-gradient(90deg, #001f3f, #0074D9) !important;
+  background: linear-gradient(90deg, #071952, #088395) !important;
+  border-bottom: 3px solid #101112;
 }
 
 
 .navbar-brand {
-  color: #ffd700 !important;
+  color: #0eea2f !important;
+  font-size: 24px;
 }
 
 
 .nav-link {
   color: white !important;
-  transition: 0.3s;
+  font-weight: bold;
 }
 
 
 .nav-link:hover {
-  color: #ffd700 !important;
+  color: #ffe600 !important;
 }
 
 
@@ -36,92 +38,173 @@ body {
 .bg-dark {
   background: linear-gradient(
     135deg,
-    #001f3f,
-    #00b4db
+    #071952,
+    #088395,
+    #37b7c3
   ) !important;
+
+  border-bottom: 5px solid #ffe600;
 }
 
 
-.display-4 {
-  color: #ffffff;
-}
 
-
-
-/* Cards */
+/* Product Cards */
 
 .card {
-  border: none;
+
+  border: 3px solid #d9f0ff;
+
+  border-radius: 20px;
+
   background: linear-gradient(
     145deg,
     #ffffff,
-    #eaf6ff
+    #f0faff
   );
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.15);
+
   transition: 0.3s;
+
 }
+
 
 
 .card:hover {
-  box-shadow: 0 12px 30px rgba(0,116,217,0.35);
+
+  border-color: #088395;
+
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 15px 30px rgba(8,131,149,0.35);
+
 }
 
 
 
-/* Product Names */
+/* Product Image Border */
+
+.card-img-top {
+
+  border-bottom: 2px solid #d9f0ff;
+
+}
+
+
+
+/* Product Name */
 
 .card h5 {
-  color: #003366;
+
+  color: #071952;
+
+  font-weight: bold;
+
 }
 
 
-/* Price Color */
+
+/* Price */
 
 .card p {
+
   color: #008000;
-  font-weight: bold;
+
+  font-size: 17px;
+
 }
 
 
 
 /* Buttons */
 
+.btn {
+
+  border-radius: 30px;
+
+  border-width: 2px;
+
+  font-weight: bold;
+
+}
+
+
+
 .btn-primary {
+
   background: linear-gradient(
     45deg,
-    #0074D9,
-    #00c6ff
+    #071952,
+    #088395
   );
-  border: none;
+
+  border-color: #071952;
+
 }
+
 
 
 .btn-primary:hover {
-  background: linear-gradient(
-    45deg,
-    #0056a6,
-    #0099cc
-  );
+
+  background: #ffe600;
+
+  color: #071952;
+
+  border-color: #ffe600;
+
 }
+
 
 
 .btn-success {
+
   background: linear-gradient(
     45deg,
-    #00b09b,
-    #96c93d
+    #11998e,
+    #38ef7d
   );
+
   border: none;
+
 }
 
 
+
 .btn-danger {
+
   background: linear-gradient(
     45deg,
     #ff416c,
     #ff4b2b
   );
+
   border: none;
+
+}
+
+
+
+/* Search and Form Fields */
+
+input,
+textarea {
+
+  border: 2px solid #088395 !important;
+
+  border-radius: 15px !important;
+
+}
+
+
+
+input:focus,
+textarea:focus {
+
+  box-shadow:
+    0 0 10px #37b7c3 !important;
+
 }
 
 
@@ -129,29 +212,31 @@ body {
 /* Category Buttons */
 
 .btn-outline-primary {
-  color: #0074D9;
-  border-color: #0074D9;
+
+  border: 2px solid #088395;
+
+  color: #071952;
+
 }
+
 
 
 .btn-outline-primary:hover {
-  background: #0074D9;
+
+  background: #088395;
+
   color: white;
+
 }
 
 
 
-/* Input Fields */
+/* Checkout Card */
 
-input,
-textarea {
-  border: 2px solid #00b4db !important;
-}
+.checkout-card {
 
+  border: 3px solid #37b7c3;
 
-input:focus,
-textarea:focus {
-  border-color: #0074D9 !important;
 }
 
 
@@ -159,29 +244,38 @@ textarea:focus {
 /* Footer */
 
 footer {
+
   background: linear-gradient(
     90deg,
-    #001f3f,
-    #0074D9
+    #071952,
+    #088395
   ) !important;
+
+  border-top: 5px solid #ffe600;
+
 }
+
 
 
 footer h4 {
-  color: #ffd700;
+
+  color: #ffe600;
+
 }
 
 
-footer p {
-  color: white;
-}
 
-
+footer p,
 footer a {
-  color: #ffffff !important;
+
+  color: white !important;
+
 }
+
 
 
 footer a:hover {
-  color: #ffd700 !important;
+
+  color: #ffe600 !important;
+
 }
