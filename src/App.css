@@ -1,203 +1,79 @@
-/* ==========================
-   SPORTS SHOP CSS
-   ========================== */
-
-* {
+/* ===== Website Background ===== */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body */
-
-body {
-  background: #44538e;
   font-family: Arial, Helvetica, sans-serif;
-  color: #090707;
+
+  /* Sports Background */
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+              url("https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1920&q=80");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: white;
 }
 
-/* Navbar */
-
-.navbar {
-  background: linear-gradient(90deg, #002051, #1976d2) !important;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+/* Make sections transparent */
+.container,
+.card,
+.navbar,
+footer {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
 }
 
-.navbar-brand {
-  color: #0671f3 !important;
-  font-size: 24px;
+/* Heading */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ffffff;
   font-weight: bold;
 }
 
-.nav-link {
-  color: white !important;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.nav-link:hover {
-  color: #ffeb3b !important;
-}
-
-/* Hero Section */
-
-.hero {
-  background: linear-gradient(135deg, #03080f, #42a5f5);
-  color: rgb(12, 117, 208);
-  padding: 80px 0;
-  text-align: center;
-  border-radius: 0 0 25px 25px;
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 18px;
-}
-
-/* Cards */
-
-.card {
-  border: none;
-  border-radius: 15px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
-}
-
-/* Product Images */
-
-.card-img-top {
-  width: 100%;
-  height: 190px;
-  object-fit: contain;
-  background: white;
-  padding: 15px;
-}
-
-/* Card Body */
-
-.card-body {
-  text-align: center;
-}
-
-.card-title {
-  color: #0d47a1;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.card-text {
-  color: #666;
-}
-
-.price {
-  color: #2e7d32;
-  font-size: 22px;
-  font-weight: bold;
+/* Paragraph */
+p {
+  color: #f5f5f5;
 }
 
 /* Buttons */
-
 .btn-primary {
-  background: #1565c0;
+  background: #00b894;
   border: none;
-  border-radius: 30px;
-  padding: 10px 22px;
   transition: 0.3s;
 }
 
 .btn-primary:hover {
-  background: #0d47a1;
+  background: #00d8a6;
+  transform: scale(1.05);
 }
 
-.btn-success {
-  border-radius: 30px;
+/* Product Cards */
+.card {
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-.btn-danger {
-  border-radius: 30px;
-}
-
-/* Search Box */
-
-input,
-textarea {
-  border-radius: 10px !important;
-  border: 2px solid #90caf9 !important;
-}
-
-input:focus,
-textarea:focus {
-  border-color: #1565c0 !important;
-  box-shadow: 0 0 8px rgba(21,101,192,0.3);
-}
-
-/* Category Buttons */
-
-.btn-outline-primary {
-  border-radius: 25px;
-  font-weight: bold;
-}
-
-.btn-outline-primary:hover {
-  background: #1565c0;
-  color: white;
-}
-
-/* Cart */
-
-.cart-item {
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  background: white;
+/* Product Images */
+.card img {
+  height: 220px;
+  object-fit: contain;
   padding: 15px;
 }
 
+/* Navbar */
+.navbar {
+  background: rgba(0,0,0,0.75) !important;
+}
+
 /* Footer */
-
 footer {
-  margin-top: 60px;
-  background: #0d47a1;
+  background: rgba(0,0,0,0.8);
   color: white;
-  padding: 40px 0;
-}
-
-footer h4 {
-  color: #ffeb3b;
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: #ffeb3b;
-}
-
-/* Responsive */
-
-@media (max-width: 768px) {
-
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .card-img-top {
-    height: 170px;
-  }
-
-  .navbar-brand {
-    font-size: 20px;
-  }
 }
