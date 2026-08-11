@@ -9,6 +9,7 @@ import Categories from "./pages/Categories";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Routes */}
+      {/* Website Routes */}
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
@@ -35,6 +36,9 @@ function App() {
 
         {/* Cart */}
         <Route path="/cart" element={<Cart />} />
+
+        {/* Checkout */}
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
 
       {/* Footer */}
