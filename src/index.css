@@ -723,3 +723,121 @@ body {
 
   margin: 5px 0 15px;
 }
+
+/* =========================
+   FLASH SALE
+========================= */
+
+.flash-sale {
+  width: 100%;
+  margin: 25px 0;
+  padding: 25px 20px;
+  background: linear-gradient(135deg, #0d6efd, #084298);
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.flash-sale-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.sale-icon {
+  font-size: 45px;
+}
+
+.flash-sale h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.flash-sale p {
+  margin: 5px 0 0;
+  font-size: 15px;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.countdown div {
+  min-width: 65px;
+  padding: 8px;
+  background: white;
+  color: #084298;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.countdown strong {
+  display: block;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.countdown small {
+  font-size: 11px;
+}
+
+.countdown > span {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .flash-sale-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .flash-sale h2 {
+    font-size: 23px;
+  }
+
+  .countdown div {
+    min-width: 55px;
+  }
+
+  .countdown strong {
+    font-size: 21px;
+  }
+}
+
+/* =========================
+   LIVE PRODUCT SEARCH
+========================= */
+
+.search-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid #0d6efd;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-input:focus {
+  border-color: #084298;
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.2);
+}
+
+.search-input::placeholder {
+  color: #777;
+}
+
+
