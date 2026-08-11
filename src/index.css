@@ -1,6 +1,6 @@
-/* =====================================
+/* =========================================
    GIGA SPORTS SHOP
-   ===================================== */
+   ========================================= */
 
 * {
   margin: 0;
@@ -8,36 +8,24 @@
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
-  width: 100%;
-  min-height: 100%;
-}
-
 body {
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #111;
 }
 
 
-/* =====================================
+/* =========================================
    NAVBAR
-   ===================================== */
+   ========================================= */
 
 .sports-navbar {
   width: 100%;
   background: #111;
-
-  padding: 20px 20px 22px;
+  padding: 20px;
 }
 
 .navbar-container {
-  width: 100%;
-  max-width: 1000px;
-
-  margin: auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,18 +36,16 @@ body {
 
 .sports-logo {
   color: #ff4b16 !important;
-
   text-decoration: none;
 
   font-size: 34px;
-
-  font-weight: 800;
+  font-weight: bold;
 
   margin-bottom: 18px;
 }
 
 .sports-logo:hover {
-  color: #ff6a2a !important;
+  color: #ff641f !important;
 }
 
 
@@ -67,12 +53,10 @@ body {
 
 .nav-links {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
 
-  gap: 27px;
+  gap: 28px;
 }
 
 .nav-links a {
@@ -81,8 +65,6 @@ body {
   text-decoration: none;
 
   font-size: 21px;
-
-  font-weight: 400;
 
   transition: 0.3s;
 }
@@ -96,97 +78,86 @@ body {
 
 .cart-link {
   display: flex;
-
   align-items: center;
-
   gap: 7px;
 }
 
 .cart-count {
   background: #ff4b16;
-
   color: white;
 
   width: 22px;
-
   height: 22px;
 
   border-radius: 50%;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   font-size: 12px;
 }
 
 
-/* =====================================
-   SPORTS BACKGROUND / HERO
-   ===================================== */
+/* =========================================
+   HOME HERO
+   SPORTS POSTER IS INCLUDED HERE
+   ========================================= */
 
 .hero-section {
   width: 100%;
-
-  min-height: 565px;
-
-  /*
-     THIS IS YOUR SPORTS POSTER
-  */
+  min-height: 570px;
 
   background-image:
     linear-gradient(
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.45)
+      rgba(0, 0, 0, 0.50),
+      rgba(0, 0, 0, 0.50)
     ),
-    url("/sports-bg.png");
+
+    url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80");
 
   background-size: cover;
-
   background-position: center;
-
   background-repeat: no-repeat;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   text-align: center;
 
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
 
-/* =====================================
-   HERO CONTENT
-   ===================================== */
+/* Hero box */
 
 .hero-content {
   width: 100%;
-
   max-width: 850px;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  padding: 45px 30px;
+
+  border-radius: 20px;
 
   color: white;
 }
 
 
-/* Heading */
+/* Welcome heading */
 
 .hero-content h1 {
   color: white;
 
-  font-size: 44px;
+  font-size: 48px;
 
   font-weight: 800;
 
   margin-bottom: 25px;
 
-  text-shadow:
-    2px 2px 6px #000;
+  text-shadow: 2px 2px 6px black;
 }
 
 
@@ -195,20 +166,17 @@ body {
 .hero-content p {
   color: white;
 
-  font-size: 23px;
+  font-size: 21px;
 
-  line-height: 1.4;
+  line-height: 1.5;
 
   margin-bottom: 30px;
 
-  text-shadow:
-    2px 2px 6px #000;
+  text-shadow: 2px 2px 5px black;
 }
 
 
-/* =====================================
-   SHOP NOW
-   ===================================== */
+/* Shop Now */
 
 .shop-now-btn {
   display: inline-block;
@@ -219,11 +187,13 @@ body {
 
   text-decoration: none;
 
-  padding: 14px 38px;
+  padding: 15px 38px;
 
   border-radius: 30px;
 
   font-size: 20px;
+
+  font-weight: 500;
 
   transition: 0.3s;
 }
@@ -237,9 +207,9 @@ body {
 }
 
 
-/* =====================================
+/* =========================================
    PRODUCTS
-   ===================================== */
+   ========================================= */
 
 .products-page {
   min-height: 100vh;
@@ -256,13 +226,8 @@ body {
 
   font-size: 40px;
 
-  font-weight: 800;
-
   margin-bottom: 40px;
 }
-
-
-/* Product card */
 
 .product-card {
   background: #1c1c1c;
@@ -284,12 +249,8 @@ body {
   border-color: #ff4b16;
 }
 
-
-/* Product image */
-
 .product-card img {
   width: 100%;
-
   height: 200px;
 
   object-fit: contain;
@@ -299,17 +260,12 @@ body {
   background: white;
 }
 
-
-/* Product body */
-
 .product-card-body {
   padding: 18px;
 }
 
 .product-card h3 {
   color: white;
-
-  font-size: 20px;
 }
 
 .product-card p {
@@ -323,9 +279,6 @@ body {
 
   font-weight: bold;
 }
-
-
-/* Add cart */
 
 .add-cart-btn {
   width: 100%;
@@ -350,9 +303,9 @@ body {
 }
 
 
-/* =====================================
+/* =========================================
    ABOUT
-   ===================================== */
+   ========================================= */
 
 .about-page {
   min-height: 100vh;
@@ -397,9 +350,9 @@ body {
 }
 
 
-/* =====================================
+/* =========================================
    CONTACT
-   ===================================== */
+   ========================================= */
 
 .contact-page {
   min-height: 100vh;
@@ -477,9 +430,9 @@ body {
 }
 
 
-/* =====================================
+/* =========================================
    CART
-   ===================================== */
+   ========================================= */
 
 .cart-page {
   min-height: 100vh;
@@ -526,9 +479,9 @@ body {
 }
 
 
-/* =====================================
+/* =========================================
    FOOTER
-   ===================================== */
+   ========================================= */
 
 .footer {
   background: #111;
@@ -542,16 +495,10 @@ body {
   border-top: 1px solid #333;
 }
 
-.footer a {
-  color: #ff4b16;
 
-  text-decoration: none;
-}
-
-
-/* =====================================
+/* =========================================
    MOBILE
-   ===================================== */
+   ========================================= */
 
 @media (max-width: 768px) {
 
@@ -568,23 +515,27 @@ body {
   }
 
   .hero-section {
-    min-height: 560px;
+    min-height: 550px;
 
-    padding: 40px 15px;
+    padding: 35px 15px;
+  }
+
+  .hero-content {
+    padding: 35px 20px;
   }
 
   .hero-content h1 {
-    font-size: 34px;
+    font-size: 35px;
   }
 
   .hero-content p {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .shop-now-btn {
     font-size: 18px;
 
-    padding: 13px 32px;
+    padding: 13px 30px;
   }
 }
 
@@ -600,14 +551,6 @@ body {
   }
 
   .hero-content p {
-    font-size: 18px;
-  }
-
-  .nav-links {
-    gap: 20px;
-  }
-
-  .nav-links a {
-    font-size: 18px;
+    font-size: 17px;
   }
 }

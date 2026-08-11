@@ -12,18 +12,22 @@ import Cart from "./pages/Cart";
 function App() {
   return (
     <BrowserRouter>
-      {/* Navigation appears on every page */}
       <Navbar />
 
       <Routes>
+        {/* Home */}
         <Route path="/" element={<Home />} />
 
+        {/* Products */}
         <Route path="/products" element={<Products />} />
 
+        {/* About */}
         <Route path="/about" element={<About />} />
 
+        {/* Contact */}
         <Route path="/contact" element={<Contact />} />
 
+        {/* Cart */}
         <Route path="/cart" element={<Cart />} />
       </Routes>
 
