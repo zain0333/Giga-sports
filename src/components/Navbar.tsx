@@ -1,65 +1,33 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
-
 import { useCart } from "../context/CartContext";
 
 function Navbar() {
   const { cart } = useCart();
 
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-
   return (
-    <nav className="navbar navbar-expand-lg">
-      <div className="container">
-        <Link className="navbar-brand" to="/">
-          🏆 GIGA SPORTS
+    <nav className="sports-navbar">
+      <div className="navbar-container">
+        {/* Logo */}
+        <Link to="/" className="sports-logo">
+          ⚡ <span>GIGA SPORTS</span>
         </Link>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          ☰
-        </button>
+        {/* Navigation */}
+        <div className="nav-links">
+          <Link to="/">Home</Link>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Home
-              </Link>
-            </li>
+          <Link to="/products">Products</Link>
 
-            <li className="nav-item">
-              <Link className="nav-link" to="/products">
-                Products
-              </Link>
-            </li>
+          <Link to="/categories">Categories</Link>
 
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">
-                About Us
-              </Link>
-            </li>
+          <Link to="/contact">Contact</Link>
 
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact">
-                Contact
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link cart-link" to="/cart">
-                <FaShoppingCart />
-                Cart
-                {totalItems > 0 && (
-                  <span className="cart-badge">{totalItems}</span>
-                )}
-              </Link>
-            </li>
-          </ul>
+          <Link to="/cart" className="cart-link">
+            <FaShoppingCart />
+            Cart
+            <span className="cart-count">{cart.length}</span>
+          </Link>
         </div>
       </div>
     </nav>

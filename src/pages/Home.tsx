@@ -1,28 +1,20 @@
+import { Link } from "react-router-dom";
+
 function Home() {
   return (
     <div className="home-page">
-      {/* HERO SECTION */}
-
       <section className="hero-section">
-        <div className="hero-overlay">
+        <div className="hero-content">
           <h1>Welcome to GIGA SPORTS SHOP</h1>
 
           <p>
             High quality cricket, football, badminton and fitness equipment.
           </p>
 
-          <a href="/products" className="btn btn-primary shop-button">
+          <Link to="/products" className="shop-now-btn">
             Shop Now
-          </a>
+          </Link>
         </div>
-      </section>
-
-      {/* SPORTS COLLECTION */}
-
-      <section className="products-intro container">
-        <h2>Our Sports Collection</h2>
-
-        <p>Find everything you need for your favorite sports.</p>
       </section>
     </div>
   );

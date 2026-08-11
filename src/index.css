@@ -1,7 +1,6 @@
 /* =========================================
    GIGA SPORTS SHOP
-   MAIN CSS
-========================================= */
+   ========================================= */
 
 * {
   margin: 0;
@@ -9,752 +8,581 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #eef8ff;
-  color: #17324d;
-  min-height: 100vh;
-}
-
-
-/* =========================================
-   HERO SECTION
-========================================= */
-
-.hero-section {
-  min-height: 500px;
-
-  background-image:
-    linear-gradient(
-      rgba(0, 20, 40, 0.55),
-      rgba(0, 20, 40, 0.68)
-    ),
-    url("https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1600&q=85");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  align-items: center;
-
-  padding: 50px 7%;
-}
-
-
-/* =========================================
-   HERO CONTENT
-========================================= */
-
-.hero-overlay {
-  width: 100%;
-  max-width: 1100px;
-
-  padding: 45px 30px;
-
-  background: rgba(0, 0, 0, 0.20);
-
-  border-radius: 20px;
-
-  backdrop-filter: blur(2px);
-}
-
-
-/* =========================================
-   HERO TITLE
-========================================= */
-
-.hero-section h1 {
-  max-width: 850px;
-
-  color: white;
-
-  font-size: 52px;
-
-  line-height: 1.1;
-
-  font-weight: 800;
-
-  margin-bottom: 20px;
-
-  text-shadow:
-    2px 3px 8px rgba(0, 0, 0, 0.7);
-}
-
-
-/* =========================================
-   HERO DESCRIPTION
-========================================= */
-
-.hero-section p {
-  color: white;
-
-  font-size: 20px;
-
-  max-width: 750px;
-
-  margin-bottom: 30px;
-
-  text-shadow:
-    1px 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-
-/* =========================================
-   SHOP BUTTON
-========================================= */
-
-.shop-button {
-  background: linear-gradient(
-    135deg,
-    #00a8e8,
-    #006da4
-  );
-
-  border: none;
-
-  padding: 13px 28px;
-
-  border-radius: 10px;
-
-  font-size: 18px;
-
-  font-weight: 700;
-
-  color: white;
-
-  transition: 0.3s ease;
-}
-
-.shop-button:hover {
-  transform: translateY(-3px);
-
-  background: linear-gradient(
-    135deg,
-    #00c2ff,
-    #0077b6
-  );
-
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.30);
+  font-family: Arial, Helvetica, sans-serif;
+  background: #111;
 }
 
 
 /* =========================================
    NAVBAR
-   BELOW HERO
-========================================= */
+   ========================================= */
 
-.navbar {
-  background: linear-gradient(
-    135deg,
-    #063b66,
-    #087ea4
-  ) !important;
+.sports-navbar {
+  width: 100%;
+  background: #111111;
+  padding: 20px 30px;
+}
 
-  padding: 14px 0;
+.navbar-container {
+  max-width: 900px;
+  margin: auto;
 
-  box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.18);
-
-  position: relative;
-
-  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
-/* =========================================
-   NAVBAR BRAND
-========================================= */
+/* Logo */
 
-.navbar-brand {
-  color: white !important;
+.sports-logo {
+  color: #ff4b16 !important;
+  text-decoration: none;
 
-  font-size: 24px;
+  font-size: 34px;
+  font-weight: bold;
 
-  font-weight: 800;
+  margin-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sports-logo:hover {
+  color: #ff6a2a !important;
 }
 
 
-/* =========================================
-   NAVBAR LINKS
-========================================= */
+/* Navigation */
 
-.navbar .nav-link {
-  color: white !important;
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  font-size: 16px;
-
-  font-weight: 600;
-
-  padding: 9px 14px !important;
-
-  margin: 0 3px;
-
-  border-radius: 8px;
-
-  transition: 0.3s ease;
+  gap: 28px;
 }
 
-.navbar .nav-link:hover {
-  background: rgba(255, 255, 255, 0.18);
+.nav-links a {
+  color: white;
 
-  transform: translateY(-2px);
+  text-decoration: none;
+
+  font-size: 21px;
+
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff4b16;
 }
 
 
-/* =========================================
-   CART BADGE
-========================================= */
+/* Cart */
 
 .cart-link {
   display: flex;
-
   align-items: center;
-
-  gap: 5px;
+  gap: 7px;
 }
 
-.cart-badge {
-  background: #ff4d4d;
+.cart-count {
+  background: #ff4b16;
 
   color: white;
 
-  font-size: 11px;
+  min-width: 22px;
+  height: 22px;
 
-  font-weight: 700;
+  border-radius: 50%;
 
-  min-width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  height: 20px;
+  font-size: 12px;
+}
 
-  display: inline-flex;
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.hero-section {
+  width: 100%;
+
+  min-height: 565px;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.50),
+      rgba(0, 0, 0, 0.50)
+    ),
+    url("/sports-bg.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  display: flex;
 
   align-items: center;
 
   justify-content: center;
 
-  border-radius: 50%;
+  text-align: center;
 
-  margin-left: 3px;
+  padding: 50px 20px;
+}
+
+
+/* Hero content */
+
+.hero-content {
+  width: 100%;
+  max-width: 800px;
+
+  color: white;
+}
+
+
+/* Hero heading */
+
+.hero-content h1 {
+  color: white;
+
+  font-size: 44px;
+
+  font-weight: 800;
+
+  margin-bottom: 25px;
+
+  text-shadow:
+    2px 2px 5px #000;
+}
+
+
+/* Hero description */
+
+.hero-content p {
+  color: white;
+
+  font-size: 24px;
+
+  line-height: 1.4;
+
+  margin-bottom: 30px;
+
+  text-shadow:
+    2px 2px 5px #000;
 }
 
 
 /* =========================================
-   PRODUCTS INTRO
-========================================= */
+   SHOP NOW BUTTON
+   ========================================= */
 
-.products-intro {
-  text-align: center;
+.shop-now-btn {
+  display: inline-block;
 
-  padding-top: 45px;
+  background: #ff4b16;
 
-  padding-bottom: 30px;
+  color: white;
+
+  text-decoration: none;
+
+  padding: 14px 38px;
+
+  border-radius: 30px;
+
+  font-size: 20px;
+
+  transition: 0.3s;
+
+  border: none;
 }
 
-.products-intro h2 {
-  color: #073b6f;
+.shop-now-btn:hover {
+  background: #ff641f;
 
-  font-size: 32px;
+  color: white;
 
-  font-weight: 800;
-
-  margin-bottom: 10px;
-}
-
-.products-intro p {
-  color: #607080;
-
-  font-size: 17px;
+  transform: scale(1.05);
 }
 
 
 /* =========================================
    PRODUCTS PAGE
-========================================= */
+   ========================================= */
 
 .products-page {
-  min-height: 650px;
+  background: #111;
 
-  padding-top: 50px;
+  min-height: 100vh;
 
-  padding-bottom: 60px;
+  padding: 50px 20px;
 }
 
-.page-heading {
+.products-title {
+  color: #ff4b16;
+
   text-align: center;
+
+  font-size: 40px;
 
   margin-bottom: 40px;
 }
 
-.page-heading h1 {
-  color: #073b6f;
 
-  font-weight: 800;
-}
+/* Product cards */
 
-.page-heading p {
-  color: #607080;
-}
+.product-card {
+  background: #1c1c1c;
 
+  border: 1px solid #333;
 
-/* =========================================
-   PRODUCT CARD
-========================================= */
-
-.card {
-  height: 100%;
-
-  background: white;
-
-  border: 1px solid #cde7f2 !important;
-
-  border-radius: 15px !important;
+  border-radius: 12px;
 
   overflow: hidden;
 
-  box-shadow:
-    0 5px 18px rgba(0, 80, 120, 0.09) !important;
+  height: 100%;
 
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-6px);
+.product-card:hover {
+  transform: translateY(-5px);
 
-  box-shadow:
-    0 12px 28px rgba(0, 80, 120, 0.17) !important;
-
-  border-color: #73c7e6 !important;
+  border-color: #ff4b16;
 }
 
-
-/* =========================================
-   PRODUCT IMAGE
-   SAME SIZE
-========================================= */
-
-.card-img-top {
+.product-card img {
   width: 100%;
 
-  height: 210px;
+  height: 200px;
 
   object-fit: contain;
 
-  padding: 15px;
+  background: white;
 
-  background: #f7fcff;
+  padding: 15px;
 }
 
-
-/* =========================================
-   PRODUCT CARD BODY
-========================================= */
-
-.card-body {
+.product-card-body {
   padding: 18px;
 }
 
-.card-title {
-  color: #073b6f;
+.product-card h3 {
+  color: white;
 
-  font-size: 18px;
-
-  font-weight: 700;
-
-  min-height: 45px;
+  font-size: 20px;
 }
 
-.product-category {
-  display: inline-block;
-
-  background: #e2f5fc;
-
-  color: #087ea4;
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  padding: 4px 9px;
-
-  border-radius: 20px;
-
-  margin-bottom: 10px;
+.product-card p {
+  color: #ccc;
 }
 
 .product-price {
-  color: #087ea4;
+  color: #ff4b16;
 
-  font-size: 20px;
+  font-size: 22px;
 
-  font-weight: 800;
-
-  margin-bottom: 15px;
+  font-weight: bold;
 }
 
 
-/* =========================================
-   BUTTONS
-========================================= */
+/* Add cart */
 
-.btn-primary {
-  background: linear-gradient(
-    135deg,
-    #087ea4,
-    #075985
-  );
+.add-cart-btn {
+  width: 100%;
+
+  background: #ff4b16;
+
+  color: white;
 
   border: none;
 
-  border-radius: 9px;
+  padding: 11px;
 
-  font-weight: 600;
+  border-radius: 6px;
 
-  transition: 0.3s ease;
+  font-size: 16px;
+
+  cursor: pointer;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(
-    135deg,
-    #075985,
-    #053b5c
-  );
-
-  transform: translateY(-2px);
+.add-cart-btn:hover {
+  background: #ff641f;
 }
 
 
 /* =========================================
-   CART PAGE
-========================================= */
+   ABOUT PAGE
+   ========================================= */
 
-.cart-page {
-  min-height: 650px;
+.about-page {
+  min-height: 100vh;
 
-  padding-top: 50px;
+  background: #111;
 
-  padding-bottom: 60px;
+  color: white;
+
+  padding: 50px 20px;
 }
 
-.page-title {
-  color: #073b6f;
+.about-page h1 {
+  color: #ff4b16;
 
-  font-weight: 800;
+  text-align: center;
+
+  font-size: 40px;
 
   margin-bottom: 30px;
 }
 
+.about-box {
+  max-width: 800px;
 
-/* =========================================
-   CART ITEM
-========================================= */
+  margin: auto;
 
-.cart-item {
-  background: white;
+  background: #1c1c1c;
 
-  border: 1px solid #cde7f2;
+  padding: 30px;
 
-  border-radius: 14px;
+  border-radius: 12px;
 
-  padding: 15px;
-
-  margin-bottom: 15px;
-
-  box-shadow:
-    0 4px 14px rgba(0, 80, 120, 0.08);
+  border: 1px solid #333;
 }
 
-.cart-item h5 {
-  color: #073b6f;
+.about-box p {
+  color: #ddd;
 
-  font-weight: 700;
-}
-
-.cart-item p {
-  color: #087ea4;
-
-  font-weight: 700;
-}
-
-
-/* =========================================
-   CART IMAGE
-========================================= */
-
-.cart-image {
-  width: 100%;
-
-  height: 100px;
-
-  object-fit: contain;
-
-  background: #f7fcff;
-
-  border-radius: 8px;
-}
-
-
-/* =========================================
-   QUANTITY
-========================================= */
-
-.quantity-controls {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-}
-
-.quantity-controls button {
-  width: 30px;
-
-  height: 30px;
-
-  border: none;
-
-  border-radius: 6px;
-
-  background: #087ea4;
-
-  color: white;
-
-  font-weight: 700;
-}
-
-.quantity-controls span {
-  font-weight: 700;
-}
-
-
-/* =========================================
-   CART TOTAL
-========================================= */
-
-.cart-total {
-  background: white;
-
-  border: 1px solid #cde7f2;
-
-  border-radius: 14px;
-
-  padding: 25px;
-
-  box-shadow:
-    0 5px 18px rgba(0, 80, 120, 0.09);
-
-  color: #17324d;
-}
-
-.cart-total h3 {
-  color: #073b6f;
-
-  font-weight: 800;
-}
-
-
-/* =========================================
-   EMPTY CART
-========================================= */
-
-.empty-cart {
-  text-align: center;
-
-  background: white;
-
-  border-radius: 15px;
-
-  padding: 70px 20px;
-
-  margin-top: 50px;
-
-  box-shadow:
-    0 5px 18px rgba(0, 80, 120, 0.09);
-}
-
-.empty-cart h1 {
-  color: #073b6f;
-
-  margin-bottom: 15px;
-}
-
-.empty-cart p {
-  color: #607080;
-
-  margin-bottom: 25px;
-}
-
-
-/* =========================================
-   ABOUT / CONTACT
-========================================= */
-
-.content-page {
-  min-height: 650px;
-
-  padding-top: 55px;
-
-  padding-bottom: 60px;
-}
-
-.content-page h1 {
-  color: #073b6f;
-
-  font-weight: 800;
-
-  margin-bottom: 20px;
-}
-
-.content-page p {
-  color: #526777;
-
-  font-size: 17px;
+  font-size: 18px;
 
   line-height: 1.7;
 }
 
-.info-box,
-.contact-box {
-  background: white;
 
-  border: 1px solid #cde7f2;
+/* =========================================
+   CONTACT PAGE
+   ========================================= */
 
-  border-radius: 15px;
+.contact-page {
+  min-height: 100vh;
 
-  padding: 25px;
+  background: #111;
 
-  margin-top: 30px;
-
-  box-shadow:
-    0 5px 18px rgba(0, 80, 120, 0.08);
+  padding: 50px 20px;
 }
 
-.info-box h3 {
-  color: #073b6f;
+.contact-page h1 {
+  color: #ff4b16;
 
-  margin-bottom: 15px;
+  text-align: center;
+
+  font-size: 40px;
+
+  margin-bottom: 30px;
 }
 
-.info-box li {
-  margin-bottom: 10px;
+.contact-form {
+  max-width: 650px;
 
-  color: #526777;
+  margin: auto;
+
+  background: #1c1c1c;
+
+  padding: 30px;
+
+  border-radius: 12px;
+}
+
+.contact-form label {
+  color: white;
+
+  display: block;
+
+  margin-bottom: 7px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+
+  padding: 12px;
+
+  margin-bottom: 20px;
+
+  background: #111;
+
+  color: white;
+
+  border: 1px solid #444;
+
+  border-radius: 6px;
+}
+
+.contact-form textarea {
+  height: 140px;
+}
+
+.contact-submit {
+  background: #ff4b16;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 25px;
+
+  border-radius: 25px;
+
+  cursor: pointer;
 }
 
 
 /* =========================================
-   FORM
-========================================= */
+   CART
+   ========================================= */
 
-.form-control {
-  border: 1px solid #bddce9;
+.cart-page {
+  min-height: 100vh;
 
-  border-radius: 9px;
+  background: #111;
 
-  padding: 11px;
+  color: white;
+
+  padding: 50px 20px;
 }
 
-.form-control:focus {
-  border-color: #087ea4;
+.cart-title {
+  color: #ff4b16;
 
-  box-shadow:
-    0 0 0 3px rgba(8, 126, 164, 0.12);
+  font-size: 40px;
+
+  margin-bottom: 30px;
+}
+
+.cart-item {
+  background: #1c1c1c;
+
+  border: 1px solid #333;
+
+  border-radius: 10px;
+
+  padding: 20px;
+
+  margin-bottom: 15px;
+}
+
+.cart-total {
+  background: #ff4b16;
+
+  color: white;
+
+  padding: 18px;
+
+  border-radius: 8px;
+
+  font-size: 22px;
+
+  font-weight: bold;
 }
 
 
 /* =========================================
    FOOTER
-========================================= */
+   ========================================= */
 
-footer {
-  background: #063b66;
+.footer {
+  background: #111;
 
   color: white;
 
   text-align: center;
 
-  padding: 30px 20px;
+  padding: 25px;
 
-  margin-top: 0;
+  border-top: 1px solid #333;
 }
 
-footer h4 {
-  font-weight: 800;
+.footer a {
+  color: #ff4b16;
 
-  margin-bottom: 10px;
-}
-
-footer p {
-  color: #d8f3ff;
-}
-
-.footer-copy {
-  font-size: 14px;
-
-  margin-top: 15px;
+  text-decoration: none;
 }
 
 
 /* =========================================
    MOBILE
-========================================= */
+   ========================================= */
 
 @media (max-width: 768px) {
 
-  .hero-section {
-    min-height: 500px;
-
-    padding: 35px 20px;
+  .sports-logo {
+    font-size: 28px;
   }
 
-  .hero-overlay {
-    padding: 35px 20px;
+  .nav-links {
+    gap: 24px;
   }
 
-  .hero-section h1 {
-    font-size: 38px;
+  .nav-links a {
+    font-size: 19px;
   }
-
-  .hero-section p {
-    font-size: 17px;
-  }
-
-  .card-img-top {
-    height: 190px;
-  }
-
-}
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media (max-width: 576px) {
 
   .hero-section {
-    min-height: 470px;
+    min-height: 560px;
+
+    padding: 40px 15px;
   }
 
-  .hero-section h1 {
-    font-size: 30px;
+  .hero-content h1 {
+    font-size: 34px;
   }
 
-  .hero-section p {
-    font-size: 16px;
-  }
-
-  .navbar-brand {
+  .hero-content p {
     font-size: 20px;
   }
 
-  .card-img-top {
-    height: 180px;
+  .shop-now-btn {
+    font-size: 18px;
+
+    padding: 13px 32px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .sports-logo {
+    font-size: 24px;
   }
 
+  .hero-content h1 {
+    font-size: 29px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
 }
