@@ -1,5 +1,5 @@
-import { useCart } from "../context/CartContext";
 import type { Product } from "../data/products";
+import { useCart } from "../context/CartContext";
 
 type ProductCardProps = {
   product: Product;
@@ -8,21 +8,32 @@ type ProductCardProps = {
 function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
 
+  // Discount percentage
+  const discount = 20;
+
+  // Calculate discounted price
+  const discountedPrice = product.price - (product.price * discount) / 100;
+
   return (
-    <div className="card h-100">
-      <img src={product.image} alt={product.name} className="card-img-top" />
+    <div className="product-card">
+      {/* Discount Badge */}
+      <div className="discount-badge">🔥 {discount}% OFF</div>
 
-      <div className="card-body">
-        <span className="product-category">{product.category}</span>
+      {/* Product Image */}
+      <img src={product.image} alt={product.name} />
 
-        <h5 className="card-title">{product.name}</h5>
+      {/* Product Information */}
+      <div className="product-card-body">
+        <h3>{product.name}</h3>
 
-        <p className="product-price">Rs. {product.price.toLocaleString()}</p>
+        {/* Original Price */}
+        <p className="original-price">Rs. {product.price}</p>
 
-        <button
-          className="btn btn-primary w-100"
-          onClick={() => addToCart(product)}
-        >
+        {/* Discounted Price */}
+        <p className="discount-price">Rs. {discountedPrice}</p>
+
+        {/* Add To Cart */}
+        <button className="add-cart-btn" onClick={() => addToCart(product)}>
           Add To Cart
         </button>
       </div>

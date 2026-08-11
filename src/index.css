@@ -666,3 +666,60 @@ body {
 
   font-size: 14px;
 }
+/* =========================================
+   DISCOUNT SYSTEM
+   ========================================= */
+
+.product-card {
+  position: relative;
+}
+
+
+/* Discount badge */
+
+.discount-badge {
+  position: absolute;
+
+  top: 10px;
+  left: 10px;
+
+  background: #ff4b16;
+
+  color: white;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  z-index: 2;
+}
+
+
+/* Original price */
+
+.original-price {
+  color: #888 !important;
+
+  text-decoration: line-through;
+
+  font-size: 16px;
+
+  margin: 5px 0;
+}
+
+
+/* Discount price */
+
+.discount-price {
+  color: #ff4b16 !important;
+
+  font-size: 22px;
+
+  font-weight: bold;
+
+  margin: 5px 0 15px;
+}
