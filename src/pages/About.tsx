@@ -1,30 +1,33 @@
 function About() {
   return (
-    <div className="container mt-4">
+    <div className="container content-page">
       <h1>About GIGA SPORTS SHOP</h1>
 
-      <p className="mt-3">
-        GIGA SPORTS SHOP provides high quality sports equipment for cricket,
-        football, badminton, gym and fitness lovers.
+      <p>
+        Welcome to GIGA SPORTS SHOP, your online destination for quality sports
+        equipment and accessories.
       </p>
 
       <p>
-        Our mission is to provide reliable products at affordable prices with
-        excellent customer service.
+        We provide cricket, football, badminton, gym, running and other sports
+        products.
       </p>
 
-      <h3>Our Services</h3>
+      <div className="info-box">
+        <h3>Why Choose Us?</h3>
 
-      <ul>
-        <li>Weekly discount offers</li>
-        <li>High quality sports equipment</li>
-        <li>Fast delivery service</li>
-        <li>Easy return and exchange policy</li>
-      </ul>
+        <ul>
+          <li>High quality sports products</li>
 
-      <h3>Follow Us</h3>
+          <li>Affordable prices</li>
 
-      <p>Instagram | TikTok | WhatsApp Channel</p>
+          <li>Easy online shopping</li>
+
+          <li>Multiple sports categories</li>
+
+          <li>Customer friendly service</li>
+        </ul>
+      </div>
     </div>
   );
 }

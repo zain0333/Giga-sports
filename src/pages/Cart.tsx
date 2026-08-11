@@ -1,91 +1,104 @@
 import { Link } from "react-router-dom";
+
 import { useCart } from "../context/CartContext";
 
 function Cart() {
-  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
-    useCart();
+  const {
+    cart,
+    removeFromCart,
+    increaseQuantity,
+    decreaseQuantity,
+    clearCart,
+  } = useCart();
 
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  const totalPrice = cart.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0,
-  );
+  if (cart.length === 0) {
+    return (
+      <div className="container cart-page">
+        <div className="empty-cart">
+          <h1>Your Cart is Empty</h1>
 
-  return (
-    <div className="container mt-4">
-      <h1>Shopping Cart</h1>
+          <p>Add some sports products to your cart.</p>
 
-      {cart.length === 0 ? (
-        <div className="card p-4 shadow">
-          <h3>Your cart is empty</h3>
-
-          <Link to="/products" className="btn btn-primary mt-3">
-            Continue Shopping
+          <Link to="/products" className="btn btn-primary">
+            Shop Products
           </Link>
         </div>
-      ) : (
-        <>
-          <h4 className="mb-3">Total Items: {totalItems}</h4>
+      </div>
+    );
+  }
 
-          <div className="row">
-            {cart.map((item) => (
-              <div className="col-md-4 mb-4" key={item.id}>
-                <div className="card shadow h-100">
+  return (
+    <div className="container cart-page">
+      <h1 className="page-title">Shopping Cart</h1>
+
+      <div className="row g-4">
+        {/* CART PRODUCTS */}
+
+        <div className="col-lg-8">
+          {cart.map((item) => (
+            <div className="cart-item" key={item.id}>
+              <div className="row align-items-center">
+                <div className="col-md-3">
                   <img
                     src={item.image}
-                    className="card-img-top"
                     alt={item.name}
-                    style={{
-                      height: "220px",
-                      objectFit: "contain",
-                    }}
+                    className="cart-image"
                   />
+                </div>
 
-                  <div className="card-body">
-                    <h5>{item.name}</h5>
+                <div className="col-md-5">
+                  <h5>{item.name}</h5>
 
-                    <p>Price: Rs. {item.price}</p>
+                  <p>Rs. {item.price.toLocaleString()}</p>
+                </div>
 
-                    <div className="d-flex align-items-center">
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => decreaseQuantity(item.id)}
-                      >
-                        -
-                      </button>
+                <div className="col-md-2">
+                  <div className="quantity-controls">
+                    <button onClick={() => decreaseQuantity(item.id)}>-</button>
 
-                      <span className="mx-3">{item.quantity}</span>
+                    <span>{item.quantity}</span>
 
-                      <button
-                        className="btn btn-success"
-                        onClick={() => increaseQuantity(item.id)}
-                      >
-                        +
-                      </button>
-                    </div>
-
-                    <button
-                      className="btn btn-outline-danger mt-3"
-                      onClick={() => removeFromCart(item.id)}
-                    >
-                      Remove
-                    </button>
+                    <button onClick={() => increaseQuantity(item.id)}>+</button>
                   </div>
                 </div>
+
+                <div className="col-md-2">
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() => removeFromCart(item.id)}
+                  >
+                    Remove
+                  </button>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
 
-          <div className="card shadow p-4 mt-3">
-            <h3>Total Price: Rs. {totalPrice}</h3>
+          <button className="btn btn-outline-danger" onClick={clearCart}>
+            Clear Cart
+          </button>
+        </div>
 
-            <Link to="/checkout" className="btn btn-primary mt-3">
-              Proceed to Checkout
-            </Link>
+        {/* TOTAL */}
+
+        <div className="col-lg-4">
+          <div className="cart-total">
+            <h3>Order Summary</h3>
+
+            <hr />
+
+            <div className="d-flex justify-content-between">
+              <span>Total:</span>
+
+              <strong>Rs. {total.toLocaleString()}</strong>
+            </div>
+
+            <button className="btn btn-primary w-100 mt-4">Checkout</button>
           </div>
-        </>
-      )}
+        </div>
+      </div>
     </div>
   );
 }

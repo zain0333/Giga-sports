@@ -1,37 +1,33 @@
+import type { Product } from "../data/products";
+
 import { useCart } from "../context/CartContext";
 
-type ProductProps = {
-  id: number;
-  name: string;
-  category?: string;
-  price: number;
-  image: string;
+type ProductCardProps = {
+  product: Product;
 };
 
-function ProductCard({ id, name, category, price, image }: ProductProps) {
+function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
 
-  const product = {
-    id,
-    name,
-    category,
-    price,
-    image,
-    quantity: 1,
-  };
-
   return (
-    <div className="card shadow">
-      <img src={image} className="card-img-top" alt={name} />
+    <div className="card h-100">
+      {/* PRODUCT IMAGE */}
+
+      <img src={product.image} alt={product.name} className="card-img-top" />
+
+      {/* PRODUCT INFORMATION */}
 
       <div className="card-body">
-        <h5>{name}</h5>
+        <span className="product-category">{product.category}</span>
 
-        <p>{category}</p>
+        <h5 className="card-title">{product.name}</h5>
 
-        <p>Price: Rs. {price}</p>
+        <p className="product-price">Rs. {product.price.toLocaleString()}</p>
 
-        <button className="btn btn-primary" onClick={() => addToCart(product)}>
+        <button
+          className="btn btn-primary w-100"
+          onClick={() => addToCart(product)}
+        >
           Add To Cart
         </button>
       </div>

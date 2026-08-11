@@ -1,24 +1,55 @@
 function Contact() {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    alert("Thank you! Your message has been submitted.");
+  };
+
   return (
-    <div className="container mt-4">
+    <div className="container content-page">
       <h1>Contact Us</h1>
 
-      <div className="card shadow p-4 mt-3">
-        <input className="form-control mb-3" placeholder="Your Name" />
+      <p>Have a question? Contact GIGA SPORTS SHOP.</p>
 
-        <input className="form-control mb-3" placeholder="Your Email" />
+      <div className="contact-box">
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">Your Name</label>
 
-        <textarea className="form-control mb-3" placeholder="Your Message" />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
 
-        <button className="btn btn-primary">Send Message</button>
-      </div>
+          <div className="mb-3">
+            <label className="form-label">Email</label>
 
-      <div className="mt-4">
-        <h4>Contact Information</h4>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
 
-        <p>📱 WhatsApp: 03XX-XXXXXXX</p>
+          <div className="mb-3">
+            <label className="form-label">Message</label>
 
-        <p>📧 Email: support@gigasports.com</p>
+            <textarea
+              className="form-control"
+              rows={5}
+              placeholder="Write your message..."
+              required
+            />
+          </div>
+
+          <button type="submit" className="btn btn-primary">
+            Send Message
+          </button>
+        </form>
       </div>
     </div>
   );
