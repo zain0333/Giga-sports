@@ -6,7 +6,7 @@ function Categories() {
       <div className="categories-container">
         <div className="category-card">
           <h2>🏏 Cricket</h2>
-          <p>Bats, balls, gloves and cricket equipment.</p>
+          <p>Cricket bats, balls, gloves and equipment.</p>
         </div>
 
         <div className="category-card">
@@ -21,7 +21,7 @@ function Categories() {
 
         <div className="category-card">
           <h2>🏋️ Fitness</h2>
-          <p>Gym and fitness equipment for your workouts.</p>
+          <p>Gym and fitness equipment.</p>
         </div>
       </div>
     </div>
