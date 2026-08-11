@@ -13,10 +13,8 @@ import Cart from "./pages/Cart";
 function App() {
   return (
     <BrowserRouter>
-      {/* Navigation */}
       <Navbar />
 
-      {/* Pages */}
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
@@ -37,7 +35,6 @@ function App() {
         <Route path="/cart" element={<Cart />} />
       </Routes>
 
-      {/* Footer */}
       <Footer />
     </BrowserRouter>
   );
