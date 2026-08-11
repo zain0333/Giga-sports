@@ -5,43 +5,29 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-import Categories from "./pages/Categories";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import OrderTracking from "./pages/OrderTracking";
 
 function App() {
   return (
     <BrowserRouter>
-      {/* Navbar */}
       <Navbar />
 
-      {/* Website Routes */}
       <Routes>
-        {/* Home */}
         <Route path="/" element={<Home />} />
-
-        {/* Products */}
         <Route path="/products" element={<Products />} />
-
-        {/* Categories */}
-        <Route path="/categories" element={<Categories />} />
-
-        {/* About Us */}
         <Route path="/about" element={<About />} />
-
-        {/* Contact */}
         <Route path="/contact" element={<Contact />} />
-
-        {/* Cart */}
         <Route path="/cart" element={<Cart />} />
-
-        {/* Checkout */}
         <Route path="/checkout" element={<Checkout />} />
+
+        {/* Order Tracking */}
+        <Route path="/order-tracking" element={<OrderTracking />} />
       </Routes>
 
-      {/* Footer */}
       <Footer />
     </BrowserRouter>
   );
