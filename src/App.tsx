@@ -13,8 +13,10 @@ import Cart from "./pages/Cart";
 function App() {
   return (
     <BrowserRouter>
+      {/* Navbar */}
       <Navbar />
 
+      {/* Routes */}
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
@@ -25,7 +27,7 @@ function App() {
         {/* Categories */}
         <Route path="/categories" element={<Categories />} />
 
-        {/* About */}
+        {/* About Us */}
         <Route path="/about" element={<About />} />
 
         {/* Contact */}
@@ -35,6 +37,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
       </Routes>
 
+      {/* Footer */}
       <Footer />
     </BrowserRouter>
   );

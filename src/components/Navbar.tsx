@@ -10,7 +10,7 @@ function Navbar() {
       <div className="navbar-container">
         {/* Logo */}
         <Link to="/" className="sports-logo">
-          ⚡ <span>GIGA SPORTS</span>
+          ⚡ GIGA SPORTS
         </Link>
 
         {/* Navigation */}
@@ -20,6 +20,8 @@ function Navbar() {
           <Link to="/products">Products</Link>
 
           <Link to="/categories">Categories</Link>
+
+          <Link to="/about">About Us</Link>
 
           <Link to="/contact">Contact</Link>
 

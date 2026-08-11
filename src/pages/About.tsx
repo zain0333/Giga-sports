@@ -1,32 +1,20 @@
 function About() {
   return (
-    <div className="container content-page">
-      <h1>About GIGA SPORTS SHOP</h1>
+    <div className="about-page">
+      <h1>About Us</h1>
 
-      <p>
-        Welcome to GIGA SPORTS SHOP, your online destination for quality sports
-        equipment and accessories.
-      </p>
+      <div className="about-box">
+        <p>Welcome to GIGA SPORTS SHOP!</p>
 
-      <p>
-        We provide cricket, football, badminton, gym, running and other sports
-        products.
-      </p>
+        <p>
+          We provide high quality sports equipment for cricket, football,
+          badminton and fitness.
+        </p>
 
-      <div className="info-box">
-        <h3>Why Choose Us?</h3>
-
-        <ul>
-          <li>High quality sports products</li>
-
-          <li>Affordable prices</li>
-
-          <li>Easy online shopping</li>
-
-          <li>Multiple sports categories</li>
-
-          <li>Customer friendly service</li>
-        </ul>
+        <p>
+          Our goal is to provide quality products at affordable prices for every
+          sports lover.
+        </p>
       </div>
     </div>
   );
