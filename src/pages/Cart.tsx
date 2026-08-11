@@ -1,77 +1,59 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 function Cart() {
   const {
     cart,
     removeFromCart,
+    clearCart,
     increaseQuantity,
     decreaseQuantity,
-    clearCart,
   } = useCart();
 
-  // Calculate total price
+  const navigate = useNavigate();
 
+  // Calculate total price
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  // ==========================================
-  // EMPTY CART
-  // ==========================================
+  // Go to Checkout page
+  function handleCheckout() {
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
 
-  if (cart.length === 0) {
-    return (
-      <div className="container cart-page">
-        <div className="empty-cart">
-          <h1>Your Cart is Empty 🛒</h1>
-
-          <p>You haven't added any products yet.</p>
-
-          <Link to="/products" className="btn btn-primary">
-            Shop Products
-          </Link>
-        </div>
-      </div>
-    );
+    navigate("/checkout");
   }
 
-  // ==========================================
-  // CART WITH PRODUCTS
-  // ==========================================
-
   return (
-    <div className="container cart-page">
-      <h1 className="page-title">Shopping Cart 🛒</h1>
+    <div className="cart-page">
+      <h1 className="cart-title">Shopping Cart</h1>
 
-      <div className="row g-4">
-        {/* ==================================
-            CART PRODUCTS
-        ================================== */}
+      {cart.length === 0 ? (
+        <div className="empty-cart">
+          <h2>Your cart is empty</h2>
+          <p>Add some sports products to your cart.</p>
+        </div>
+      ) : (
+        <>
+          {/* Cart Products */}
+          <div className="cart-items">
+            {cart.map((item) => (
+              <div className="cart-item" key={item.id}>
+                {/* Product Image */}
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="cart-product-image"
+                />
 
-        <div className="col-lg-8">
-          {cart.map((item) => (
-            <div className="cart-item" key={item.id}>
-              <div className="row align-items-center g-3">
-                {/* IMAGE */}
+                {/* Product Information */}
+                <div className="cart-product-info">
+                  <h2>{item.name}</h2>
 
-                <div className="col-4 col-md-3">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="cart-image"
-                  />
-                </div>
+                  <p>Price: Rs. {item.price}</p>
 
-                {/* PRODUCT NAME */}
-
-                <div className="col-8 col-md-3">
-                  <h5>{item.name}</h5>
-
-                  <p>Rs. {item.price.toLocaleString()}</p>
-                </div>
-
-                {/* QUANTITY */}
-
-                <div className="col-6 col-md-3">
+                  {/* Quantity */}
                   <div className="quantity-controls">
                     <button onClick={() => decreaseQuantity(item.id)}>-</button>
 
@@ -79,62 +61,49 @@ function Cart() {
 
                     <button onClick={() => increaseQuantity(item.id)}>+</button>
                   </div>
-                </div>
 
-                {/* REMOVE */}
-
-                <div className="col-6 col-md-3">
+                  {/* Remove */}
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="remove-btn"
                     onClick={() => removeFromCart(item.id)}
                   >
                     Remove
                   </button>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
 
-          {/* CLEAR CART */}
-
-          <button className="btn btn-outline-danger mt-2" onClick={clearCart}>
+          {/* Clear Cart */}
+          <button className="clear-cart-btn" onClick={clearCart}>
             Clear Cart
           </button>
-        </div>
 
-        {/* ==================================
-            ORDER SUMMARY
-        ================================== */}
-
-        <div className="col-lg-4">
-          <div className="cart-total">
-            <h3>Order Summary</h3>
+          {/* Order Summary */}
+          <div className="order-summary">
+            <h2>Order Summary</h2>
 
             <hr />
 
-            <div className="d-flex justify-content-between mb-2">
-              <span>Products:</span>
+            <div className="summary-row">
+              <strong>Products:</strong>
 
-              <span>
-                {cart.reduce((total, item) => total + item.quantity, 0)}
-              </span>
+              <strong>{cart.length}</strong>
             </div>
 
-            <div className="d-flex justify-content-between">
+            <div className="summary-row">
               <strong>Total:</strong>
 
-              <strong>Rs. {total.toLocaleString()}</strong>
+              <strong>Rs. {total}</strong>
             </div>
 
-            <button
-              className="btn btn-primary w-100 mt-4"
-              onClick={() => alert("Checkout feature will be added next!")}
-            >
+            {/* Checkout */}
+            <button className="checkout-btn" onClick={handleCheckout}>
               Checkout
             </button>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 }
