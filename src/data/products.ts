@@ -4,6 +4,7 @@ export type Product = {
   category: string;
   price: number;
   image: string;
+  stock: number;
 };
 
 export const products: Product[] = [
@@ -14,6 +15,7 @@ export const products: Product[] = [
     price: 8500,
     image:
       "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=600&q=80",
+    stock: 10,
   },
 
   {
@@ -23,6 +25,7 @@ export const products: Product[] = [
     price: 4500,
     image:
       "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=600&q=80",
+    stock: 15,
   },
 
   {
@@ -32,6 +35,7 @@ export const products: Product[] = [
     price: 3500,
     image:
       "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=600&q=80",
+    stock: 20,
   },
 
   {
@@ -41,6 +45,7 @@ export const products: Product[] = [
     price: 7500,
     image:
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80",
+    stock: 25,
   },
 
   {
@@ -50,6 +55,7 @@ export const products: Product[] = [
     price: 6000,
     image:
       "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=600&q=80",
+    stock: 30,
   },
 
   {
@@ -59,6 +65,7 @@ export const products: Product[] = [
     price: 3000,
     image:
       "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=600&q=80",
+    stock: 35,
   },
 
   {
@@ -68,6 +75,7 @@ export const products: Product[] = [
     price: 4000,
     image:
       "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&q=80",
+    stock: 25,
   },
 
   {
@@ -77,5 +85,6 @@ export const products: Product[] = [
     price: 5500,
     image:
       "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?auto=format&fit=crop&w=600&q=80",
+    stock: 20,
   },
 ];
