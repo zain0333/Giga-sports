@@ -1,11 +1,7 @@
-import Navbar from "../components/Navbar";
-
 function Home() {
   return (
     <div className="home-page">
-      {/* =====================================
-          SPORTS HERO / WELCOME SECTION
-      ====================================== */}
+      {/* HERO SECTION */}
 
       <section className="hero-section">
         <div className="hero-overlay">
@@ -21,15 +17,7 @@ function Home() {
         </div>
       </section>
 
-      {/* =====================================
-          NAVIGATION BELOW WELCOME SECTION
-      ====================================== */}
-
-      <Navbar />
-
-      {/* =====================================
-          SPORTS COLLECTION
-      ====================================== */}
+      {/* SPORTS COLLECTION */}
 
       <section className="products-intro container">
         <h2>Our Sports Collection</h2>

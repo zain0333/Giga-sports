@@ -1,6 +1,5 @@
-import type { Product } from "../data/products";
-
 import { useCart } from "../context/CartContext";
+import type { Product } from "../data/products";
 
 type ProductCardProps = {
   product: Product;
@@ -11,11 +10,7 @@ function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className="card h-100">
-      {/* PRODUCT IMAGE */}
-
       <img src={product.image} alt={product.name} className="card-img-top" />
-
-      {/* PRODUCT INFORMATION */}
 
       <div className="card-body">
         <span className="product-category">{product.category}</span>

@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { CartProvider } from "./context/CartContext";
-
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -13,21 +11,24 @@ import Cart from "./pages/Cart";
 
 function App() {
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <Navbar />
+    <BrowserRouter>
+      {/* Navigation appears on every page */}
+      <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-        <Footer />
-      </BrowserRouter>
-    </CartProvider>
+        <Route path="/products" element={<Products />} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/contact" element={<Contact />} />
+
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+
+      <Footer />
+    </BrowserRouter>
   );
 }
 
