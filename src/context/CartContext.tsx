@@ -3,10 +3,12 @@ import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 import type { Product } from "../data/products";
 
+// Cart item type
 export type CartItem = Product & {
   quantity: number;
 };
 
+// Functions available in the cart
 type CartContextType = {
   cart: CartItem[];
 
@@ -21,12 +23,16 @@ type CartContextType = {
   clearCart: () => void;
 };
 
+// Create context
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+// Cart Provider
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  /* ADD PRODUCT */
+  // ==========================================
+  // ADD TO CART
+  // ==========================================
 
   const addToCart = (product: Product) => {
     setCart((currentCart) => {
@@ -34,6 +40,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         (item) => item.id === product.id,
       );
 
+      // If product already exists
       if (existingProduct) {
         return currentCart.map((item) =>
           item.id === product.id
@@ -45,6 +52,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         );
       }
 
+      // Add new product
       return [
         ...currentCart,
         {
@@ -55,13 +63,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  /* REMOVE PRODUCT */
+  // ==========================================
+  // REMOVE FROM CART
+  // ==========================================
 
   const removeFromCart = (id: number) => {
     setCart((currentCart) => currentCart.filter((item) => item.id !== id));
   };
 
-  /* INCREASE QUANTITY */
+  // ==========================================
+  // INCREASE QUANTITY
+  // ==========================================
 
   const increaseQuantity = (id: number) => {
     setCart((currentCart) =>
@@ -76,7 +88,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  /* DECREASE QUANTITY */
+  // ==========================================
+  // DECREASE QUANTITY
+  // ==========================================
 
   const decreaseQuantity = (id: number) => {
     setCart((currentCart) =>
@@ -93,11 +107,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  /* CLEAR CART */
+  // ==========================================
+  // CLEAR CART
+  // ==========================================
 
   const clearCart = () => {
     setCart([]);
   };
+
+  // ==========================================
+  // PROVIDER
+  // ==========================================
 
   return (
     <CartContext.Provider
@@ -114,6 +134,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     </CartContext.Provider>
   );
 }
+
+// ==========================================
+// USE CART HOOK
+// ==========================================
 
 export function useCart() {
   const context = useContext(CartContext);
