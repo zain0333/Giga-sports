@@ -1,6 +1,6 @@
-/* =========================================
+/* =====================================
    GIGA SPORTS SHOP
-   ========================================= */
+   ===================================== */
 
 * {
   margin: 0;
@@ -21,18 +21,21 @@ body {
 }
 
 
-/* =========================================
+/* =====================================
    NAVBAR
-   ========================================= */
+   ===================================== */
 
 .sports-navbar {
   width: 100%;
-  background: #111111;
-  padding: 20px 30px;
+  background: #111;
+
+  padding: 20px 20px 22px;
 }
 
 .navbar-container {
-  max-width: 900px;
+  width: 100%;
+  max-width: 1000px;
+
   margin: auto;
 
   display: flex;
@@ -45,16 +48,14 @@ body {
 
 .sports-logo {
   color: #ff4b16 !important;
+
   text-decoration: none;
 
   font-size: 34px;
-  font-weight: bold;
 
-  margin-bottom: 15px;
+  font-weight: 800;
 
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 18px;
 }
 
 .sports-logo:hover {
@@ -66,10 +67,12 @@ body {
 
 .nav-links {
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
 
-  gap: 28px;
+  gap: 27px;
 }
 
 .nav-links a {
@@ -78,6 +81,8 @@ body {
   text-decoration: none;
 
   font-size: 21px;
+
+  font-weight: 400;
 
   transition: 0.3s;
 }
@@ -91,7 +96,9 @@ body {
 
 .cart-link {
   display: flex;
+
   align-items: center;
+
   gap: 7px;
 }
 
@@ -100,34 +107,41 @@ body {
 
   color: white;
 
-  min-width: 22px;
+  width: 22px;
+
   height: 22px;
 
   border-radius: 50%;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   font-size: 12px;
 }
 
 
-/* =========================================
-   HERO SECTION
-   ========================================= */
+/* =====================================
+   SPORTS BACKGROUND / HERO
+   ===================================== */
 
 .hero-section {
   width: 100%;
 
   min-height: 565px;
 
+  /*
+     THIS IS YOUR SPORTS POSTER
+  */
+
   background-image:
     linear-gradient(
-      rgba(0, 0, 0, 0.50),
-      rgba(0, 0, 0, 0.50)
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
     ),
-    url("/sports-bg.jpg");
+    url("/sports-bg.png");
 
   background-size: cover;
 
@@ -143,21 +157,24 @@ body {
 
   text-align: center;
 
-  padding: 50px 20px;
+  padding: 40px 20px;
 }
 
 
-/* Hero content */
+/* =====================================
+   HERO CONTENT
+   ===================================== */
 
 .hero-content {
   width: 100%;
-  max-width: 800px;
+
+  max-width: 850px;
 
   color: white;
 }
 
 
-/* Hero heading */
+/* Heading */
 
 .hero-content h1 {
   color: white;
@@ -169,29 +186,29 @@ body {
   margin-bottom: 25px;
 
   text-shadow:
-    2px 2px 5px #000;
+    2px 2px 6px #000;
 }
 
 
-/* Hero description */
+/* Description */
 
 .hero-content p {
   color: white;
 
-  font-size: 24px;
+  font-size: 23px;
 
   line-height: 1.4;
 
   margin-bottom: 30px;
 
   text-shadow:
-    2px 2px 5px #000;
+    2px 2px 6px #000;
 }
 
 
-/* =========================================
-   SHOP NOW BUTTON
-   ========================================= */
+/* =====================================
+   SHOP NOW
+   ===================================== */
 
 .shop-now-btn {
   display: inline-block;
@@ -209,8 +226,6 @@ body {
   font-size: 20px;
 
   transition: 0.3s;
-
-  border: none;
 }
 
 .shop-now-btn:hover {
@@ -222,14 +237,14 @@ body {
 }
 
 
-/* =========================================
-   PRODUCTS PAGE
-   ========================================= */
+/* =====================================
+   PRODUCTS
+   ===================================== */
 
 .products-page {
-  background: #111;
-
   min-height: 100vh;
+
+  background: #111;
 
   padding: 50px 20px;
 }
@@ -241,11 +256,13 @@ body {
 
   font-size: 40px;
 
+  font-weight: 800;
+
   margin-bottom: 40px;
 }
 
 
-/* Product cards */
+/* Product card */
 
 .product-card {
   background: #1c1c1c;
@@ -267,6 +284,9 @@ body {
   border-color: #ff4b16;
 }
 
+
+/* Product image */
+
 .product-card img {
   width: 100%;
 
@@ -274,10 +294,13 @@ body {
 
   object-fit: contain;
 
-  background: white;
-
   padding: 15px;
+
+  background: white;
 }
+
+
+/* Product body */
 
 .product-card-body {
   padding: 18px;
@@ -313,9 +336,9 @@ body {
 
   border: none;
 
-  padding: 11px;
+  border-radius: 7px;
 
-  border-radius: 6px;
+  padding: 11px;
 
   font-size: 16px;
 
@@ -327,9 +350,9 @@ body {
 }
 
 
-/* =========================================
-   ABOUT PAGE
-   ========================================= */
+/* =====================================
+   ABOUT
+   ===================================== */
 
 .about-page {
   min-height: 100vh;
@@ -352,7 +375,7 @@ body {
 }
 
 .about-box {
-  max-width: 800px;
+  max-width: 850px;
 
   margin: auto;
 
@@ -374,9 +397,9 @@ body {
 }
 
 
-/* =========================================
-   CONTACT PAGE
-   ========================================= */
+/* =====================================
+   CONTACT
+   ===================================== */
 
 .contact-page {
   min-height: 100vh;
@@ -406,14 +429,16 @@ body {
   padding: 30px;
 
   border-radius: 12px;
+
+  border: 1px solid #333;
 }
 
 .contact-form label {
-  color: white;
-
   display: block;
 
-  margin-bottom: 7px;
+  color: white;
+
+  margin-bottom: 8px;
 }
 
 .contact-form input,
@@ -430,7 +455,7 @@ body {
 
   border: 1px solid #444;
 
-  border-radius: 6px;
+  border-radius: 7px;
 }
 
 .contact-form textarea {
@@ -452,9 +477,9 @@ body {
 }
 
 
-/* =========================================
+/* =====================================
    CART
-   ========================================= */
+   ===================================== */
 
 .cart-page {
   min-height: 100vh;
@@ -501,9 +526,9 @@ body {
 }
 
 
-/* =========================================
+/* =====================================
    FOOTER
-   ========================================= */
+   ===================================== */
 
 .footer {
   background: #111;
@@ -524,14 +549,14 @@ body {
 }
 
 
-/* =========================================
+/* =====================================
    MOBILE
-   ========================================= */
+   ===================================== */
 
 @media (max-width: 768px) {
 
   .sports-logo {
-    font-size: 28px;
+    font-size: 29px;
   }
 
   .nav-links {
@@ -567,7 +592,7 @@ body {
 @media (max-width: 480px) {
 
   .sports-logo {
-    font-size: 24px;
+    font-size: 25px;
   }
 
   .hero-content h1 {
