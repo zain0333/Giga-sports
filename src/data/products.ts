@@ -67,7 +67,7 @@ export const products: Product[] = [
     category: "Cricket",
     price: 1800,
     image:
-      "https://images.unsplash.com/photo-1593766827228-8737b4f8b0c8?auto=format&fit=crop&w=800&q=80",
+      "https://whacksports.com.au/cdn/shop/files/Whack-Spin-Trainer-Leather-Cricket-Ball-2025-Main.jpg?v=1754585214&width=900",
   },
 
   {

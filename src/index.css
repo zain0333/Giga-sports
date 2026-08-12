@@ -1,4 +1,16 @@
 /* =========================================
+   GIGA SPORTS SHOP COLOR THEME
+   ========================================= */
+
+:root {
+  --steel-azure: #054a91ff;
+  --steel-blue: #3e7cb1ff;
+  --wisteria-blue: #81a4cdff;
+  --alice-blue: #dbe4eeff;
+  --harvest-orange: #f17300ff;
+}
+
+/* =========================================
    GIGA SPORTS SHOP
    ========================================= */
 
@@ -11,7 +23,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #111;
+  background: var(--steel-azure);
 }
 
 
@@ -21,7 +33,7 @@ body {
 
 .sports-navbar {
   width: 100%;
-  background: #111;
+  background: var(--steel-azure);
   padding: 20px;
 }
 
@@ -35,7 +47,7 @@ body {
 /* Logo */
 
 .sports-logo {
-  color: #ff4b16 !important;
+  color: var(--harvest-orange) !important;
   text-decoration: none;
 
   font-size: 34px;
@@ -45,7 +57,7 @@ body {
 }
 
 .sports-logo:hover {
-  color: #ff641f !important;
+  color: var(--steel-blue) !important;
 }
 
 
@@ -70,7 +82,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: #ff4b16;
+  color: var(--harvest-orange);
 }
 
 
@@ -83,7 +95,7 @@ body {
 }
 
 .cart-count {
-  background: #ff4b16;
+  background: var(--harvest-orange);
   color: white;
 
   width: 22px;
@@ -181,7 +193,7 @@ body {
 .shop-now-btn {
   display: inline-block;
 
-  background: #ff4b16;
+  background: var(--harvest-orange);
 
   color: white;
 
@@ -199,7 +211,7 @@ body {
 }
 
 .shop-now-btn:hover {
-  background: #ff641f;
+  background: var(--steel-blue);
 
   color: white;
 
@@ -214,13 +226,13 @@ body {
 .products-page {
   min-height: 100vh;
 
-  background: #111;
+  background: var(--steel-azure);
 
   padding: 50px 20px;
 }
 
 .products-title {
-  color: #ff4b16;
+  color: var(--harvest-orange);
 
   text-align: center;
 
@@ -230,9 +242,9 @@ body {
 }
 
 .product-card {
-  background: #1c1c1c;
+  background: var(--steel-blue);
 
-  border: 1px solid #333;
+  border: 1px solid var(--wisteria-blue);
 
   border-radius: 12px;
 
@@ -246,7 +258,7 @@ body {
 .product-card:hover {
   transform: translateY(-5px);
 
-  border-color: #ff4b16;
+  border-color: var(--harvest-orange);
 }
 
 .product-card img {
@@ -269,11 +281,11 @@ body {
 }
 
 .product-card p {
-  color: #ccc;
+  color: var(--alice-blue);
 }
 
 .product-price {
-  color: #ff4b16;
+  color: var(--harvest-orange);
 
   font-size: 22px;
 
@@ -283,7 +295,7 @@ body {
 .add-cart-btn {
   width: 100%;
 
-  background: #ff4b16;
+  background: var(--harvest-orange);
 
   color: white;
 
@@ -299,7 +311,7 @@ body {
 }
 
 .add-cart-btn:hover {
-  background: #ff641f;
+  background: var(--steel-blue);
 }
 
 
@@ -310,7 +322,7 @@ body {
 .about-page {
   min-height: 100vh;
 
-  background: #111;
+  background: var(--steel-azure);
 
   color: white;
 
@@ -318,7 +330,7 @@ body {
 }
 
 .about-page h1 {
-  color: #ff4b16;
+  color: var(--harvest-orange);
 
   text-align: center;
 
@@ -332,17 +344,17 @@ body {
 
   margin: auto;
 
-  background: #1c1c1c;
+  background: var(--steel-blue);
 
   padding: 30px;
 
   border-radius: 12px;
 
-  border: 1px solid #333;
+  border: 1px solid var(--wisteria-blue);
 }
 
 .about-box p {
-  color: #ddd;
+  color: var(--alice-blue);
 
   font-size: 18px;
 
@@ -357,13 +369,13 @@ body {
 .contact-page {
   min-height: 100vh;
 
-  background: #111;
+  background: var(--steel-azure);
 
   padding: 50px 20px;
 }
 
 .contact-page h1 {
-  color: #ff4b16;
+  color: var(--harvest-orange);
 
   text-align: center;
 
@@ -377,13 +389,13 @@ body {
 
   margin: auto;
 
-  background: #1c1c1c;
+  background: var(--steel-blue);
 
   padding: 30px;
 
   border-radius: 12px;
 
-  border: 1px solid #333;
+  border: 1px solid var(--wisteria-blue);
 }
 
 .contact-form label {
@@ -402,11 +414,11 @@ body {
 
   margin-bottom: 20px;
 
-  background: #111;
+  background: var(--steel-azure);
 
   color: white;
 
-  border: 1px solid #444;
+  border: 1px solid var(--wisteria-blue);
 
   border-radius: 7px;
 }
@@ -416,7 +428,7 @@ body {
 }
 
 .contact-submit {
-  background: #ff4b16;
+  background: var(--harvest-orange);
 
   color: white;
 
@@ -437,7 +449,7 @@ body {
 .cart-page {
   min-height: 100vh;
 
-  background: #111;
+  background: var(--steel-azure);
 
   color: white;
 
@@ -445,7 +457,7 @@ body {
 }
 
 .cart-title {
-  color: #ff4b16;
+  color: var(--harvest-orange);
 
   font-size: 40px;
 
@@ -453,9 +465,9 @@ body {
 }
 
 .cart-item {
-  background: #1c1c1c;
+  background: var(--steel-blue);
 
-  border: 1px solid #333;
+  border: 1px solid var(--wisteria-blue);
 
   border-radius: 10px;
 
@@ -465,7 +477,7 @@ body {
 }
 
 .cart-total {
-  background: #ff4b16;
+  background: var(--harvest-orange);
 
   color: white;
 
@@ -484,7 +496,7 @@ body {
    ========================================= */
 
 .footer {
-  background: #111;
+  background: var(--steel-azure);
 
   color: white;
 
@@ -492,7 +504,7 @@ body {
 
   padding: 25px;
 
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--wisteria-blue);
 }
 
 
@@ -584,25 +596,25 @@ body {
   text-decoration: none;
 
   border-radius: 12px;
-  border: 1px solid #333;
+  border: 1px solid var(--wisteria-blue);
 
-  background: #1c1c1c;
+  background: var(--steel-blue);
 
   transition: 0.3s;
 }
 
 .category-card:hover {
   transform: translateY(-5px);
-  border-color: #ff4b16;
+  border-color: var(--harvest-orange);
 }
 
 .category-card h2 {
-  color: #ff4b16;
+  color: var(--harvest-orange);
   margin-bottom: 10px;
 }
 
 .category-card p {
-  color: #ccc;
+  color: var(--alice-blue);
   margin: 0;
 }
 
@@ -638,9 +650,9 @@ body {
 
   color: white;
 
-  background: #222;
+  background: var(--steel-blue);
 
-  border: 1px solid #444;
+  border: 1px solid var(--wisteria-blue);
 
   border-radius: 50%;
 
@@ -652,9 +664,9 @@ body {
 }
 
 .social-links a:hover {
-  color: #ff4b16;
+  color: var(--harvest-orange);
 
-  border-color: #ff4b16;
+  border-color: var(--harvest-orange);
 
   transform: translateY(-4px);
 }
@@ -662,7 +674,7 @@ body {
 .copyright {
   margin-top: 15px;
 
-  color: #888;
+  color: var(--wisteria-blue);
 
   font-size: 14px;
 }
@@ -683,7 +695,7 @@ body {
   top: 10px;
   left: 10px;
 
-  background: #ff4b16;
+  background: var(--harvest-orange);
 
   color: white;
 
@@ -702,7 +714,7 @@ body {
 /* Original price */
 
 .original-price {
-  color: #888 !important;
+  color: var(--wisteria-blue) !important;
 
   text-decoration: line-through;
 
@@ -715,7 +727,7 @@ body {
 /* Discount price */
 
 .discount-price {
-  color: #ff4b16 !important;
+  color: var(--harvest-orange) !important;
 
   font-size: 22px;
 
@@ -732,7 +744,7 @@ body {
   width: 100%;
   margin: 25px 0;
   padding: 25px 20px;
-  background: linear-gradient(135deg, #0d6efd, #084298);
+  background: linear-gradient(135deg, var(--steel-blue), var(--steel-azure));
   color: white;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -772,7 +784,7 @@ body {
   min-width: 65px;
   padding: 8px;
   background: white;
-  color: #084298;
+  color: var(--steel-azure);
   border-radius: 10px;
   text-align: center;
 }
@@ -824,7 +836,7 @@ body {
 .search-input {
   width: 100%;
   padding: 14px 20px;
-  border: 2px solid #0d6efd;
+  border: 2px solid var(--steel-blue);
   border-radius: 30px;
   font-size: 16px;
   outline: none;
@@ -832,12 +844,12 @@ body {
 }
 
 .search-input:focus {
-  border-color: #084298;
+  border-color: var(--steel-azure);
   box-shadow: 0 0 10px rgba(13, 110, 253, 0.2);
 }
 
 .search-input::placeholder {
-  color: #777;
+  color: var(--steel-blue);
 }
 /* =========================
    STOCK STATUS
@@ -860,26 +872,25 @@ body {
 /* 🟢 In Stock */
 .in-stock {
   background-color: #d1fae5 !important;
-  color: #087f5b !important;
+  color: var(--steel-azure) !important;
 }
 
 /* 🟠 Low Stock */
 .low-stock {
-  background-color: #fff3cd !important;
-  color: #b45309 !important;
+  background-color: var(--alice-blue) !important;
+  color: var(--harvest-orange) !important;
 }
 
 /* 🔴 Out of Stock */
 .out-of-stock {
-  background-color: #f8d7da !important;
-  color: #b02a37 !important;
+  background-color: var(--alice-blue) !important;
+  color: var(--steel-azure) !important;
 }
 
 /* Out of stock button */
 .add-cart-btn:disabled {
-  background-color: #777 !important;
+  background-color: var(--steel-blue) !important;
   color: white !important;
   cursor: not-allowed;
   opacity: 0.7;
 }
-
