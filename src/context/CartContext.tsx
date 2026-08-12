@@ -3,12 +3,12 @@ import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 import type { Product } from "../data/products";
 
-// Cart item type
+// Cart item
 export type CartItem = Product & {
   quantity: number;
 };
 
-// Functions available in the cart
+// Functions available in CartContext
 type CartContextType = {
   cart: CartItem[];
 
@@ -21,6 +21,10 @@ type CartContextType = {
   decreaseQuantity: (id: number) => void;
 
   clearCart: () => void;
+
+  totalItems: number;
+
+  totalPrice: number;
 };
 
 // Create context
@@ -30,10 +34,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  // ==========================================
-  // ADD TO CART
-  // ==========================================
-
+  // Add product to cart
   const addToCart = (product: Product) => {
     setCart((currentCart) => {
       const existingProduct = currentCart.find(
@@ -63,18 +64,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  // ==========================================
-  // REMOVE FROM CART
-  // ==========================================
-
+  // Remove product completely
   const removeFromCart = (id: number) => {
     setCart((currentCart) => currentCart.filter((item) => item.id !== id));
   };
 
-  // ==========================================
-  // INCREASE QUANTITY
-  // ==========================================
-
+  // Increase quantity
   const increaseQuantity = (id: number) => {
     setCart((currentCart) =>
       currentCart.map((item) =>
@@ -88,10 +83,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  // ==========================================
-  // DECREASE QUANTITY
-  // ==========================================
-
+  // Decrease quantity
   const decreaseQuantity = (id: number) => {
     setCart((currentCart) =>
       currentCart
@@ -107,17 +99,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  // ==========================================
-  // CLEAR CART
-  // ==========================================
-
+  // Clear cart
   const clearCart = () => {
     setCart([]);
   };
 
-  // ==========================================
-  // PROVIDER
-  // ==========================================
+  // Total number of products
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
+  // Total price
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0,
+  );
 
   return (
     <CartContext.Provider
@@ -128,6 +122,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         increaseQuantity,
         decreaseQuantity,
         clearCart,
+        totalItems,
+        totalPrice,
       }}
     >
       {children}
@@ -135,10 +131,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// ==========================================
-// USE CART HOOK
-// ==========================================
-
+// Custom hook
 export function useCart() {
   const context = useContext(CartContext);
 
