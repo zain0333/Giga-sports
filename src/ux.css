@@ -133,3 +133,503 @@ textarea {
     scroll-behavior: auto !important;
   }
 }
+/* =========================================
+   PROFESSIONAL CHECKOUT DESIGN
+   ========================================= */
+
+.checkout-page {
+  min-height: 75vh;
+  padding: 60px 0;
+  background: #dbe4ee;
+}
+
+/* Heading */
+
+.checkout-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.checkout-heading > span {
+  color: #f17300;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.checkout-heading h1 {
+  color: #054a91;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 5px 0;
+}
+
+.checkout-heading p {
+  color: #6c757d;
+  margin: 0;
+}
+
+/* Main Cards */
+
+.checkout-section-card,
+.checkout-summary-card {
+  background: #ffffff;
+  border: 1px solid #81a4cd;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 20px rgba(5, 74, 145, 0.08);
+}
+
+/* Section Title */
+
+.checkout-section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 25px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #dbe4ee;
+}
+
+.checkout-title-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+
+  background: #054a91;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.1rem;
+}
+
+.checkout-section-title h2 {
+  color: #054a91;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.checkout-section-title p {
+  color: #6c757d;
+  font-size: 0.85rem;
+  margin: 3px 0 0;
+}
+
+/* Labels */
+
+.checkout-section-card label:not(.payment-option) {
+  display: block;
+  color: #054a91;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 7px;
+}
+
+/* Inputs */
+
+.checkout-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid #81a4cd;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  padding: 0 13px;
+
+  transition: all 0.2s ease;
+}
+
+.checkout-input-wrapper:focus-within {
+  border-color: #054a91;
+  box-shadow: 0 0 0 3px rgba(5, 74, 145, 0.12);
+}
+
+.checkout-input-wrapper > svg {
+  color: #3e7cb1;
+  flex-shrink: 0;
+}
+
+.checkout-input-wrapper input,
+.checkout-input-wrapper textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 12px 0;
+  color: #17202a;
+  background: transparent;
+  font-size: 0.95rem;
+}
+
+.checkout-input-wrapper textarea {
+  resize: vertical;
+}
+
+.textarea-wrapper {
+  align-items: flex-start;
+}
+
+.textarea-wrapper svg {
+  margin-top: 14px;
+}
+
+/* Payment Options */
+
+.payment-options {
+  display: grid;
+  gap: 12px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  border: 2px solid #dbe4ee;
+  border-radius: 10px;
+
+  padding: 14px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.payment-option:hover {
+  border-color: #81a4cd;
+  background: #f5f8fc;
+}
+
+.payment-option.payment-selected {
+  border-color: #054a91;
+  background: #f5f8fc;
+}
+
+.payment-option input {
+  accent-color: #054a91;
+  width: 18px;
+  height: 18px;
+}
+
+.payment-icon {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 9px;
+
+  background: #dbe4ee;
+  color: #054a91;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 800;
+}
+
+.payment-easypaisa {
+  background: #dbe4ee;
+  color: #054a91;
+  font-size: 0.75rem;
+}
+
+.payment-jazzcash {
+  background: #dbe4ee;
+  color: #f17300;
+  font-size: 0.75rem;
+}
+
+.payment-details strong {
+  display: block;
+  color: #054a91;
+  font-size: 0.95rem;
+}
+
+.payment-details span {
+  display: block;
+  color: #6c757d;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+/* Order Summary */
+
+.checkout-summary-card {
+  position: sticky;
+  top: 20px;
+}
+
+.summary-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding-bottom: 18px;
+  border-bottom: 1px solid #dbe4ee;
+
+  margin-bottom: 20px;
+}
+
+.summary-heading svg {
+  color: #f17300;
+  font-size: 1.2rem;
+}
+
+.summary-heading h2 {
+  color: #054a91;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+/* Product */
+
+.summary-product {
+  display: grid;
+  grid-template-columns: 55px 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.summary-product-image {
+  width: 55px;
+  height: 55px;
+
+  background: #f5f8fc;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.8rem;
+}
+
+.summary-product-info strong {
+  display: block;
+  color: #054a91;
+  font-size: 0.9rem;
+}
+
+.summary-product-info span {
+  color: #6c757d;
+  font-size: 0.78rem;
+}
+
+.summary-product > strong {
+  color: #f17300;
+  font-size: 0.9rem;
+}
+
+/* Divider */
+
+.summary-divider {
+  height: 1px;
+  background: #dbe4ee;
+  margin: 20px 0;
+}
+
+/* Summary Rows */
+
+.summary-row,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-row {
+  margin-bottom: 12px;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.summary-row strong {
+  color: #054a91;
+}
+
+.summary-total span {
+  color: #054a91;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.summary-total strong {
+  color: #f17300;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+/* Place Order */
+
+.place-order-btn {
+  width: 100%;
+  min-height: 48px;
+
+  margin-top: 25px;
+
+  background: #f17300;
+  color: #ffffff;
+
+  border: 2px solid #f17300;
+  border-radius: 8px;
+
+  font-weight: 800;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.place-order-btn:hover {
+  background: #054a91;
+  border-color: #054a91;
+  transform: translateY(-2px);
+}
+
+/* Secure Checkout */
+
+.secure-checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  color: #6c757d;
+
+  font-size: 0.75rem;
+
+  margin-top: 15px;
+}
+
+.secure-checkout svg {
+  color: #054a91;
+}
+
+/* Success */
+
+.order-success-card {
+  max-width: 600px;
+  margin: 50px auto;
+
+  background: #ffffff;
+  border-radius: 18px;
+
+  padding: 50px 30px;
+
+  text-align: center;
+
+  box-shadow: 0 10px 35px rgba(5, 74, 145, 0.15);
+}
+
+.success-icon {
+  width: 75px;
+  height: 75px;
+
+  margin: 0 auto 20px;
+
+  border-radius: 50%;
+
+  background: #d1e7dd;
+  color: #146c43;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.order-success-card h1 {
+  color: #054a91;
+  font-size: 2rem;
+}
+
+.order-success-card p {
+  color: #6c757d;
+}
+
+.success-order-info {
+  background: #f5f8fc;
+  border-radius: 8px;
+
+  padding: 14px;
+
+  margin: 25px 0;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.success-order-info strong {
+  color: #054a91;
+}
+
+.success-order-info span {
+  color: #146c43;
+  font-weight: 700;
+}
+
+.checkout-back-btn {
+  display: inline-block;
+
+  background: #054a91;
+  color: #ffffff;
+
+  padding: 11px 20px;
+
+  border-radius: 8px;
+
+  font-weight: 700;
+}
+
+.checkout-back-btn:hover {
+  background: #f17300;
+  color: #ffffff;
+}
+
+/* Mobile */
+
+@media (max-width: 991px) {
+  .checkout-summary-card {
+    position: static;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout-page {
+    padding: 40px 12px;
+  }
+
+  .checkout-heading h1 {
+    font-size: 2rem;
+  }
+
+  .checkout-section-card,
+  .checkout-summary-card {
+    padding: 18px;
+  }
+
+  .summary-product {
+    grid-template-columns: 50px 1fr;
+  }
+
+  .summary-product > strong {
+    grid-column: 2;
+  }
+
+  .payment-option {
+    padding: 11px;
+  }
+}

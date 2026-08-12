@@ -1,83 +1,368 @@
-import { useCart } from "../context/CartContext";
+import { useState } from "react";
+import {
+  FaUser,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaCreditCard,
+  FaMoneyBillWave,
+  FaShoppingBag,
+  FaLock,
+  FaShieldAlt,
+} from "react-icons/fa";
 
 function Checkout() {
-  const { cart } = useCart();
+  const [paymentMethod, setPaymentMethod] = useState("cod");
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const [orderPlaced, setOrderPlaced] = useState(false);
 
-  function handleCheckout(e: React.FormEvent) {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-    alert(
-      "Order placed successfully! Thank you for shopping with GIGA SPORTS SHOP.",
+    setOrderPlaced(true);
+  };
+
+  if (orderPlaced) {
+    return (
+      <main className="checkout-page">
+        <div className="container">
+          <div className="order-success-card">
+            <div className="success-icon">✓</div>
+
+            <h1>Order Placed Successfully!</h1>
+
+            <p>
+              Thank you for shopping with GIGA SPORTS. Your order has been
+              received.
+            </p>
+
+            <div className="success-order-info">
+              <strong>Order Status</strong>
+              <span>Processing</span>
+            </div>
+
+            <a href="/products" className="checkout-back-btn">
+              Continue Shopping
+            </a>
+          </div>
+        </div>
+      </main>
     );
   }
 
   return (
-    <div className="checkout-page">
-      <h1>Checkout</h1>
+    <main className="checkout-page">
+      <div className="container">
+        {/* Page Header */}
+        <div className="checkout-heading">
+          <span>GIGA SPORTS</span>
 
-      <div className="checkout-container">
-        <div className="checkout-form">
-          <h2>Customer Information</h2>
+          <h1>Checkout</h1>
 
-          <form onSubmit={handleCheckout}>
-            <label>Name</label>
-            <input type="text" placeholder="Enter your name" required />
-
-            <label>Email</label>
-            <input type="email" placeholder="Enter your email" required />
-
-            <label>Phone</label>
-            <input type="tel" placeholder="Enter your phone number" required />
-
-            <label>Address</label>
-            <textarea
-              placeholder="Enter your complete address"
-              required
-            ></textarea>
-
-            <label>Payment Method</label>
-
-            <select required>
-              <option value="">Select payment method</option>
-              <option value="cod">Cash on Delivery</option>
-              <option value="easypaisa">Easypaisa</option>
-              <option value="jazzcash">JazzCash</option>
-              <option value="card">Debit / Credit Card</option>
-            </select>
-
-            <button type="submit" className="checkout-btn">
-              Place Order
-            </button>
-          </form>
+          <p>Complete your information to place your order.</p>
         </div>
 
-        <div className="order-summary">
-          <h2>Order Summary</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="row g-4">
+            {/* =================================
+                CUSTOMER INFORMATION
+            ================================== */}
+            <div className="col-lg-8">
+              <div className="checkout-section-card">
+                <div className="checkout-section-title">
+                  <div className="checkout-title-icon">
+                    <FaUser />
+                  </div>
 
-          {cart.length === 0 ? (
-            <p>Your cart is empty.</p>
-          ) : (
-            <>
-              {cart.map((item) => (
-                <div className="summary-item" key={item.id}>
-                  <span>
-                    {item.name} × {item.quantity}
-                  </span>
-
-                  <span>Rs. {item.price * item.quantity}</span>
+                  <div>
+                    <h2>Customer Information</h2>
+                    <p>Enter your contact details</p>
+                  </div>
                 </div>
-              ))}
 
-              <hr />
+                <div className="row g-3">
+                  {/* Full Name */}
+                  <div className="col-md-6">
+                    <label htmlFor="fullName">Full Name</label>
 
-              <h3>Total: Rs. {total}</h3>
-            </>
-          )}
-        </div>
+                    <div className="checkout-input-wrapper">
+                      <FaUser />
+
+                      <input
+                        id="fullName"
+                        type="text"
+                        placeholder="Enter your full name"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="col-md-6">
+                    <label htmlFor="phone">Phone Number</label>
+
+                    <div className="checkout-input-wrapper">
+                      <FaPhone />
+
+                      <input
+                        id="phone"
+                        type="tel"
+                        placeholder="03XX XXXXXXX"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="col-12">
+                    <label htmlFor="email">Email Address</label>
+
+                    <div className="checkout-input-wrapper">
+                      <FaEnvelope />
+
+                      <input
+                        id="email"
+                        type="email"
+                        placeholder="example@email.com"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* =================================
+                  DELIVERY INFORMATION
+              ================================== */}
+              <div className="checkout-section-card">
+                <div className="checkout-section-title">
+                  <div className="checkout-title-icon">
+                    <FaMapMarkerAlt />
+                  </div>
+
+                  <div>
+                    <h2>Delivery Information</h2>
+                    <p>Where should we deliver your order?</p>
+                  </div>
+                </div>
+
+                <div className="row g-3">
+                  {/* Address */}
+                  <div className="col-12">
+                    <label htmlFor="address">Delivery Address</label>
+
+                    <div className="checkout-input-wrapper textarea-wrapper">
+                      <FaMapMarkerAlt />
+
+                      <textarea
+                        id="address"
+                        placeholder="Enter your complete delivery address"
+                        rows={3}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* City */}
+                  <div className="col-md-6">
+                    <label htmlFor="city">City</label>
+
+                    <div className="checkout-input-wrapper">
+                      <FaMapMarkerAlt />
+
+                      <input
+                        id="city"
+                        type="text"
+                        placeholder="Enter your city"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* Postal Code */}
+                  <div className="col-md-6">
+                    <label htmlFor="postalCode">Postal Code</label>
+
+                    <div className="checkout-input-wrapper">
+                      <input
+                        id="postalCode"
+                        type="text"
+                        placeholder="Enter postal code"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* =================================
+                  PAYMENT METHOD
+              ================================== */}
+              <div className="checkout-section-card">
+                <div className="checkout-section-title">
+                  <div className="checkout-title-icon">
+                    <FaCreditCard />
+                  </div>
+
+                  <div>
+                    <h2>Payment Method</h2>
+                    <p>Choose your preferred payment method</p>
+                  </div>
+                </div>
+
+                <div className="payment-options">
+                  {/* COD */}
+                  <label
+                    className={`payment-option ${
+                      paymentMethod === "cod" ? "payment-selected" : ""
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="cod"
+                      checked={paymentMethod === "cod"}
+                      onChange={(event) => setPaymentMethod(event.target.value)}
+                    />
+
+                    <div className="payment-icon">
+                      <FaMoneyBillWave />
+                    </div>
+
+                    <div className="payment-details">
+                      <strong>Cash on Delivery</strong>
+                      <span>Pay when your order arrives</span>
+                    </div>
+                  </label>
+
+                  {/* Card */}
+                  <label
+                    className={`payment-option ${
+                      paymentMethod === "card" ? "payment-selected" : ""
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="card"
+                      checked={paymentMethod === "card"}
+                      onChange={(event) => setPaymentMethod(event.target.value)}
+                    />
+
+                    <div className="payment-icon">
+                      <FaCreditCard />
+                    </div>
+
+                    <div className="payment-details">
+                      <strong>Debit / Credit Card</strong>
+                      <span>Secure card payment</span>
+                    </div>
+                  </label>
+
+                  {/* Easypaisa */}
+                  <label
+                    className={`payment-option ${
+                      paymentMethod === "easypaisa" ? "payment-selected" : ""
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="easypaisa"
+                      checked={paymentMethod === "easypaisa"}
+                      onChange={(event) => setPaymentMethod(event.target.value)}
+                    />
+
+                    <div className="payment-icon payment-easypaisa">EP</div>
+
+                    <div className="payment-details">
+                      <strong>EasyPaisa</strong>
+                      <span>Pay using EasyPaisa</span>
+                    </div>
+                  </label>
+
+                  {/* JazzCash */}
+                  <label
+                    className={`payment-option ${
+                      paymentMethod === "jazzcash" ? "payment-selected" : ""
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="jazzcash"
+                      checked={paymentMethod === "jazzcash"}
+                      onChange={(event) => setPaymentMethod(event.target.value)}
+                    />
+
+                    <div className="payment-icon payment-jazzcash">JC</div>
+
+                    <div className="payment-details">
+                      <strong>JazzCash</strong>
+                      <span>Pay using JazzCash</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            {/* =================================
+                ORDER SUMMARY
+            ================================== */}
+            <div className="col-lg-4">
+              <div className="checkout-summary-card">
+                <div className="summary-heading">
+                  <FaShoppingBag />
+
+                  <h2>Order Summary</h2>
+                </div>
+
+                {/* Demo product */}
+                <div className="summary-product">
+                  <div className="summary-product-image">🏏</div>
+
+                  <div className="summary-product-info">
+                    <strong>Sports Product</strong>
+                    <span>Quantity: 1</span>
+                  </div>
+
+                  <strong>Rs. 8,500</strong>
+                </div>
+
+                <div className="summary-divider" />
+
+                <div className="summary-row">
+                  <span>Subtotal</span>
+                  <strong>Rs. 8,500</strong>
+                </div>
+
+                <div className="summary-row">
+                  <span>Delivery</span>
+                  <strong>Rs. 200</strong>
+                </div>
+
+                <div className="summary-divider" />
+
+                <div className="summary-total">
+                  <span>Total</span>
+                  <strong>Rs. 8,700</strong>
+                </div>
+
+                <button type="submit" className="place-order-btn">
+                  <FaLock />
+                  Place Order
+                </button>
+
+                <div className="secure-checkout">
+                  <FaShieldAlt />
+
+                  <span>Your information is securely protected.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-    </div>
+    </main>
   );
 }
 
