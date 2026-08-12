@@ -1,47 +1,38 @@
-/* =====================================================
-   GIGA SPORTS - PREMIUM PRODUCTS PAGE
-   ===================================================== */
+/* =========================================================
+   GIGA SPORTS - PROFESSIONAL PRODUCTS PAGE
+   ========================================================= */
 
 .giga-products-page {
   width: 100%;
-
   min-height: 100vh;
-
   background: #ffffff;
-
   color: #111111;
 }
 
 
-/* =====================================================
+/* =========================================================
    PAGE HEADER
-   ===================================================== */
+   ========================================================= */
 
 .products-header {
   width: 100%;
-
   padding: 55px 5% 45px;
-
   background: #ffffff;
 }
 
 .products-header-inner {
   max-width: 1400px;
-
   margin: 0 auto;
 }
 
 .products-eyebrow {
   display: block;
-
   margin-bottom: 10px;
 
   color: #f17300;
 
   font-size: 0.72rem;
-
   font-weight: 800;
-
   letter-spacing: 3px;
 }
 
@@ -51,8 +42,7 @@
   color: #054a91;
 
   font-size: clamp(2rem, 4vw, 3.2rem);
-
-  font-weight: 400;
+  font-weight: 500;
 
   letter-spacing: -1px;
 }
@@ -65,14 +55,13 @@
   color: #6c757d;
 
   font-size: 0.95rem;
-
   line-height: 1.7;
 }
 
 
-/* =====================================================
-   CATEGORY BAR
-   ===================================================== */
+/* =========================================================
+   CATEGORY NAVIGATION
+   ========================================================= */
 
 .products-category-bar {
   width: 100%;
@@ -80,7 +69,6 @@
   background: #111111;
 
   border-top: 1px solid #222222;
-
   border-bottom: 1px solid #222222;
 }
 
@@ -94,7 +82,6 @@
   min-height: 58px;
 
   display: flex;
-
   align-items: center;
 
   gap: 30px;
@@ -136,22 +123,21 @@
   position: absolute;
 
   left: 0;
-
   bottom: 10px;
 
   width: 100%;
-
   height: 2px;
 
   background: #f17300;
 }
 
 
-/* =====================================================
-   PRODUCT SHOWCASE
-   ===================================================== */
+/* =========================================================
+   PRODUCTS SHOWCASE
+   ========================================================= */
 
 .products-showcase {
+  width: 100%;
   max-width: 1800px;
 
   margin: 0 auto;
@@ -160,258 +146,391 @@
 }
 
 
-/* =====================================================
-   TOP ROW
-   ===================================================== */
+/* =========================================================
+   PRODUCTS TOP ROW
+   ========================================================= */
 
 .products-top-row {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 
 .products-result-title {
   color: #111111;
 
-  font-size: 1.4rem;
-
-  font-weight: 400;
+  font-size: 1.45rem;
+  font-weight: 500;
 }
 
 .products-count {
   color: #6c757d;
 
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 
 
-/* =====================================================
+/* =========================================================
    PRODUCT GRID
-   ===================================================== */
+   ========================================================= */
 
 .giga-product-grid {
   display: grid;
 
-  grid-template-columns:
-    repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 
-  gap: 10px;
+  gap: 18px;
 }
 
 
-/* =====================================================
+/* =========================================================
    PRODUCT ITEM
-   ===================================================== */
+   ========================================================= */
 
 .giga-product-item {
   min-width: 0;
 
+  height: 100%;
+}
+
+
+/* =========================================================
+   PROFESSIONAL PRODUCT CARD
+   ========================================================= */
+
+.professional-product-card {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe4ee;
+
+  border-radius: 8px;
+
   overflow: hidden;
 
-  background: #eeeeec;
+  cursor: pointer;
 
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.giga-product-item:hover {
-  transform: translateY(-4px);
+.professional-product-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #81a4cd;
 
   box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.12);
+    0 15px 35px rgba(5, 74, 145, 0.15);
 }
 
 
-/* =====================================================
-   EXISTING PRODUCT CARD
-   ===================================================== */
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
 
-/*
-   These styles work with your existing ProductCard.
-   Your ProductCard functionality remains unchanged.
-*/
+.professional-product-image {
+  position: relative;
 
-.giga-product-item .product-card,
-.giga-product-item .professional-product-card {
   width: 100%;
+  height: 300px;
 
-  height: 100%;
-
-  margin: 0;
-
-  border: none;
-
-  border-radius: 0;
-
-  background: #eeeeec;
-
-  box-shadow: none;
-
-  overflow: hidden;
-}
-
-
-/* =====================================================
-   PRODUCT IMAGE AREA
-   ===================================================== */
-
-.giga-product-item .product-image,
-.giga-product-item .product-card-image,
-.giga-product-item .professional-product-image {
-  width: 100%;
-
-  height: 340px;
-
-  background: #eeeeec;
-
-  overflow: hidden;
+  flex-shrink: 0;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
+
+  background: #f4f6f8;
+
+  overflow: hidden;
 }
 
-.giga-product-item .product-image img,
-.giga-product-item .product-card-image img,
-.giga-product-item .professional-product-image img {
+.professional-product-image img {
   width: 100%;
-
   height: 100%;
 
-  object-fit: cover;
-
   display: block;
 
-  transition: transform 0.5s ease;
-}
-
-.giga-product-item:hover
-.product-image img,
-.giga-product-item:hover
-.product-card-image img,
-.giga-product-item:hover
-.professional-product-image img {
-  transform: scale(1.04);
-}
-
-
-/* =====================================================
-   COMMON PRODUCT IMAGE
-   ===================================================== */
-
-.giga-product-item img {
-  max-width: 100%;
-
-  display: block;
-}
-
-
-/* =====================================================
-   PRODUCT CARD BODY
-   ===================================================== */
-
-.giga-product-item .product-card-body,
-.giga-product-item .professional-product-body {
-  background: #111111;
-
-  color: #ffffff;
+  object-fit: contain;
 
   padding: 20px;
+
+  transition: transform 0.4s ease;
+}
+
+.professional-product-card:hover
+.professional-product-image img {
+  transform: scale(1.05);
 }
 
 
-/* =====================================================
+/* =========================================================
+   BEST SELLER BADGE
+   ========================================================= */
+
+.professional-badge {
+  position: absolute;
+
+  top: 14px;
+  left: 14px;
+
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 11px;
+
+  background: #f17300;
+
+  color: #ffffff;
+
+  border-radius: 20px;
+
+  font-size: 0.7rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   PRODUCT INFORMATION
+   ========================================================= */
+
+.professional-product-info {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
    PRODUCT NAME
-   ===================================================== */
+   ========================================================= */
 
-.giga-product-item .product-name,
-.giga-product-item .professional-product-name {
-  color: #ffffff;
+.professional-product-info h2 {
+  margin: 0 0 6px;
 
-  font-size: 1rem;
+  color: #054a91;
 
-  font-weight: 400;
+  font-size: 1.15rem;
 
-  margin: 0;
+  font-weight: 700;
 
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 
-/* =====================================================
-   PRICE
-   ===================================================== */
+/* =========================================================
+   CATEGORY
+   ========================================================= */
 
-.giga-product-item .product-price,
-.giga-product-item .professional-product-price {
-  color: #ffffff;
+.professional-category {
+  display: block;
 
-  font-size: 0.9rem;
+  margin-bottom: 12px;
+
+  color: #6c757d;
+
+  font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   RATING
+   ========================================================= */
+
+.professional-rating {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-bottom: 14px;
+}
+
+.professional-stars {
+  display: flex;
+  align-items: center;
+
+  gap: 2px;
+
+  color: #f17300;
+}
+
+.professional-stars svg {
+  font-size: 0.82rem;
+}
+
+.rating-number {
+  color: #054a91;
+
+  font-size: 0.8rem;
 
   font-weight: 700;
 }
 
+.review-count {
+  color: #6c757d;
 
-/* =====================================================
-   BUTTON AREA
-   ===================================================== */
-
-.giga-product-item .professional-cart-btn,
-.giga-product-item .add-to-cart-btn {
-  border-radius: 0;
-
-  margin-top: 10px;
+  font-size: 0.78rem;
 }
 
 
-/* =====================================================
-   BEST SELLER
-   ===================================================== */
+/* =========================================================
+   PRICE
+   ========================================================= */
 
-.giga-product-item .best-seller {
-  border-radius: 0;
+.professional-price {
+  margin-bottom: 13px;
+
+  color: #111111;
+
+  font-size: 1.25rem;
+
+  font-weight: 800;
 }
 
 
-/* =====================================================
-   EMPTY STATE
-   ===================================================== */
+/* =========================================================
+   STOCK
+   ========================================================= */
+
+.professional-stock {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 6px 11px;
+
+  margin-bottom: 16px;
+
+  background: #e7f8ef;
+
+  color: #087443;
+
+  border-radius: 20px;
+
+  font-size: 0.78rem;
+
+  font-weight: 700;
+}
+
+.stock-dot {
+  width: 9px;
+  height: 9px;
+
+  flex-shrink: 0;
+
+  display: inline-block;
+
+  background: #00c875;
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   ADD TO CART BUTTON
+   ========================================================= */
+
+.professional-cart-button {
+  width: 100%;
+  min-height: 45px;
+
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #054a91;
+
+  color: #ffffff;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.professional-cart-button:hover {
+  background: #f17300;
+
+  transform: translateY(-2px);
+}
+
+.professional-cart-button:active {
+  transform: translateY(0);
+}
+
+.professional-cart-button svg {
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   EMPTY PRODUCTS
+   ========================================================= */
 
 .products-empty {
   min-height: 400px;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
+
+  padding: 50px;
 
   text-align: center;
 
-  background: #f5f5f3;
+  background: #f5f7f9;
 
-  padding: 50px;
+  border: 1px solid #dbe4ee;
 }
 
 .products-empty h2 {
-  color: #054a91;
-
   margin-bottom: 10px;
+
+  color: #054a91;
 }
 
 .products-empty p {
-  color: #6c757d;
-
   margin-bottom: 25px;
+
+  color: #6c757d;
 }
 
 .view-all-products {
@@ -426,6 +545,10 @@
   text-decoration: none;
 
   font-weight: 700;
+
+  border-radius: 6px;
+
+  transition: background 0.2s ease;
 }
 
 .view-all-products:hover {
@@ -435,9 +558,9 @@
 }
 
 
-/* =====================================================
+/* =========================================================
    LARGE DESKTOP
-   ===================================================== */
+   ========================================================= */
 
 @media (max-width: 1400px) {
 
@@ -449,9 +572,9 @@
 }
 
 
-/* =====================================================
-   TABLET
-   ===================================================== */
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -460,21 +583,16 @@
       repeat(3, minmax(0, 1fr));
   }
 
-  .giga-product-item
-  .product-image,
-  .giga-product-item
-  .product-card-image,
-  .giga-product-item
   .professional-product-image {
-    height: 300px;
+    height: 280px;
   }
 
 }
 
 
-/* =====================================================
-   SMALL TABLET
-   ===================================================== */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 768px) {
 
@@ -496,24 +614,23 @@
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
 
-    gap: 8px;
+    gap: 12px;
   }
 
-  .giga-product-item
-  .product-image,
-  .giga-product-item
-  .product-card-image,
-  .giga-product-item
   .professional-product-image {
-    height: 280px;
+    height: 260px;
+  }
+
+  .professional-product-info {
+    padding: 16px;
   }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE
-   ===================================================== */
+   ========================================================= */
 
 @media (max-width: 480px) {
 
@@ -533,15 +650,24 @@
 
   .giga-product-grid {
     grid-template-columns: 1fr;
+
+    gap: 15px;
   }
 
-  .giga-product-item
-  .product-image,
-  .giga-product-item
-  .product-card-image,
-  .giga-product-item
   .professional-product-image {
-    height: 330px;
+    height: 320px;
+  }
+
+  .professional-product-info {
+    padding: 18px;
+  }
+
+  .professional-product-info h2 {
+    font-size: 1.05rem;
+  }
+
+  .professional-price {
+    font-size: 1.15rem;
   }
 
 }

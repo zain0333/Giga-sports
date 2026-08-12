@@ -1,4 +1,6 @@
 import { FaShoppingCart, FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 import type { Product } from "../data/products";
 import { useCart } from "../context/CartContext";
 
@@ -8,95 +10,87 @@ type ProductCardProps = {
 
 function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
-  // Example rating
-  const rating = 5;
-  const reviewCount = 24;
+  const handleCardClick = () => {
+    navigate(`/products/${product.id}`);
+  };
 
-  // Stock status
-  // If your Product type already has stock, this will use it.
-  // Otherwise it safely assumes the product is in stock.
-  const stock =
-    "stock" in product && typeof product.stock === "number"
-      ? product.stock
-      : 10;
-
-  let stockText = "In Stock";
-  let stockClass = "in-stock";
-
-  if (stock === 0) {
-    stockText = "Out of Stock";
-    stockClass = "out-of-stock";
-  } else if (stock <= 3) {
-    stockText = `Only ${stock} left`;
-    stockClass = "low-stock";
-  }
-
-  const handleAddToCart = () => {
-    if (stock === 0) return;
-
+  const handleAddToCart = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     addToCart(product);
   };
 
   return (
-    <div className="product-card professional-product-card">
-      {/* Product Image */}
-      <div className="professional-product-image">
-        {/* Best Seller Badge */}
-        <span className="best-seller-badge">⭐ BEST SELLER</span>
+    <article
+      className="professional-product-card"
+      onClick={handleCardClick}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          handleCardClick();
+        }
+      }}
+      role="button"
+      tabIndex={0}
+    >
+      {/* IMAGE */}
 
-        <img
-          src={product.image}
-          alt={product.name}
-          onError={(event) => {
-            event.currentTarget.style.display = "none";
-            event.currentTarget.parentElement?.classList.add("image-error");
-          }}
-        />
+      <div className="professional-product-image">
+        <img src={product.image} alt={product.name} loading="lazy" />
+
+        {/* BEST SELLER */}
+
+        <span className="professional-badge">⭐ BEST SELLER</span>
       </div>
 
-      {/* Product Information */}
-      <div className="professional-product-body">
-        {/* Product Name */}
-        <h3 className="professional-product-title">{product.name}</h3>
+      {/* INFORMATION */}
 
-        {/* Category */}
-        <p className="professional-product-category">{product.category}</p>
+      <div className="professional-product-info">
+        <h2>{product.name}</h2>
 
-        {/* Rating */}
-        <div className="product-rating">
-          <div className="stars">
-            {Array.from({ length: rating }).map((_, index) => (
-              <FaStar key={index} />
-            ))}
+        <span className="professional-category">{product.category}</span>
+
+        {/* RATING */}
+
+        <div className="professional-rating">
+          <div className="professional-stars">
+            <FaStar />
+            <FaStar />
+            <FaStar />
+            <FaStar />
+            <FaStar />
           </div>
 
-          <span>({reviewCount})</span>
+          <span className="rating-number">4.8</span>
+
+          <span className="review-count">(24)</span>
         </div>
 
-        {/* Price */}
-        <div className="professional-product-price">
+        {/* PRICE */}
+
+        <div className="professional-price">
           Rs. {product.price.toLocaleString()}
         </div>
 
-        {/* Stock Status */}
-        <div className={`stock-status ${stockClass}`}>
-          {stock === 0 ? "🔴" : stock <= 3 ? "🟠" : "🟢"} {stockText}
+        {/* STOCK */}
+
+        <div className="professional-stock">
+          <span className="stock-dot"></span>
+          <span>In Stock</span>
         </div>
 
-        {/* Add To Cart */}
+        {/* BUTTON */}
+
         <button
           type="button"
-          className="professional-cart-btn"
+          className="professional-cart-button"
           onClick={handleAddToCart}
-          disabled={stock === 0}
         >
           <FaShoppingCart />
-
-          {stock === 0 ? "Out of Stock" : "Add to Cart"}
+          Add to Cart
         </button>
       </div>
-    </div>
+    </article>
   );
 }
 
