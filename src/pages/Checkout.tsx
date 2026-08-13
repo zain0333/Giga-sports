@@ -1,50 +1,73 @@
 import { useState } from "react";
-import {
-  FaUser,
-  FaMapMarkerAlt,
-  FaPhone,
-  FaEnvelope,
-  FaCreditCard,
-  FaMoneyBillWave,
-  FaShoppingBag,
-  FaLock,
-  FaShieldAlt,
-} from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 function Checkout() {
-  const [paymentMethod, setPaymentMethod] = useState("cod");
+  const navigate = useNavigate();
 
-  const [orderPlaced, setOrderPlaced] = useState(false);
+  const { cart, clearCart } = useCart();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState("Cash on Delivery");
 
-    setOrderPlaced(true);
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  const handlePlaceOrder = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    if (!name || !email || !phone || !address || !city) {
+      alert("Please fill in all customer details.");
+      return;
+    }
+
+    const orderId = "GIGA-" + Math.floor(100000 + Math.random() * 900000);
+
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    const orderData = {
+      orderId: orderId,
+      total: total,
+      items: totalItems,
+      customerName: name,
+      email: email,
+      phone: phone,
+      address: address,
+      city: city,
+      paymentMethod: paymentMethod,
+    };
+
+    clearCart();
+
+    navigate("/order-confirmation", {
+      state: orderData,
+    });
   };
 
-  if (orderPlaced) {
+  if (cart.length === 0) {
     return (
-      <main className="checkout-page">
-        <div className="container">
-          <div className="order-success-card">
-            <div className="success-icon">✓</div>
+      <main className="container py-5">
+        <div className="text-center">
+          <h1>Your Cart Is Empty</h1>
 
-            <h1>Order Placed Successfully!</h1>
+          <p className="text-muted">
+            Add some sports products before going to checkout.
+          </p>
 
-            <p>
-              Thank you for shopping with GIGA SPORTS. Your order has been
-              received.
-            </p>
-
-            <div className="success-order-info">
-              <strong>Order Status</strong>
-              <span>Processing</span>
-            </div>
-
-            <a href="/products" className="checkout-back-btn">
-              Continue Shopping
-            </a>
-          </div>
+          <button
+            className="btn btn-primary"
+            onClick={() => navigate("/products")}
+          >
+            🛍️ Continue Shopping
+          </button>
         </div>
       </main>
     );
@@ -52,315 +75,189 @@ function Checkout() {
 
   return (
     <main className="checkout-page">
-      <div className="container">
-        {/* Page Header */}
-        <div className="checkout-heading">
-          <span>GIGA SPORTS</span>
+      <div className="container py-5">
+        {/* Page Heading */}
+        <div className="text-center mb-5">
+          <h1 className="fw-bold">Checkout</h1>
 
-          <h1>Checkout</h1>
-
-          <p>Complete your information to place your order.</p>
+          <p className="text-muted">
+            Complete your information to place your order.
+          </p>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="row g-4">
-            {/* =================================
-                CUSTOMER INFORMATION
-            ================================== */}
-            <div className="col-lg-8">
-              <div className="checkout-section-card">
-                <div className="checkout-section-title">
-                  <div className="checkout-title-icon">
-                    <FaUser />
-                  </div>
+        <div className="row g-4">
+          {/* =========================
+              CUSTOMER INFORMATION
+          ========================== */}
+          <div className="col-lg-7">
+            <div className="card shadow-sm border-0 p-4">
+              <h3 className="mb-4">📦 Delivery Information</h3>
 
-                  <div>
-                    <h2>Customer Information</h2>
-                    <p>Enter your contact details</p>
-                  </div>
+              <form onSubmit={handlePlaceOrder}>
+                {/* Name */}
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">Full Name</label>
+
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter your full name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
                 </div>
 
-                <div className="row g-3">
-                  {/* Full Name */}
-                  <div className="col-md-6">
-                    <label htmlFor="fullName">Full Name</label>
-
-                    <div className="checkout-input-wrapper">
-                      <FaUser />
-
-                      <input
-                        id="fullName"
-                        type="text"
-                        placeholder="Enter your full name"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  {/* Phone */}
-                  <div className="col-md-6">
-                    <label htmlFor="phone">Phone Number</label>
-
-                    <div className="checkout-input-wrapper">
-                      <FaPhone />
-
-                      <input
-                        id="phone"
-                        type="tel"
-                        placeholder="03XX XXXXXXX"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="col-12">
-                    <label htmlFor="email">Email Address</label>
-
-                    <div className="checkout-input-wrapper">
-                      <FaEnvelope />
-
-                      <input
-                        id="email"
-                        type="email"
-                        placeholder="example@email.com"
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* =================================
-                  DELIVERY INFORMATION
-              ================================== */}
-              <div className="checkout-section-card">
-                <div className="checkout-section-title">
-                  <div className="checkout-title-icon">
-                    <FaMapMarkerAlt />
-                  </div>
-
-                  <div>
-                    <h2>Delivery Information</h2>
-                    <p>Where should we deliver your order?</p>
-                  </div>
-                </div>
-
-                <div className="row g-3">
-                  {/* Address */}
-                  <div className="col-12">
-                    <label htmlFor="address">Delivery Address</label>
-
-                    <div className="checkout-input-wrapper textarea-wrapper">
-                      <FaMapMarkerAlt />
-
-                      <textarea
-                        id="address"
-                        placeholder="Enter your complete delivery address"
-                        rows={3}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  {/* City */}
-                  <div className="col-md-6">
-                    <label htmlFor="city">City</label>
-
-                    <div className="checkout-input-wrapper">
-                      <FaMapMarkerAlt />
-
-                      <input
-                        id="city"
-                        type="text"
-                        placeholder="Enter your city"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  {/* Postal Code */}
-                  <div className="col-md-6">
-                    <label htmlFor="postalCode">Postal Code</label>
-
-                    <div className="checkout-input-wrapper">
-                      <input
-                        id="postalCode"
-                        type="text"
-                        placeholder="Enter postal code"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* =================================
-                  PAYMENT METHOD
-              ================================== */}
-              <div className="checkout-section-card">
-                <div className="checkout-section-title">
-                  <div className="checkout-title-icon">
-                    <FaCreditCard />
-                  </div>
-
-                  <div>
-                    <h2>Payment Method</h2>
-                    <p>Choose your preferred payment method</p>
-                  </div>
-                </div>
-
-                <div className="payment-options">
-                  {/* COD */}
-                  <label
-                    className={`payment-option ${
-                      paymentMethod === "cod" ? "payment-selected" : ""
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="cod"
-                      checked={paymentMethod === "cod"}
-                      onChange={(event) => setPaymentMethod(event.target.value)}
-                    />
-
-                    <div className="payment-icon">
-                      <FaMoneyBillWave />
-                    </div>
-
-                    <div className="payment-details">
-                      <strong>Cash on Delivery</strong>
-                      <span>Pay when your order arrives</span>
-                    </div>
+                {/* Email */}
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">
+                    Email Address
                   </label>
 
-                  {/* Card */}
-                  <label
-                    className={`payment-option ${
-                      paymentMethod === "card" ? "payment-selected" : ""
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="card"
-                      checked={paymentMethod === "card"}
-                      onChange={(event) => setPaymentMethod(event.target.value)}
-                    />
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="example@gmail.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
 
-                    <div className="payment-icon">
-                      <FaCreditCard />
-                    </div>
+                {/* Phone */}
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">Phone Number</label>
 
-                    <div className="payment-details">
-                      <strong>Debit / Credit Card</strong>
-                      <span>Secure card payment</span>
-                    </div>
+                  <input
+                    type="tel"
+                    className="form-control"
+                    placeholder="03XX-XXXXXXX"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                  />
+                </div>
+
+                {/* Address */}
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">
+                    Delivery Address
                   </label>
 
-                  {/* Easypaisa */}
-                  <label
-                    className={`payment-option ${
-                      paymentMethod === "easypaisa" ? "payment-selected" : ""
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="easypaisa"
-                      checked={paymentMethod === "easypaisa"}
-                      onChange={(event) => setPaymentMethod(event.target.value)}
-                    />
+                  <textarea
+                    className="form-control"
+                    rows={3}
+                    placeholder="Enter your complete delivery address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    required
+                  />
+                </div>
 
-                    <div className="payment-icon payment-easypaisa">EP</div>
+                {/* City */}
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">City</label>
 
-                    <div className="payment-details">
-                      <strong>EasyPaisa</strong>
-                      <span>Pay using EasyPaisa</span>
-                    </div>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter your city"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    required
+                  />
+                </div>
+
+                {/* Payment */}
+                <div className="mb-4">
+                  <label className="form-label fw-semibold">
+                    Payment Method
                   </label>
 
-                  {/* JazzCash */}
-                  <label
-                    className={`payment-option ${
-                      paymentMethod === "jazzcash" ? "payment-selected" : ""
-                    }`}
+                  <select
+                    className="form-select"
+                    value={paymentMethod}
+                    onChange={(e) => setPaymentMethod(e.target.value)}
                   >
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="jazzcash"
-                      checked={paymentMethod === "jazzcash"}
-                      onChange={(event) => setPaymentMethod(event.target.value)}
-                    />
+                    <option value="Cash on Delivery">
+                      💵 Cash on Delivery
+                    </option>
 
-                    <div className="payment-icon payment-jazzcash">JC</div>
+                    <option value="Easypaisa">📱 Easypaisa</option>
 
-                    <div className="payment-details">
-                      <strong>JazzCash</strong>
-                      <span>Pay using JazzCash</span>
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
+                    <option value="JazzCash">📱 JazzCash</option>
 
-            {/* =================================
-                ORDER SUMMARY
-            ================================== */}
-            <div className="col-lg-4">
-              <div className="checkout-summary-card">
-                <div className="summary-heading">
-                  <FaShoppingBag />
-
-                  <h2>Order Summary</h2>
+                    <option value="Debit/Credit Card">
+                      💳 Debit/Credit Card
+                    </option>
+                  </select>
                 </div>
 
-                {/* Demo product */}
-                <div className="summary-product">
-                  <div className="summary-product-image">🏏</div>
-
-                  <div className="summary-product-info">
-                    <strong>Sports Product</strong>
-                    <span>Quantity: 1</span>
-                  </div>
-
-                  <strong>Rs. 8,500</strong>
-                </div>
-
-                <div className="summary-divider" />
-
-                <div className="summary-row">
-                  <span>Subtotal</span>
-                  <strong>Rs. 8,500</strong>
-                </div>
-
-                <div className="summary-row">
-                  <span>Delivery</span>
-                  <strong>Rs. 200</strong>
-                </div>
-
-                <div className="summary-divider" />
-
-                <div className="summary-total">
-                  <span>Total</span>
-                  <strong>Rs. 8,700</strong>
-                </div>
-
-                <button type="submit" className="place-order-btn">
-                  <FaLock />
-                  Place Order
+                {/* Place Order */}
+                <button type="submit" className="btn btn-primary btn-lg w-100">
+                  📦 Place Order
                 </button>
+              </form>
+            </div>
+          </div>
 
-                <div className="secure-checkout">
-                  <FaShieldAlt />
+          {/* =========================
+              ORDER SUMMARY
+          ========================== */}
+          <div className="col-lg-5">
+            <div className="card shadow-sm border-0 p-4">
+              <h3 className="mb-4">🛒 Order Summary</h3>
 
-                  <span>Your information is securely protected.</span>
+              {/* Products */}
+              {cart.map((item) => (
+                <div
+                  key={item.id}
+                  className="d-flex justify-content-between align-items-center border-bottom py-3"
+                >
+                  <div className="me-3">
+                    <h6 className="mb-1">{item.name}</h6>
+
+                    <small className="text-muted">
+                      Quantity: {item.quantity}
+                    </small>
+                  </div>
+
+                  <strong>
+                    Rs. {(item.price * item.quantity).toLocaleString()}
+                  </strong>
                 </div>
+              ))}
+
+              {/* Subtotal */}
+              <div className="d-flex justify-content-between mt-4">
+                <span>Subtotal</span>
+
+                <strong>Rs. {total.toLocaleString()}</strong>
+              </div>
+
+              {/* Delivery */}
+              <div className="d-flex justify-content-between mt-2">
+                <span>Delivery</span>
+
+                <strong>FREE</strong>
+              </div>
+
+              <hr />
+
+              {/* Total */}
+              <div className="d-flex justify-content-between">
+                <h4>Total</h4>
+
+                <h4>Rs. {total.toLocaleString()}</h4>
+              </div>
+
+              {/* Security Message */}
+              <div className="alert alert-info mt-4 mb-0">
+                🔒 Your order information is secure.
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </main>
   );
