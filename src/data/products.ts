@@ -78,4 +78,48 @@ export const products: Product[] = [
     image:
       "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80",
   },
+    {
+    id: 9,
+    name: "Cricket Helmet",
+    category: "Cricket",
+    price: 6500,
+    image:
+      "https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?auto=format&fit=crop&w=800&q=80",
+  },
+
+  {
+    id: 10,
+    name: "Sports Bag",
+    category: "Sports Bags",
+    price: 4200,
+    image:
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+  },
+
+  {
+    id: 11,
+    name: "Cricket Gloves",
+    category: "Cricket",
+    price: 4500,
+    image:
+      "https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?auto=format&fit=crop&w=800&q=80",
+  },
+
+  {
+    id: 12,
+    name: "Cricket Pads",
+    category: "Cricket",
+    price: 5500,
+    image:
+      "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80",
+  },
+
+  {
+    id: 13,
+    name: "Sports Eyewear",
+    category: "Sports Eyewear",
+    price: 3200,
+    image:
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
+  },
 ];
