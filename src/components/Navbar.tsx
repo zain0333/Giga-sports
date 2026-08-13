@@ -1,111 +1,111 @@
 import { Link } from "react-router-dom";
-import { FaSearch, FaUser, FaShoppingBag, FaChevronDown } from "react-icons/fa";
-
+import { FaShoppingCart, FaSearch, FaBalanceScale } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
-
-import "./Navbar.css";
 
 function Navbar() {
   const { cart } = useCart();
 
+  // Total number of products in cart
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <header className="premium-navbar">
-      {/* Top Navigation */}
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+      <div className="container">
+        {/* =========================
+            LOGO
+        ========================== */}
+        <Link to="/" className="navbar-brand fw-bold">
+          🏏 GIGA SPORTS
+        </Link>
 
-      <div className="navbar-top">
-        {/* Search */}
-
-        <Link
-          to="/products"
-          className="navbar-icon search-icon"
-          aria-label="Search products"
+        {/* =========================
+            MOBILE MENU BUTTON
+        ========================== */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <FaSearch />
-        </Link>
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-        {/* Logo */}
+        {/* =========================
+            NAVIGATION
+        ========================== */}
+        <div className="collapse navbar-collapse" id="mainNavbar">
+          <ul className="navbar-nav ms-auto align-items-lg-center">
+            {/* Home */}
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
 
-        <Link to="/" className="premium-logo">
-          GIGA
-          <span>SPORTS</span>
-        </Link>
+            {/* Products */}
+            <li className="nav-item">
+              <Link to="/products" className="nav-link">
+                Products
+              </Link>
+            </li>
 
-        {/* Right Icons */}
+            {/* Compare */}
+            <li className="nav-item">
+              <Link to="/compare" className="nav-link">
+                <FaBalanceScale className="me-1" />
+                Compare
+              </Link>
+            </li>
 
-        <div className="navbar-right-icons">
-          <Link to="/login" className="navbar-icon" aria-label="Account">
-            <FaUser />
-          </Link>
+            {/* About */}
+            <li className="nav-item">
+              <Link to="/about" className="nav-link">
+                About
+              </Link>
+            </li>
 
-          <Link
-            to="/cart"
-            className="navbar-icon cart-navbar-icon"
-            aria-label="Shopping cart"
-          >
-            <FaShoppingBag />
+            {/* Contact */}
+            <li className="nav-item">
+              <Link to="/contact" className="nav-link">
+                Contact
+              </Link>
+            </li>
 
-            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-          </Link>
+            {/* =========================
+                SEARCH
+            ========================== */}
+            <li className="nav-item ms-lg-2 my-2 my-lg-0">
+              <Link
+                to="/products"
+                className="btn btn-light"
+                title="Search Products"
+              >
+                <FaSearch />
+              </Link>
+            </li>
+
+            {/* =========================
+                CART
+            ========================== */}
+            <li className="nav-item ms-lg-2">
+              <Link to="/cart" className="nav-link position-relative">
+                <FaShoppingCart className="me-1" />
+                Cart
+                {/* Cart Badge */}
+                {cartCount > 0 && (
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
+                    {cartCount}
+                  </span>
+                )}
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
-
-      {/* Main Menu */}
-
-      <nav className="premium-menu">
-        <Link to="/" className="premium-menu-link active">
-          Home
-        </Link>
-
-        <Link
-          to="/products?category=Cricket"
-          className="premium-menu-link menu-with-arrow"
-        >
-          Cricket
-          <FaChevronDown />
-        </Link>
-
-        <Link to="/products?category=Football" className="premium-menu-link">
-          Football/Soccer
-        </Link>
-
-        <Link to="/products?category=Badminton" className="premium-menu-link">
-          Badminton
-        </Link>
-
-        <Link to="/products?category=Gym" className="premium-menu-link">
-          Gym Equipment
-        </Link>
-
-        <Link to="/products?category=Running" className="premium-menu-link">
-          Running
-        </Link>
-
-        <Link
-          to="/products?category=Sports Clothing"
-          className="premium-menu-link"
-        >
-          Sports Wear
-        </Link>
-
-        <Link to="/products?category=Sports Bags" className="premium-menu-link">
-          Sports Bags
-        </Link>
-
-        <Link to="/products" className="premium-menu-link">
-          All Products
-        </Link>
-
-        <Link to="/about" className="premium-menu-link">
-          About
-        </Link>
-
-        <Link to="/contact" className="premium-menu-link">
-          Contact
-        </Link>
-      </nav>
-    </header>
+    </nav>
   );
 }
 
