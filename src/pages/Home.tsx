@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import FlashSale from "../components/FlashSale";
+import Statistics from "../components/Statistics";
 import ProductCard from "../components/ProductCard";
 import { products } from "../data/products";
 
@@ -23,6 +24,9 @@ function Home() {
 
       {/* Flash Sale */}
       <FlashSale />
+
+      {/* Animated Statistics */}
+      <Statistics />
 
       {/* Featured Products */}
       <section className="container my-5">
