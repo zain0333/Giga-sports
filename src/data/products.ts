@@ -122,4 +122,6 @@ export const products: Product[] = [
     image:
       "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
   },
+  
+   
 ];
