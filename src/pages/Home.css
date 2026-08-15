@@ -1,0 +1,572 @@
+/* =========================================================
+   GIGA SPORTS SHOP
+   HOME PAGE / HERO SECTION
+   ========================================================= */
+
+/* ---------- Home Page ---------- */
+
+.home-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #dbe4ee;
+}
+
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 80px 0;
+  background: linear-gradient(135deg,
+      #054a91 0%,
+      #3e7cb1 100%);
+}
+
+/* Background decorative effect */
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: -220px;
+  right: -180px;
+  border-radius: 50%;
+  background: rgba(241, 115, 0, 0.16);
+  pointer-events: none;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  left: -180px;
+  bottom: -180px;
+  border-radius: 50%;
+  background: rgba(219, 228, 238, 0.12);
+  pointer-events: none;
+}
+
+
+/* ---------- Hero Container ---------- */
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ---------- Hero Content ---------- */
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 20px 0;
+}
+
+
+/* ---------- Hero Heading ---------- */
+
+.hero-content h1 {
+  margin: 0 0 22px;
+  color: #ffffff;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1px;
+
+  /* Important: no underline */
+  text-decoration: none !important;
+  border: none !important;
+}
+
+
+/* =========================================================
+   HERO HIGHLIGHT
+   ========================================================= */
+
+.hero-highlight {
+  display: inline-block;
+
+  background: linear-gradient(135deg,
+      #f17300 0%,
+      #ffaa40 100%);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  text-shadow: none;
+
+  /* Remove unwanted yellow line */
+  text-decoration: none !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+
+/* Remove pseudo-element line */
+
+.hero-highlight::before,
+.hero-highlight::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* ---------- Hero Heading Pseudo Elements ---------- */
+
+.hero-content h1::before,
+.hero-content h1::after {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.hero-content p {
+  max-width: 650px;
+  margin: 0 0 30px;
+
+  color: #dbe4ee;
+  font-size: 1.1rem;
+  line-height: 1.8;
+
+  text-decoration: none !important;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+
+/* General button */
+
+.hero-buttons .btn {
+  min-width: 150px;
+  padding: 13px 28px;
+
+  border-radius: 8px;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+
+/* ---------- Shop Now Button ---------- */
+
+.hero-buttons .btn-primary {
+  background: #f17300;
+  border: 2px solid #f17300;
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.hero-buttons .btn-primary:hover {
+  background: #d96100;
+  border-color: #d96100;
+
+  color: #ffffff;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ---------- Secondary Button ---------- */
+
+.hero-buttons .btn-outline-light {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.hero-buttons .btn-outline-light:hover {
+  background: #ffffff;
+  color: #054a91;
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO IMAGE
+   ========================================================= */
+
+.hero-image {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+
+.hero-image img {
+  display: block;
+
+  width: 100%;
+  max-width: 560px;
+  height: 420px;
+
+  object-fit: cover;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+
+.hero-image img:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   HERO IMAGE DECORATION
+   ========================================================= */
+
+.hero-image::before {
+  content: "";
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  right: 0;
+  top: 0;
+
+  border-radius: 50%;
+
+  background: rgba(241, 115, 0, 0.25);
+
+  z-index: -1;
+}
+
+.hero-image::after {
+  content: "";
+  position: absolute;
+
+  width: 90px;
+  height: 90px;
+
+  left: 0;
+  bottom: 10px;
+
+  border-radius: 50%;
+
+  background: rgba(219, 228, 238, 0.2);
+
+  z-index: -1;
+}
+
+
+/* =========================================================
+   FEATURED / HOME CONTENT
+   ========================================================= */
+
+.home-content {
+  padding: 70px 0;
+  background: #dbe4ee;
+}
+
+
+.home-content h2 {
+  margin-bottom: 15px;
+
+  color: #054a91;
+
+  font-size: 2.2rem;
+  font-weight: 800;
+
+  text-align: center;
+}
+
+
+.home-content p {
+  color: #3e7cb1;
+
+  line-height: 1.7;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+
+.section-title {
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+
+.section-title h2 {
+  margin-bottom: 12px;
+
+  color: #054a91;
+
+  font-size: 2.3rem;
+  font-weight: 800;
+
+  text-decoration: none !important;
+  border: none !important;
+}
+
+
+.section-title p {
+  max-width: 650px;
+  margin: 0 auto;
+
+  color: #555;
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   HOME CARDS
+   ========================================================= */
+
+.home-card {
+  height: 100%;
+
+  padding: 25px;
+
+  background: #ffffff;
+
+  border: 1px solid #81a4cd;
+  border-radius: 14px;
+
+  box-shadow:
+    0 8px 25px rgba(5, 74, 145, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.home-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 15px 35px rgba(5, 74, 145, 0.15);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+  .hero-section {
+    min-height: auto;
+    padding: 70px 0;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image {
+    margin-top: 45px;
+  }
+
+  .hero-image img {
+    max-width: 500px;
+    height: 380px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  .hero-section {
+    padding: 55px 15px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-buttons .btn {
+    min-width: 140px;
+    padding: 11px 20px;
+    font-size: 0.9rem;
+  }
+
+  .hero-image {
+    margin-top: 35px;
+    padding: 10px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 320px;
+    border-radius: 16px;
+  }
+
+  .home-content {
+    padding: 50px 15px;
+  }
+
+  .home-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .section-title h2 {
+    font-size: 1.9rem;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .hero-section {
+    padding: 45px 15px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .hero-image img {
+    height: 260px;
+  }
+
+  .hero-image::before {
+    width: 80px;
+    height: 80px;
+  }
+
+  .hero-image::after {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+
+/* =========================================================
+   FINAL LINE / UNDERLINE PROTECTION
+   ========================================================= */
+
+/*
+   Prevent accidental yellow/orange lines from appearing
+   under Hero text.
+*/
+
+.hero-section a,
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.hero-section p,
+.hero-section span {
+  text-decoration: none;
+}
+
+.hero-section h1,
+.hero-section h1::before,
+.hero-section h1::after,
+.hero-highlight,
+.hero-highlight::before,
+.hero-highlight::after {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
