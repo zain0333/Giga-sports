@@ -4,6 +4,11 @@ export type Product = {
   category: string;
   price: number;
   image: string;
+  rating?: number;
+  reviews?: number;
+  badge?: string;
+  stock?: number;
+  description?: string;
 };
 
 export const products: Product[] = [
@@ -12,116 +17,311 @@ export const products: Product[] = [
     name: "Professional Cricket Bat",
     category: "Cricket",
     price: 8500,
+    rating: 4.9,
+    reviews: 48,
+    badge: "⭐ BEST SELLER",
+    stock: 12,
+    description: "Grade-1 English Willow pro cricket bat with massive profile and exceptional balance.",
     image:
       "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=800&q=80",
   },
-
   {
     id: 2,
-    name: "Professional Football",
+    name: "Professional Match Football",
     category: "Football",
     price: 4500,
+    rating: 4.8,
+    reviews: 36,
+    badge: "🔥 POPULAR",
+    stock: 20,
+    description: "FIFA-quality thermal bonded match football with textured outer casing for maximum flight control.",
     image:
       "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=80",
   },
-
   {
     id: 3,
-    name: "Badminton Racket",
+    name: "Badminton Racket Pro",
     category: "Badminton",
     price: 3500,
+    rating: 4.7,
+    reviews: 29,
+    badge: "⚡ LIGHTWEIGHT",
+    stock: 15,
+    description: "High-modulus carbon graphite badminton racket engineered for rapid smashes and agile handling.",
     image:
       "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80",
   },
-
   {
     id: 4,
-    name: "Running Shoes",
+    name: "Cushioned Running Shoes",
     category: "Running",
     price: 7500,
+    rating: 4.9,
+    reviews: 54,
+    badge: "⭐ TOP RATED",
+    stock: 8,
+    description: "Ultra-responsive foam running shoes designed for marathon endurance and daily athletic training.",
     image:
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
   },
-
   {
     id: 5,
-    name: "Gym Dumbbells",
+    name: "Hex Gym Dumbbells (Pair)",
     category: "Gym Equipment",
     price: 6000,
+    rating: 4.8,
+    reviews: 42,
+    badge: "💪 HEAVY DUTY",
+    stock: 14,
+    description: "Rubber-encased hex dumbbells with ergonomic knurled chrome handles for superior grip.",
     image:
       "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80",
   },
-
   {
     id: 6,
-    name: "Sports Jersey",
+    name: "Breathable Sports Jersey",
     category: "Sports Clothing",
     price: 3000,
+    rating: 4.6,
+    reviews: 22,
+    badge: "✨ NEW ARRIVAL",
+    stock: 25,
+    description: "Quick-dry moisture-wicking athlete performance jersey with athletic taper fit.",
     image:
       "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=800&q=80",
   },
-
   {
     id: 7,
-    name: "Cricket Ball",
+    name: "Tournament Leather Cricket Ball",
     category: "Cricket",
     price: 1800,
+    rating: 4.8,
+    reviews: 31,
+    badge: "🏆 TOURNAMENT",
+    stock: 50,
+    description: "Four-piece hand-stitched alum tanned leather cricket ball for professional league fixtures.",
     image:
       "https://whacksports.com.au/cdn/shop/files/Whack-Spin-Trainer-Leather-Cricket-Ball-2025-Main.jpg?v=1754585214&width=900",
   },
-
   {
     id: 8,
-    name: "Sports Water Bottle",
+    name: "Insulated Sports Water Bottle",
     category: "Sports Accessories",
     price: 1200,
+    rating: 4.7,
+    reviews: 19,
+    badge: "❄️ 24H COLD",
+    stock: 40,
+    description: "Double-walled vacuum insulated stainless steel sports hydration flask with leakproof spout lid.",
     image:
       "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80",
   },
-    {
+  {
     id: 9,
-    name: "Cricket Helmet",
+    name: "Titanium Cricket Helmet",
     category: "Cricket",
     price: 6500,
+    rating: 4.9,
+    reviews: 27,
+    badge: "🛡️ MAXIMUM SAFETY",
+    stock: 10,
+    description: "High-impact polymer shell with titanium reinforced grille for premier batsman protection.",
     image:
       "https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?auto=format&fit=crop&w=800&q=80",
   },
-
   {
     id: 10,
-    name: "Sports Bag",
+    name: "Athlete Duffle Sports Bag",
     category: "Sports Bags",
     price: 4200,
+    rating: 4.8,
+    reviews: 38,
+    badge: "🎒 EXPANDABLE",
+    stock: 18,
+    description: "Water-resistant multi-compartment gym and kit bag with dedicated ventilated footwear pocket.",
     image:
       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
   },
-
   {
     id: 11,
-    name: "Cricket Gloves",
+    name: "Pro Batting Cricket Gloves",
     category: "Cricket",
     price: 4500,
+    rating: 4.8,
+    reviews: 24,
+    badge: "🧤 PITTA CORDS",
+    stock: 16,
+    description: "Multi-flex sausage finger design with premium Pittards leather palm for exceptional shock absorption.",
     image:
       "https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?auto=format&fit=crop&w=800&q=80",
   },
-
   {
     id: 12,
-    name: "Cricket Pads",
+    name: "Ultra-Light Cricket Pads",
     category: "Cricket",
     price: 5500,
+    rating: 4.9,
+    reviews: 21,
+    badge: "⭐ PRO CHOICE",
+    stock: 9,
+    description: "High-density foam cane construction batting leg guards with ergonomic knee bolster.",
     image:
       "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80",
   },
-
   {
     id: 13,
-    name: "Sports Eyewear",
+    name: "UV-Protection Sports Eyewear",
     category: "Sports Eyewear",
     price: 3200,
+    rating: 4.7,
+    reviews: 17,
+    badge: "🕶️ POLARIZED",
+    stock: 22,
+    description: "Shatterproof polarized sports sunglasses with hydrophobic coating and non-slip rubber nose pads.",
     image:
       "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
   },
-  
-   
+  {
+    id: 14,
+    name: "Pro Carbon Tennis Racket",
+    category: "Tennis",
+    price: 9200,
+    rating: 4.9,
+    reviews: 33,
+    badge: "🎾 TOUR GRADE",
+    stock: 7,
+    description: "Engineered graphite-carbon composite frame delivering pinpoint baseline precision and spin generation.",
+    image:
+      "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 15,
+    name: "Composite Leather Basketball",
+    category: "Basketball",
+    price: 3800,
+    rating: 4.8,
+    reviews: 45,
+    badge: "🏀 OFFICIAL SIZE 7",
+    stock: 30,
+    description: "Deep channel moisture-absorbing composite leather basketball for indoor hardwood and outdoor courts.",
+    image:
+      "https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 16,
+    name: "Goose Feather Shuttlecocks (Tube)",
+    category: "Badminton",
+    price: 2200,
+    rating: 4.8,
+    reviews: 58,
+    badge: "🏸 SPEED 77",
+    stock: 45,
+    description: "Premium natural goose feather shuttlecocks with solid cork base for accurate trajectory and flight stability.",
+    image:
+      "https://images.unsplash.com/photo-1613918108466-292b78a8ef95?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 17,
+    name: "Cast Iron Kettlebell 16kg",
+    category: "Gym Equipment",
+    price: 7800,
+    rating: 4.9,
+    reviews: 29,
+    badge: "🏋️ SOLID CAST",
+    stock: 11,
+    description: "Single-piece cast iron competition kettlebell with wide textured handle for two-handed swings and snatches.",
+    image:
+      "https://images.unsplash.com/photo-1586401100295-7a8096fd231a?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 18,
+    name: "Grip Pro Goalkeeper Gloves",
+    category: "Football",
+    price: 3900,
+    rating: 4.8,
+    reviews: 26,
+    badge: "🧤 4MM LATEX",
+    stock: 14,
+    description: "German contact latex foam goalkeeper gloves with finger protection spines and elastic wrist wrap.",
+    image:
+      "https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 19,
+    name: "Athletic Compression Workout Shorts",
+    category: "Sports Clothing",
+    price: 2500,
+    rating: 4.7,
+    reviews: 34,
+    badge: "⚡ 4-WAY STRETCH",
+    stock: 35,
+    description: "High-performance compression base layer shorts designed to enhance blood circulation and reduce muscle fatigue.",
+    image:
+      "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 20,
+    name: "Heavy-Duty Resistance Loop Bands Set",
+    category: "Gym Equipment",
+    price: 2800,
+    rating: 4.8,
+    reviews: 62,
+    badge: "🔥 5 RESISTANCE LEVELS",
+    stock: 40,
+    description: "Set of 5 natural latex power resistance bands for mobility drills, strength training, and pull-up assistance.",
+    image:
+      "https://images.unsplash.com/photo-1598289431512-b97b0917affc?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 21,
+    name: "Pro Speed Jump Rope",
+    category: "Gym Equipment",
+    price: 1600,
+    rating: 4.9,
+    reviews: 41,
+    badge: "⚡ 360° BEARING",
+    stock: 55,
+    description: "Dual ball-bearing adjustable steel cable jump rope engineered for high-velocity double unders and cardio endurance.",
+    image:
+      "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 22,
+    name: "Professional Football Cleats",
+    category: "Football",
+    price: 8900,
+    rating: 4.9,
+    reviews: 37,
+    badge: "⚽ AG/FG SOLE",
+    stock: 12,
+    description: "Lightweight synthetic upper firm ground football boots with conical studs for explosive acceleration.",
+    image:
+      "https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 23,
+    name: "Hydration Running Vest Pack",
+    category: "Running",
+    price: 4900,
+    rating: 4.8,
+    reviews: 28,
+    badge: "🏃 ERGONOMIC",
+    stock: 15,
+    description: "Ultra-breathable 5L trail running hydration backpack with twin front flask pockets and reflective safety piping.",
+    image:
+      "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: 24,
+    name: "Heavy-Duty Football Goal Net",
+    category: "Football",
+    price: 3600,
+    rating: 4.7,
+    reviews: 15,
+    badge: "🥅 WEATHERPROOF",
+    stock: 20,
+    description: "Braided high-density polyethylene replacement regulation football goal net with UV-stabilized weatherproofing.",
+    image:
+      "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80",
+  },
 ];
