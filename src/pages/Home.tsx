@@ -18,6 +18,7 @@ import {
 import FlashSale from "../components/FlashSale";
 import Statistics from "../components/Statistics";
 import ProductCard from "../components/ProductCard";
+import AISportsAssistant from "../components/AISportsAssistant";
 import { products } from "../data/products";
 import "./Home.css";
 
@@ -132,7 +133,7 @@ function Home() {
       : products.filter(
           (p) =>
             p.category.toLowerCase() === selectedCategory.toLowerCase() ||
-            p.category.toLowerCase().includes(selectedCategory.toLowerCase())
+            p.category.toLowerCase().includes(selectedCategory.toLowerCase()),
         );
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -192,10 +193,12 @@ function Home() {
                     <FaCheckCircle className="text-warning" />
                     <span>100% Genuine Brands</span>
                   </div>
+
                   <div className="trust-item">
                     <FaShippingFast className="text-warning" />
                     <span>Express Dispatch</span>
                   </div>
+
                   <div className="trust-item">
                     <FaShieldAlt className="text-warning" />
                     <span>Verified Quality</span>
@@ -204,7 +207,7 @@ function Home() {
               </div>
             </div>
 
-            {/* Right Hero Showcase Showcase */}
+            {/* Right Hero Showcase */}
             <div className="col-lg-6">
               <div className="hero-visual-card">
                 <div className="visual-media-container">
@@ -213,6 +216,7 @@ function Home() {
                     alt="Professional Athlete Training"
                     className="hero-main-img"
                   />
+
                   <div className="visual-gradient-overlay"></div>
                 </div>
 
@@ -221,6 +225,7 @@ function Home() {
                   <div className="stat-icon-circle gold">
                     <FaTrophy />
                   </div>
+
                   <div>
                     <span className="stat-label">Official Quality</span>
                     <strong className="stat-value">#1 Rated Shop</strong>
@@ -232,6 +237,7 @@ function Home() {
                   <div className="stat-icon-circle green">
                     <FaStar />
                   </div>
+
                   <div>
                     <div className="stat-stars">
                       <FaStar />
@@ -240,7 +246,10 @@ function Home() {
                       <FaStar />
                       <FaStar />
                     </div>
-                    <span className="stat-label">4.9 / 5.0 (1,200+ Reviews)</span>
+
+                    <span className="stat-label">
+                      4.9 / 5.0 (1,200+ Reviews)
+                    </span>
                   </div>
                 </div>
               </div>
@@ -253,13 +262,31 @@ function Home() {
           <div className="container">
             <div className="quick-bar-wrapper">
               <span className="quick-label">Popular Sports:</span>
+
               <div className="quick-tags">
-                <Link to="/products" className="quick-chip">🏏 Cricket</Link>
-                <Link to="/products" className="quick-chip">⚽ Football</Link>
-                <Link to="/products" className="quick-chip">🏸 Badminton</Link>
-                <Link to="/products" className="quick-chip">🏋️ Gym & Fitness</Link>
-                <Link to="/products" className="quick-chip">👟 Running</Link>
-                <Link to="/products" className="quick-chip">🎽 Sports Apparel</Link>
+                <Link to="/products" className="quick-chip">
+                  🏏 Cricket
+                </Link>
+
+                <Link to="/products" className="quick-chip">
+                  ⚽ Football
+                </Link>
+
+                <Link to="/products" className="quick-chip">
+                  🏸 Badminton
+                </Link>
+
+                <Link to="/products" className="quick-chip">
+                  🏋️ Gym & Fitness
+                </Link>
+
+                <Link to="/products" className="quick-chip">
+                  👟 Running
+                </Link>
+
+                <Link to="/products" className="quick-chip">
+                  🎽 Sports Apparel
+                </Link>
               </div>
             </div>
           </div>
@@ -277,6 +304,7 @@ function Home() {
                 <div className="feature-icon-box">
                   <FaShippingFast />
                 </div>
+
                 <div className="feature-text">
                   <h3>Fast & Safe Delivery</h3>
                   <p>Express nationwide shipping on all major sports gear</p>
@@ -289,9 +317,12 @@ function Home() {
                 <div className="feature-icon-box">
                   <FaShieldAlt />
                 </div>
+
                 <div className="feature-text">
                   <h3>100% Genuine Gear</h3>
-                  <p>Authentic products straight from certified manufacturers</p>
+                  <p>
+                    Authentic products straight from certified manufacturers
+                  </p>
                 </div>
               </div>
             </div>
@@ -301,6 +332,7 @@ function Home() {
                 <div className="feature-icon-box">
                   <FaUndoAlt />
                 </div>
+
                 <div className="feature-text">
                   <h3>Hassle-Free Returns</h3>
                   <p>7-day easy exchange guarantee for total peace of mind</p>
@@ -313,9 +345,12 @@ function Home() {
                 <div className="feature-icon-box">
                   <FaHeadset />
                 </div>
+
                 <div className="feature-text">
                   <h3>24/7 Expert Support</h3>
-                  <p>Dedicated sports specialists ready to guide your purchase</p>
+                  <p>
+                    Dedicated sports specialists ready to guide your purchase
+                  </p>
                 </div>
               </div>
             </div>
@@ -330,7 +365,9 @@ function Home() {
         <div className="container">
           <div className="section-header-modern text-center">
             <span className="section-pill">EXPLORE CATALOG</span>
+
             <h2 className="section-main-title">Shop by Sport & Category</h2>
+
             <p className="section-description">
               Find the perfect equipment tailored specifically to your favorite
               sport and competition requirements.
@@ -343,13 +380,18 @@ function Home() {
                 <Link to="/products" className="pro-category-card">
                   <div className="category-img-holder">
                     <img src={cat.image} alt={cat.name} loading="lazy" />
+
                     <div className="category-overlay"></div>
                   </div>
+
                   <div className="category-content-layer">
                     <span className="category-tag-pill">{cat.tag}</span>
+
                     <h3 className="category-title">{cat.name}</h3>
+
                     <div className="category-action-row">
                       <span className="category-count">{cat.itemCount}</span>
+
                       <span className="category-arrow-btn">
                         <FaArrowRight />
                       </span>
@@ -370,6 +412,11 @@ function Home() {
       </div>
 
       {/* =========================================================
+          AI SPORTS ASSISTANT
+          ========================================================= */}
+      <AISportsAssistant />
+
+      {/* =========================================================
           FEATURED PRODUCTS WITH CATEGORY FILTER TABS
           ========================================================= */}
       <section className="featured-products-section">
@@ -377,7 +424,9 @@ function Home() {
           <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
             <div>
               <span className="section-pill">CHAMPION'S CHOICE</span>
+
               <h2 className="section-main-title mb-1">Featured Sports Gear</h2>
+
               <p className="section-description mb-0">
                 Top rated performance gear engineered for champions
               </p>
@@ -416,6 +465,7 @@ function Home() {
             ) : (
               <div className="col-12 text-center py-5 text-muted">
                 <p>No products found in this category.</p>
+
                 <button
                   type="button"
                   className="btn btn-outline-primary mt-2"
@@ -440,10 +490,14 @@ function Home() {
               <div className="promo-card promo-cricket">
                 <div className="promo-content">
                   <span className="promo-badge">LEAGUE EDITION</span>
+
                   <h3>Pro Match Cricket Gear</h3>
+
                   <p>
-                    Premium English Willow bats, impact-resistant pads, and tournament helmets.
+                    Premium English Willow bats, impact-resistant pads, and
+                    tournament helmets.
                   </p>
+
                   <Link to="/products" className="btn-promo-action">
                     <span>Shop Cricket</span>
                     <FaArrowRight />
@@ -456,11 +510,17 @@ function Home() {
             <div className="col-12 col-lg-6">
               <div className="promo-card promo-fitness">
                 <div className="promo-content">
-                  <span className="promo-badge promo-badge-orange">POWER & SPEED</span>
+                  <span className="promo-badge promo-badge-orange">
+                    POWER & SPEED
+                  </span>
+
                   <h3>Heavy-Duty Fitness & Gym</h3>
+
                   <p>
-                    Precision hex dumbbells, running footwear, and athlete training kits.
+                    Precision hex dumbbells, running footwear, and athlete
+                    training kits.
                   </p>
+
                   <Link to="/products" className="btn-promo-action">
                     <span>Explore Fitness</span>
                     <FaArrowRight />
@@ -484,9 +544,12 @@ function Home() {
         <div className="container">
           <div className="section-header-modern text-center">
             <span className="section-pill">ATHLETE STORIES</span>
+
             <h2 className="section-main-title">Trusted By Players & Coaches</h2>
+
             <p className="section-description">
-              Hear directly from athletes who rely on GIGA SPORTS gear for every match.
+              Hear directly from athletes who rely on GIGA SPORTS gear for every
+              match.
             </p>
           </div>
 
@@ -496,6 +559,7 @@ function Home() {
                 <div className="testimonial-card">
                   <div className="testimonial-top">
                     <FaQuoteLeft className="quote-icon" />
+
                     <span className="testimonial-sport">{t.sport}</span>
                   </div>
 
@@ -511,8 +575,10 @@ function Home() {
                     <div className="author-avatar-badge">
                       {t.name.charAt(0)}
                     </div>
+
                     <div>
                       <h4 className="author-name">{t.name}</h4>
+
                       <span className="author-role">{t.role}</span>
                     </div>
                   </div>
@@ -532,7 +598,9 @@ function Home() {
             <div className="row align-items-center g-4">
               <div className="col-lg-7">
                 <span className="newsletter-pill">GIGA CHAMPIONS CLUB</span>
+
                 <h2>Get 15% Off Your Next Order</h2>
+
                 <p>
                   Subscribe to receive exclusive drops, athlete discounts, and
                   new season arrivals straight to your inbox.
@@ -543,9 +611,14 @@ function Home() {
                 {subscribed ? (
                   <div className="newsletter-success">
                     <FaCheckCircle className="success-icon" />
+
                     <div>
                       <h4>Welcome to the Club!</h4>
-                      <p>Use code <strong>CHAMPION15</strong> at checkout for 15% off.</p>
+
+                      <p>
+                        Use code <strong>CHAMPION15</strong> at checkout for 15%
+                        off.
+                      </p>
                     </div>
                   </div>
                 ) : (
@@ -559,11 +632,13 @@ function Home() {
                         onChange={(e) => setEmailInput(e.target.value)}
                         className="newsletter-input"
                       />
+
                       <button type="submit" className="newsletter-btn">
                         <FaPaperPlane className="me-2" />
                         <span>Join</span>
                       </button>
                     </div>
+
                     <small className="newsletter-note">
                       🔒 We respect your privacy. Unsubscribe at any time.
                     </small>
