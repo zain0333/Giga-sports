@@ -1,13 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
+import { useMemo } from "react";
 
 function OrderConfirmation() {
   const location = useLocation();
 
-  const orderData = location.state || {
-    orderId: "GIGA-" + Math.floor(100000 + Math.random() * 900000),
-    total: 0,
-    items: 0,
-  };
+  const orderData = useMemo(() => {
+    return (
+      location.state || {
+        orderId: "GIGA-784921",
+        total: 0,
+        items: 0,
+      }
+    );
+  }, [location.state]);
 
   return (
     <main className="order-confirmation-page">

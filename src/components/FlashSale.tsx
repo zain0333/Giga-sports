@@ -1,23 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 function FlashSale() {
   // Flash sale ends after 24 hours
-  const getEndTime = () => {
-    const savedEndTime = localStorage.getItem("flashSaleEndTime");
-
-    if (savedEndTime) {
-      return Number(savedEndTime);
+  const [endTime] = useState<number>(() => {
+    try {
+      const savedEndTime = localStorage.getItem("flashSaleEndTime");
+      if (savedEndTime) {
+        return Number(savedEndTime);
+      }
+      const newEndTime = Date.now() + 24 * 60 * 60 * 1000;
+      localStorage.setItem("flashSaleEndTime", newEndTime.toString());
+      return newEndTime;
+    } catch {
+      return Date.now() + 24 * 60 * 60 * 1000;
     }
+  });
 
-    const newEndTime = Date.now() + 24 * 60 * 60 * 1000;
-    localStorage.setItem("flashSaleEndTime", newEndTime.toString());
-
-    return newEndTime;
-  };
-
-  const [endTime] = useState(getEndTime());
-
-  const calculateTimeLeft = () => {
+  const calculateTimeLeft = useCallback(() => {
     const difference = endTime - Date.now();
 
     if (difference <= 0) {
@@ -33,9 +32,9 @@ function FlashSale() {
       minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
       seconds: Math.floor((difference % (1000 * 60)) / 1000),
     };
-  };
+  }, [endTime]);
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft());
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -43,7 +42,7 @@ function FlashSale() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [endTime]);
+  }, [calculateTimeLeft]);
 
   const saleFinished =
     timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0;

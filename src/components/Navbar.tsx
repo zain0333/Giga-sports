@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaSearch, FaBalanceScale } from "react-icons/fa";
+import { FaShoppingCart, FaSearch, FaBalanceScale, FaRobot } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 
 function Navbar() {
@@ -49,6 +49,32 @@ function Navbar() {
             <li className="nav-item">
               <Link to="/products" className="nav-link">
                 Products
+              </Link>
+            </li>
+
+            {/* AI Coach */}
+            <li className="nav-item">
+              <Link
+                to="/ai-coach"
+                className="nav-link d-inline-flex align-items-center gap-1"
+                style={{
+                  color: "#ffc078",
+                  fontWeight: 700,
+                  textShadow: "0 0 10px rgba(241, 115, 0, 0.4)",
+                }}
+              >
+                <FaRobot style={{ color: "#f17300" }} />
+                AI Coach
+                <span
+                  className="badge rounded-pill ms-1"
+                  style={{
+                    backgroundColor: "#f17300",
+                    fontSize: "0.65rem",
+                    padding: "3px 6px",
+                  }}
+                >
+                  PRO
+                </span>
               </Link>
             </li>
 

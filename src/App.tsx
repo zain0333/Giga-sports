@@ -2,10 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import FloatingAICoach from "./components/FloatingAICoach";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
+import Compare from "./pages/Compare";
+import AICoach from "./pages/AICoach";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
@@ -24,6 +27,10 @@ function App() {
 
         <Route path="/products/:id" element={<ProductDetails />} />
 
+        <Route path="/compare" element={<Compare />} />
+
+        <Route path="/ai-coach" element={<AICoach />} />
+
         <Route path="/about" element={<About />} />
 
         <Route path="/contact" element={<Contact />} />
@@ -35,9 +42,12 @@ function App() {
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
       </Routes>
 
+      <FloatingAICoach />
+
       <Footer />
     </BrowserRouter>
   );
 }
 
 export default App;
+

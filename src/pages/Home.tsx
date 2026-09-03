@@ -13,6 +13,11 @@ import {
   FaPaperPlane,
   FaQuoteLeft,
   FaTag,
+  FaRobot,
+  FaDumbbell,
+  FaAppleAlt,
+  FaComments,
+  FaBolt,
 } from "react-icons/fa";
 
 import FlashSale from "../components/FlashSale";
@@ -523,6 +528,100 @@ function Home() {
 
                   <Link to="/products" className="btn-promo-action">
                     <span>Explore Fitness</span>
+                    <FaArrowRight />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          FEATURED AI SPORTS COACH SECTION
+          ========================================================= */}
+      <section className="home-ai-coach-showcase">
+        <div className="container">
+          <div className="home-ai-coach-card">
+            <div className="row align-items-center g-4">
+              <div className="col-12 col-lg-7">
+                <div className="ai-showcase-content">
+                  <div className="ai-showcase-badge">
+                    <FaBolt className="me-1" />
+                    <span>NEW • ATHLETE AI INTELLIGENCE</span>
+                  </div>
+
+                  <h2 className="ai-showcase-title">
+                    Train Like a Champion With <span>GIGA AI Sports Coach</span>
+                  </h2>
+
+                  <p className="ai-showcase-desc">
+                    Get custom daily training protocols for cricket, football, badminton, gym & running.
+                    Chat 24/7 with pro coach personas, compute match-day nutrition macros, and master technical biomechanics.
+                  </p>
+
+                  <div className="ai-features-mini-grid">
+                    <div className="ai-feat-chip">
+                      <FaDumbbell className="feat-chip-icon" />
+                      <div>
+                        <strong>Custom Workouts</strong>
+                        <span>Sport-specific daily drills</span>
+                      </div>
+                    </div>
+
+                    <div className="ai-feat-chip">
+                      <FaComments className="feat-chip-icon" />
+                      <div>
+                        <strong>24/7 AI Coach Chat</strong>
+                        <span>4 Specialized Mentors</span>
+                      </div>
+                    </div>
+
+                    <div className="ai-feat-chip">
+                      <FaAppleAlt className="feat-chip-icon" />
+                      <div>
+                        <strong>Nutrition Engine</strong>
+                        <span>Match hydration & macros</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="ai-showcase-actions">
+                    <Link to="/ai-coach" className="btn-launch-ai-coach">
+                      <FaRobot />
+                      <span>Launch AI Sports Coach Studio</span>
+                      <FaArrowRight />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-12 col-lg-5">
+                <div className="ai-showcase-interactive-preview">
+                  <div className="preview-top-bar">
+                    <div className="preview-coach-info">
+                      <span className="preview-avatar">⚡</span>
+                      <div>
+                        <strong>Coach Vance</strong>
+                        <span className="preview-status">● Live AI Tactical Advice</span>
+                      </div>
+                    </div>
+                    <span className="preview-badge-pro">PRO MENTOR</span>
+                  </div>
+
+                  <div className="preview-chat-body">
+                    <div className="preview-msg user">
+                      <span>How do I increase my cricket bowling speed by 10 km/h?</span>
+                    </div>
+                    <div className="preview-msg coach">
+                      <span>
+                        ⚡ <strong>Coach's Blueprint:</strong> Lock the front leg (the catapult brace) at release. Pull down hard with non-bowling arm to create rotational torque. Practice with tournament leather balls!
+                      </span>
+                    </div>
+                  </div>
+
+                  <Link to="/ai-coach" className="preview-cta-btn">
+                    <span>Ask Any Question in AI Studio</span>
                     <FaArrowRight />
                   </Link>
                 </div>

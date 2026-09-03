@@ -1465,3 +1465,246 @@
     justify-content: center;
   }
 }
+
+/* =========================================================
+   HOME FEATURED AI SPORTS COACH SECTION
+   ========================================================= */
+
+.home-ai-coach-showcase {
+  padding: 40px 0 60px;
+}
+
+.home-ai-coach-card {
+  background: radial-gradient(circle at 10% 20%, #032d5a 0%, #054a91 50%, #021a36 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 45px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-ai-coach-card::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(241, 115, 0, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ai-showcase-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(241, 115, 0, 0.15);
+  border: 1px solid rgba(241, 115, 0, 0.4);
+  color: #ffa94d;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.ai-showcase-title {
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.ai-showcase-title span {
+  background: linear-gradient(135deg, #f17300 0%, #ffc078 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+}
+
+.ai-showcase-desc {
+  font-size: 1.05rem;
+  color: #dbe4ee;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.ai-features-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.ai-feat-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feat-chip-icon {
+  font-size: 1.4rem;
+  color: #f17300;
+  flex-shrink: 0;
+}
+
+.ai-feat-chip strong {
+  display: block;
+  font-size: 0.88rem;
+  color: #ffffff;
+}
+
+.ai-feat-chip span {
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+.btn-launch-ai-coach {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #f17300 0%, #d66400 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(241, 115, 0, 0.4);
+  transition: all 0.25s ease;
+}
+
+.btn-launch-ai-coach:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(241, 115, 0, 0.6);
+  color: #ffffff;
+}
+
+/* Interactive Preview Card */
+.ai-showcase-interactive-preview {
+  background: rgba(2, 26, 54, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.preview-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.preview-coach-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.preview-avatar {
+  font-size: 1.4rem;
+  background: rgba(241, 115, 0, 0.15);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-coach-info strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.preview-status {
+  font-size: 0.72rem;
+  color: #34d399;
+}
+
+.preview-badge-pro {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #f17300;
+  background: rgba(241, 115, 0, 0.15);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.preview-chat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.preview-msg {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.preview-msg.user {
+  align-self: flex-end;
+  background: #f17300;
+  color: #ffffff;
+  border-bottom-right-radius: 2px;
+}
+
+.preview-msg.coach {
+  align-self: flex-start;
+  background: rgba(5, 45, 90, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f0f4f8;
+  border-bottom-left-radius: 2px;
+}
+
+.preview-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffa94d;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.preview-cta-btn:hover {
+  background: rgba(241, 115, 0, 0.2);
+  border-color: #f17300;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .home-ai-coach-card {
+    padding: 24px;
+  }
+
+  .ai-showcase-title {
+    font-size: 1.7rem;
+  }
+
+  .btn-launch-ai-coach {
+    width: 100%;
+    justify-content: center;
+  }
+}

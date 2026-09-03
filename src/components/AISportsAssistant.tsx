@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useCallback } from "react";
 import {
   FaRobot,
   FaSearch,
@@ -40,7 +40,7 @@ const AISportsAssistant: React.FC = () => {
     return image;
   };
 
-  const getSportMatches = (product: Product): boolean => {
+  const getSportMatches = useCallback((product: Product): boolean => {
     const category = product.category.toLowerCase();
 
     switch (sport) {
@@ -75,7 +75,7 @@ const AISportsAssistant: React.FC = () => {
       default:
         return false;
     }
-  };
+  }, [sport]);
 
   const recommendedProducts = useMemo(() => {
     if (!sport || !budget || !age || !level) {
@@ -158,7 +158,7 @@ const AISportsAssistant: React.FC = () => {
     scoredProducts.sort((a, b) => b.score - a.score);
 
     return scoredProducts.slice(0, 4).map((item) => item.product);
-  }, [sport, budget, age, level]);
+  }, [sport, budget, age, level, getSportMatches]);
 
   const handleRecommendation = () => {
     if (!sport || !budget || !age || !level) {
