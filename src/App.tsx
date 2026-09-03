@@ -9,6 +9,7 @@ import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
 import Compare from "./pages/Compare";
 import AICoach from "./pages/AICoach";
+import Bundles from "./pages/Bundles";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
@@ -26,6 +27,8 @@ function App() {
         <Route path="/products" element={<Products />} />
 
         <Route path="/products/:id" element={<ProductDetails />} />
+
+        <Route path="/bundles" element={<Bundles />} />
 
         <Route path="/compare" element={<Compare />} />
 

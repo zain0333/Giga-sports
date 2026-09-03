@@ -18,6 +18,9 @@ import {
   FaAppleAlt,
   FaComments,
   FaBolt,
+  FaBoxOpen,
+  FaShoppingCart,
+  FaCheck,
 } from "react-icons/fa";
 
 import FlashSale from "../components/FlashSale";
@@ -25,6 +28,8 @@ import Statistics from "../components/Statistics";
 import ProductCard from "../components/ProductCard";
 import AISportsAssistant from "../components/AISportsAssistant";
 import { products } from "../data/products";
+import { useCart } from "../context/CartContext";
+import { productBundles, createBundleProduct, type ProductBundle } from "../data/bundles";
 import "./Home.css";
 
 // Sport Category data for visual grid
@@ -117,9 +122,18 @@ const testimonials = [
 ];
 
 function Home() {
+  const { addToCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [emailInput, setEmailInput] = useState<string>("");
   const [subscribed, setSubscribed] = useState<boolean>(false);
+  const [addedHomeBundleId, setAddedHomeBundleId] = useState<number | null>(null);
+
+  const handleHomeAddBundle = (bundle: ProductBundle) => {
+    const bundleProduct = createBundleProduct(bundle);
+    addToCart(bundleProduct);
+    setAddedHomeBundleId(bundle.id);
+    setTimeout(() => setAddedHomeBundleId(null), 2500);
+  };
 
   // Available filter tags
   const filterTabs = [
@@ -627,6 +641,95 @@ function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          FEATURED VALUE BUNDLES SECTION
+          ========================================================= */}
+      <section className="home-bundles-showcase">
+        <div className="container">
+          <div className="section-header-modern text-center">
+            <span className="section-pill">
+              <FaBoxOpen className="me-1" />
+              EXCLUSIVE VALUE COMBOS
+            </span>
+
+            <h2 className="section-main-title">Curated Match Bundles & Kits</h2>
+
+            <p className="section-description">
+              Save up to 28% with all-in-one tournament packages. 1-click cart addition with instant combo discounts.
+            </p>
+          </div>
+
+          <div className="row g-4">
+            {productBundles.slice(0, 3).map((bundle) => {
+              const isAdded = addedHomeBundleId === bundle.id;
+
+              return (
+                <div className="col-12 col-md-6 col-lg-4" key={bundle.id}>
+                  <div className="home-bundle-card">
+                    <div className="home-bundle-img-wrap">
+                      <span className="home-bundle-badge">{bundle.badge}</span>
+                      <img src={bundle.image} alt={bundle.name} />
+                      <div className="home-bundle-cat-pill">{bundle.category}</div>
+                    </div>
+
+                    <div className="home-bundle-content">
+                      <h4>{bundle.name}</h4>
+                      <p className="home-bundle-tagline">{bundle.tagline}</p>
+
+                      <div className="home-bundle-items-summary">
+                        <span>Includes {bundle.items.length} items:</span>
+                        <small>
+                          {bundle.items.map((it) => it.customNote).join(" • ")}
+                        </small>
+                      </div>
+
+                      <div className="home-bundle-pricing-row">
+                        <div>
+                          <span className="home-bundle-orig">
+                            Rs. {bundle.originalPrice.toLocaleString()}
+                          </span>
+                          <div className="home-bundle-price">
+                            Rs. {bundle.bundlePrice.toLocaleString()}
+                          </div>
+                        </div>
+                        <span className="home-bundle-save-tag">
+                          Save Rs. {bundle.savings.toLocaleString()}
+                        </span>
+                      </div>
+
+                      <div className="home-bundle-actions">
+                        <button
+                          type="button"
+                          className={`btn-home-add-bundle ${isAdded ? "added" : ""}`}
+                          onClick={() => handleHomeAddBundle(bundle)}
+                        >
+                          {isAdded ? (
+                            <>
+                              <FaCheck /> Added to Cart!
+                            </>
+                          ) : (
+                            <>
+                              <FaShoppingCart /> Add Bundle
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-4">
+            <Link to="/bundles" className="btn-explore-all-bundles">
+              <span>Explore All Product Bundles & Custom Builder</span>
+              <FaArrowRight />
+            </Link>
           </div>
         </div>
       </section>
