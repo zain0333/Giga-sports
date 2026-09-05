@@ -200,16 +200,23 @@ export const createBundleProduct = (bundle: ProductBundle): Product => {
 };
 
 // Helper to get full product details for items in a bundle
-export const getBundleProductsDetails = (bundle: ProductBundle): { product: Product; quantity: number; customNote?: string }[] => {
-  return bundle.items
-    .map((item) => {
-      const prod = products.find((p) => p.id === item.productId);
-      if (!prod) return null;
-      return {
+export interface BundleProductDetail {
+  product: Product;
+  quantity: number;
+  customNote?: string;
+}
+
+export const getBundleProductsDetails = (bundle: ProductBundle): BundleProductDetail[] => {
+  const result: BundleProductDetail[] = [];
+  for (const item of bundle.items) {
+    const prod = products.find((p) => p.id === item.productId);
+    if (prod) {
+      result.push({
         product: prod,
         quantity: item.quantity,
         customNote: item.customNote,
-      };
-    })
-    .filter((item): item is { product: Product; quantity: number; customNote?: string } => item !== null);
+      });
+    }
+  }
+  return result;
 };

@@ -1,16 +1,11 @@
 import React, { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
 import {
   FaBoxOpen,
   FaShoppingCart,
   FaCheck,
   FaPercent,
-  FaStar,
   FaBolt,
   FaShieldAlt,
-  FaPlus,
-  FaArrowRight,
-  FaTag,
   FaSlidersH,
 } from "react-icons/fa";
 
