@@ -2,17 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaArrowRight,
-  FaFire,
   FaStar,
   FaShippingFast,
   FaShieldAlt,
   FaUndoAlt,
   FaHeadset,
-  FaTrophy,
   FaCheckCircle,
   FaPaperPlane,
   FaQuoteLeft,
-  FaTag,
   FaRobot,
   FaDumbbell,
   FaAppleAlt,
@@ -27,6 +24,7 @@ import FlashSale from "../components/FlashSale";
 import Statistics from "../components/Statistics";
 import ProductCard from "../components/ProductCard";
 import AISportsAssistant from "../components/AISportsAssistant";
+import CinematicHeroVideo from "../components/CinematicHeroVideo";
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
 import { productBundles, createBundleProduct, type ProductBundle } from "../data/bundles";
@@ -166,151 +164,9 @@ function Home() {
   return (
     <div className="home-wrapper">
       {/* =========================================================
-          HERO SECTION
+          CINEMATIC HERO VIDEO SECTION (Slow-Motion Scenes & Overlays)
           ========================================================= */}
-      <section className="pro-hero-section">
-        <div className="hero-glow-blob blob-1"></div>
-        <div className="hero-glow-blob blob-2"></div>
-
-        <div className="container">
-          <div className="row align-items-center g-5">
-            {/* Left Content */}
-            <div className="col-lg-6">
-              <div className="pro-hero-content">
-                <div className="hero-badge">
-                  <span className="badge-pulse"></span>
-                  <FaFire className="badge-icon" />
-                  <span>NEW SEASON 2026 GEAR</span>
-                </div>
-
-                <h1 className="hero-title">
-                  GEAR UP FOR <span className="hero-accent">VICTORY</span> WITH
-                  AUTHENTIC SPORTS EQUIPMENT
-                </h1>
-
-                <p className="hero-subtitle">
-                  Elevate your game with match-grade cricket bats, tournament
-                  footballs, precision badminton rackets, and pro gym gear built
-                  for peak athletic performance.
-                </p>
-
-                <div className="hero-cta-group">
-                  <Link to="/products" className="btn-hero-primary">
-                    <span>Shop All Gear</span>
-                    <FaArrowRight className="btn-icon" />
-                  </Link>
-
-                  <a href="#flash-sale" className="btn-hero-secondary">
-                    <FaTag className="me-2" />
-                    <span>View Hot Deals</span>
-                  </a>
-                </div>
-
-                {/* Hero Trust Micro-Indicators */}
-                <div className="hero-trust-row">
-                  <div className="trust-item">
-                    <FaCheckCircle className="text-warning" />
-                    <span>100% Genuine Brands</span>
-                  </div>
-
-                  <div className="trust-item">
-                    <FaShippingFast className="text-warning" />
-                    <span>Express Dispatch</span>
-                  </div>
-
-                  <div className="trust-item">
-                    <FaShieldAlt className="text-warning" />
-                    <span>Verified Quality</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Hero Showcase */}
-            <div className="col-lg-6">
-              <div className="hero-visual-card">
-                <div className="visual-media-container">
-                  <img
-                    src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80"
-                    alt="Professional Athlete Training"
-                    className="hero-main-img"
-                  />
-
-                  <div className="visual-gradient-overlay"></div>
-                </div>
-
-                {/* Floating Badge 1 - Top Right */}
-                <div className="floating-stat-badge stat-top">
-                  <div className="stat-icon-circle gold">
-                    <FaTrophy />
-                  </div>
-
-                  <div>
-                    <span className="stat-label">Official Quality</span>
-                    <strong className="stat-value">#1 Rated Shop</strong>
-                  </div>
-                </div>
-
-                {/* Floating Badge 2 - Bottom Left */}
-                <div className="floating-stat-badge stat-bottom">
-                  <div className="stat-icon-circle green">
-                    <FaStar />
-                  </div>
-
-                  <div>
-                    <div className="stat-stars">
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
-                    </div>
-
-                    <span className="stat-label">
-                      4.9 / 5.0 (1,200+ Reviews)
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Quick Sport Bar */}
-        <div className="hero-quick-bar">
-          <div className="container">
-            <div className="quick-bar-wrapper">
-              <span className="quick-label">Popular Sports:</span>
-
-              <div className="quick-tags">
-                <Link to="/products" className="quick-chip">
-                  🏏 Cricket
-                </Link>
-
-                <Link to="/products" className="quick-chip">
-                  ⚽ Football
-                </Link>
-
-                <Link to="/products" className="quick-chip">
-                  🏸 Badminton
-                </Link>
-
-                <Link to="/products" className="quick-chip">
-                  🏋️ Gym & Fitness
-                </Link>
-
-                <Link to="/products" className="quick-chip">
-                  👟 Running
-                </Link>
-
-                <Link to="/products" className="quick-chip">
-                  🎽 Sports Apparel
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CinematicHeroVideo />
 
       {/* =========================================================
           VALUE PROPOSITIONS / TRUST BAR
