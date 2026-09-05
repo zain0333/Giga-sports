@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaSearch, FaBalanceScale, FaRobot, FaBoxOpen, FaTrophy } from "react-icons/fa";
+import { FaShoppingCart, FaSearch, FaBalanceScale, FaRobot, FaBoxOpen, FaTrophy, FaSync } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import { useAchievement } from "../context/AchievementContext";
 
@@ -51,6 +51,31 @@ function Navbar() {
             <li className="nav-item">
               <Link to="/products" className="nav-link">
                 Products
+              </Link>
+            </li>
+
+            {/* 360° Studio */}
+            <li className="nav-item">
+              <Link
+                to="/showcase-360"
+                className="nav-link d-inline-flex align-items-center gap-1"
+                style={{
+                  color: "#38bdf8",
+                  fontWeight: 700,
+                }}
+              >
+                <FaSync style={{ color: "#38bdf8", fontSize: "0.85rem" }} />
+                360° Studio
+                <span
+                  className="badge rounded-pill ms-1 bg-info text-dark"
+                  style={{
+                    fontSize: "0.62rem",
+                    padding: "3px 6px",
+                    fontWeight: 800,
+                  }}
+                >
+                  3D
+                </span>
               </Link>
             </li>
 

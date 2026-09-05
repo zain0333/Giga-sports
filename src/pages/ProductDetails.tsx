@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { FaStar, FaShoppingCart, FaArrowLeft, FaShieldAlt, FaShippingFast, FaUndoAlt } from "react-icons/fa";
+import { FaStar, FaShoppingCart, FaArrowLeft, FaShieldAlt, FaShippingFast, FaUndoAlt, FaSync } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import { products } from "../data/products";
 
@@ -128,6 +128,14 @@ function ProductDetails() {
               <FaShoppingCart />
               <span>Add To Cart</span>
             </button>
+
+            <Link
+              to="/showcase-360"
+              className="btn btn-outline-info btn-lg px-3 fw-bold d-flex align-items-center gap-2 shadow-sm"
+            >
+              <FaSync />
+              <span>View in 360° Studio</span>
+            </Link>
           </div>
 
           {/* Trust Value Badges */}

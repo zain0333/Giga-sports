@@ -12,6 +12,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Compare from "./pages/Compare";
 import AICoach from "./pages/AICoach";
 import Bundles from "./pages/Bundles";
+import GearShowcase360 from "./pages/GearShowcase360";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
@@ -32,6 +33,8 @@ function App() {
           <Route path="/products/:id" element={<ProductDetails />} />
 
           <Route path="/bundles" element={<Bundles />} />
+
+          <Route path="/showcase-360" element={<GearShowcase360 />} />
 
           <Route path="/compare" element={<Compare />} />
 
