@@ -1,0 +1,379 @@
+/* =========================================================
+   ACHIEVEMENT ANIMATION STYLES
+   ========================================================= */
+
+.achievement-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(3, 18, 38, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: achieveFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes achieveFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Confetti Falling Animation */
+.achievement-confetti-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.confetti-particle {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 14px;
+  border-radius: 3px;
+  opacity: 0.9;
+  animation: confettiFall linear infinite;
+}
+
+.particle-0 { background: #f59e0b; width: 12px; height: 12px; border-radius: 50%; }
+.particle-1 { background: #10b981; transform: rotate(45deg); }
+.particle-2 { background: #3b82f6; width: 8px; height: 16px; }
+.particle-3 { background: #ec4899; transform: rotate(15deg); }
+.particle-4 { background: #fbbf24; width: 14px; height: 8px; }
+.particle-5 { background: #06b6d4; border-radius: 50%; width: 10px; height: 10px; }
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.8);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(50vh) rotate(360deg) scale(1.1);
+  }
+  100% {
+    transform: translateY(105vh) rotate(720deg) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* Achievement Card Modal */
+.achievement-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(145deg, #072a4d 0%, #03182e 100%);
+  border: 2px solid rgba(245, 158, 11, 0.5);
+  border-radius: 24px;
+  padding: 36px 28px 28px;
+  text-align: center;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(245, 158, 11, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform-origin: center center;
+  animation: achievePopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  overflow: hidden;
+}
+
+@keyframes achievePopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Light Flare across header */
+.achievement-flare {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 25%, rgba(251, 191, 36, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Close Button */
+.achievement-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.achievement-close-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #f87171;
+  transform: scale(1.1);
+}
+
+/* Top Pill Badge */
+.achievement-top-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  padding: 5px 16px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.achieve-star-icon {
+  font-size: 0.75rem;
+  color: #f59e0b;
+  animation: starTwinkle 1.8s infinite ease-in-out;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Trophy Showcase */
+.achievement-trophy-wrapper {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trophy-glow-backdrop {
+  position: absolute;
+  inset: -12px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(10px);
+  animation: glowPulse 2s infinite alternate ease-in-out;
+}
+
+.trophy-pulse-ring {
+  position: absolute;
+  inset: -8px;
+  border: 2px solid rgba(245, 158, 11, 0.5);
+  border-radius: 50%;
+  animation: ringExpand 2s infinite ease-out;
+}
+
+.trophy-pulse-ring.delay {
+  animation-delay: 1s;
+}
+
+@keyframes ringExpand {
+  0% {
+    transform: scale(0.85);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+@keyframes glowPulse {
+  0% { opacity: 0.4; transform: scale(0.95); }
+  100% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.trophy-circle {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #78350f 100%);
+  border: 3px solid #fef08a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 8px 20px rgba(245, 158, 11, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.6);
+  animation: trophyFloat 3s infinite ease-in-out;
+}
+
+@keyframes trophyFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(3deg); }
+}
+
+.trophy-main-icon {
+  font-size: 2.7rem;
+  color: #ffffff;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Typography */
+.achievement-text-content {
+  margin-bottom: 22px;
+}
+
+.achievement-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.achievement-points-banner {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.35) 50%, rgba(245, 158, 11, 0.2) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+  display: inline-block;
+  animation: bannerPulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes bannerPulse {
+  0% { transform: scale(0.98); box-shadow: 0 0 10px rgba(245, 158, 11, 0.2); }
+  100% { transform: scale(1.02); box-shadow: 0 0 20px rgba(245, 158, 11, 0.45); }
+}
+
+.points-highlight {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #fbbf24;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.achievement-desc {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 380px;
+}
+
+/* Balance Box */
+.achievement-balance-box {
+  background: rgba(2, 22, 44, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.balance-info-left {
+  text-align: left;
+}
+
+.bal-lbl {
+  display: block;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.bal-val {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.bolt-icon {
+  color: #fbbf24;
+  font-size: 0.95rem;
+}
+
+.balance-badge-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.check-icon {
+  font-size: 0.85rem;
+}
+
+/* CTA Button */
+.achievement-cta-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
+  transition: all 0.25s ease;
+}
+
+.achievement-cta-btn:hover {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.6);
+}
+
+.achievement-cta-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .achievement-card {
+    padding: 28px 18px 22px;
+    border-radius: 20px;
+  }
+  .achievement-title {
+    font-size: 1.4rem;
+  }
+  .points-highlight {
+    font-size: 1.05rem;
+  }
+}

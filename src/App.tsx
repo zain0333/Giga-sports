@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FloatingAICoach from "./components/FloatingAICoach";
+import AchievementModal from "./components/AchievementModal";
+import { AchievementProvider } from "./context/AchievementContext";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -18,37 +20,41 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
+    <AchievementProvider>
+      <BrowserRouter>
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <Route path="/products" element={<Products />} />
+          <Route path="/products" element={<Products />} />
 
-        <Route path="/products/:id" element={<ProductDetails />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
 
-        <Route path="/bundles" element={<Bundles />} />
+          <Route path="/bundles" element={<Bundles />} />
 
-        <Route path="/compare" element={<Compare />} />
+          <Route path="/compare" element={<Compare />} />
 
-        <Route path="/ai-coach" element={<AICoach />} />
+          <Route path="/ai-coach" element={<AICoach />} />
 
-        <Route path="/about" element={<About />} />
+          <Route path="/about" element={<About />} />
 
-        <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Contact />} />
 
-        <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart />} />
 
-        <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout />} />
 
-        <Route path="/order-confirmation" element={<OrderConfirmation />} />
-      </Routes>
+          <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        </Routes>
 
-      <FloatingAICoach />
+        <AchievementModal />
 
-      <Footer />
-    </BrowserRouter>
+        <FloatingAICoach />
+
+        <Footer />
+      </BrowserRouter>
+    </AchievementProvider>
   );
 }
 

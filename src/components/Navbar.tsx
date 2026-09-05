@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaSearch, FaBalanceScale, FaRobot, FaBoxOpen } from "react-icons/fa";
+import { FaShoppingCart, FaSearch, FaBalanceScale, FaRobot, FaBoxOpen, FaTrophy } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
+import { useAchievement } from "../context/AchievementContext";
 
 function Navbar() {
   const { cart } = useCart();
+  const { totalPoints, triggerAchievement } = useAchievement();
 
   // Total number of products in cart
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
@@ -135,6 +137,38 @@ function Navbar() {
               >
                 <FaSearch />
               </Link>
+            </li>
+
+            {/* =========================
+                GIGA POINTS BADGE
+            ========================== */}
+            <li className="nav-item ms-lg-2 my-2 my-lg-0">
+              <button
+                type="button"
+                className="btn btn-sm d-inline-flex align-items-center gap-1 shadow-sm"
+                onClick={() =>
+                  triggerAchievement({
+                    title: "🎉 Achievement Unlocked!",
+                    points: 500,
+                    subtitle: "🏆 You earned 500 GIGA Points!",
+                    badge: "DAILY ATHLETE REWARD",
+                  })
+                }
+                title="Your GIGA Points (Click to claim reward)"
+                style={{
+                  background: "linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.35) 100%)",
+                  border: "1px solid rgba(245, 158, 11, 0.6)",
+                  color: "#fbbf24",
+                  borderRadius: "20px",
+                  padding: "5px 12px",
+                  fontWeight: 700,
+                  fontSize: "0.82rem",
+                  cursor: "pointer",
+                }}
+              >
+                <FaTrophy style={{ color: "#fbbf24" }} />
+                <span>{totalPoints.toLocaleString()} PTS</span>
+              </button>
             </li>
 
             {/* =========================
