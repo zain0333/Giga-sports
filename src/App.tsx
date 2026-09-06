@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FloatingAICoach from "./components/FloatingAICoach";
 import AchievementModal from "./components/AchievementModal";
+import SpinAndWinModal from "./components/SpinAndWinModal";
 import { AchievementProvider } from "./context/AchievementContext";
 
 import Home from "./pages/Home";
@@ -52,6 +53,8 @@ function App() {
         </Routes>
 
         <AchievementModal />
+
+        <SpinAndWinModal />
 
         <FloatingAICoach />
 

@@ -1,0 +1,475 @@
+/* =========================================================
+   SPIN & WIN LUCKY DISCOUNT WHEEL STYLES
+   ========================================================= */
+
+/* Floating Launcher Button */
+.spin-win-launcher-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  border: 2px solid #fef08a;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.45);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: launcherFloat 3s infinite ease-in-out;
+}
+
+.spin-win-launcher-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(245, 158, 11, 0.65);
+}
+
+@keyframes launcherFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.launcher-pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border: 2px solid #f59e0b;
+  border-radius: 40px;
+  animation: pulseRingAnim 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes pulseRingAnim {
+  0% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+.launcher-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.launcher-text-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.launcher-text-box strong {
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.launcher-text-box small {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #fef08a;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   MODAL OVERLAY & CARD
+   ========================================================= */
+
+.spin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(3, 18, 38, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: spinOverlayIn 0.3s ease forwards;
+}
+
+@keyframes spinOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.spin-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: linear-gradient(150deg, #072a4d 0%, #03182e 100%);
+  border: 2px solid rgba(245, 158, 11, 0.5);
+  border-radius: 28px;
+  padding: 32px 24px 28px;
+  text-align: center;
+  box-shadow:
+    0 25px 60px -10px rgba(0, 0, 0, 0.7),
+    0 0 35px rgba(245, 158, 11, 0.25);
+  animation: cardPopIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  overflow: hidden;
+}
+
+@keyframes cardPopIn {
+  0% { transform: scale(0.7) translateY(30px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.spin-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.2s ease;
+}
+
+.spin-close-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #f87171;
+  transform: scale(1.1);
+}
+
+/* Header */
+.spin-header {
+  margin-bottom: 20px;
+}
+
+.spin-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+
+.badge-fire {
+  color: #f59e0b;
+}
+
+.spin-header h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.spin-header p {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  margin: 0 auto;
+  max-width: 420px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   WHEEL ARENA
+   ========================================================= */
+
+.wheel-arena-wrapper {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Top Pointer Indicator */
+.wheel-top-pointer {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+}
+
+.pointer-arrow {
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 26px solid #ef4444;
+  position: relative;
+}
+
+.pointer-arrow::after {
+  content: "";
+  position: absolute;
+  top: -26px;
+  left: -8px;
+  width: 16px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+/* Wheel SVG Container */
+.roulette-wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(245, 158, 11, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.wheel-svg {
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+
+/* Center Hub */
+.wheel-center-hub {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b 0%, #78350f 100%);
+  border: 3px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.hub-trophy {
+  color: #ffffff;
+  font-size: 1.4rem;
+}
+
+/* =========================================================
+   SPIN ACTIONS & WINNER CARD
+   ========================================================= */
+
+.spin-actions-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-spin-now {
+  width: 100%;
+  padding: 15px 24px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  border: none;
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.45);
+  transition: all 0.25s ease;
+}
+
+.btn-spin-now:hover:not(:disabled) {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+}
+
+.btn-spin-now:disabled {
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+.spin-revolve {
+  animation: spinIconAnim 1s linear infinite;
+}
+
+.spin-disclaimer {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Winner Card */
+.spin-winner-card {
+  background: rgba(2, 22, 48, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  border-radius: 18px;
+  padding: 20px 16px;
+  animation: winCardPop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes winCardPop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.win-congrats-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #34d399;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.winner-prize-title {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #fbbf24;
+  margin-bottom: 14px;
+}
+
+/* Coupon Code Box */
+.coupon-code-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.coupon-code-box {
+  background: rgba(3, 15, 30, 0.9);
+  border: 2px dashed #f59e0b;
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-family: monospace;
+}
+
+.btn-copy-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #38bdf8;
+  color: #03182e;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-copy-code:hover {
+  background: #7dd3fc;
+  transform: scale(1.05);
+}
+
+.btn-copy-code.copied {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.coupon-apply-hint {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+}
+
+.winner-action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-apply-shop {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-apply-shop:hover {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-spin-again {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-spin-again:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Confetti */
+.win-confetti-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.win-confetti-piece {
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+  animation: confettiFall linear forwards;
+}
+
+@media (max-width: 480px) {
+  .wheel-arena-wrapper {
+    width: 270px;
+    height: 270px;
+  }
+  .spin-win-launcher-btn {
+    bottom: 16px;
+    left: 16px;
+    padding: 8px 14px;
+  }
+  .spin-header h2 {
+    font-size: 1.35rem;
+  }
+}
